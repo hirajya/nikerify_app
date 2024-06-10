@@ -94,6 +94,58 @@
             <Font name="Century Gothic" size="9.0" />
          </font>
       </Text>
-      <Button layoutX="243.0" layoutY="232.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="131.0" layoutY="231.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="58.0" text="Button" />
+      <Text layoutX="251.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assesing">
+         <font>
+            <Font name="Century Gothic" size="10.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="77.0" layoutX="23.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="271.0" />
+      <ImageView fitHeight="51.0" fitWidth="112.0" layoutX="33.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/activityhistory/image%2010.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="16.0" fitWidth="14.0" layoutX="111.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00A36C;">
+         <image>
+            <Image url="@../../assets/activityhistory/iconamoon_check-filll.png" />
+         </image>
+      </ImageView>
+      <Text fill="#a12323" layoutX="129.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Invalid!">
+         <font>
+            <Font name="Century Gothic Bold" size="10.0" />
+         </font>
+      </Text>
+      <Text layoutX="199.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#QWERTY12350964" wrappingWidth="107.20001220703125">
+         <font>
+            <Font name="Century Gothic" size="9.0" />
+         </font>
+      </Text>
+      <Text layoutX="113.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro (Team Red)" wrappingWidth="162.80810546875">
+         <font>
+            <Font name="Century Gothic Bold" size="10.0" />
+         </font>
+      </Text>
+      <Text layoutX="113.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNKLR-TR-0000000000001" wrappingWidth="117.60003662109375">
+         <font>
+            <Font name="Century Gothic" size="9.0" />
+         </font>
+      </Text>
+      <Text layoutX="114.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Date" wrappingWidth="50.4000244140625">
+         <font>
+            <Font name="Century Gothic" size="9.0" />
+         </font>
+      </Text>
+      <Text layoutX="114.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024. 4:35:00 AM PST" wrappingWidth="141.60003662109375">
+         <font>
+            <Font name="Century Gothic" size="9.0" />
+         </font>
+      </Text>
+      <Button layoutX="130.0" layoutY="323.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="58.0" text="Button" />
+      <Text layoutX="247.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resolved">
+         <font>
+            <Font name="Century Gothic" size="10.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
