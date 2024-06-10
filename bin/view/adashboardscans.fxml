@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutY="-6.0" prefHeight="548.0" prefWidth="240.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819;">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/NIKERIFY%201.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="50.0" layoutY="14.0" text="NIKERIFY ">
+               <font>
+                  <Font name="Century Gothic Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="77.0" text="MAIN MENU">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#181819" height="30.0" layoutX="30.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="37.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/mage_dashboard.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="64.0" layoutY="108.0" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="36.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/ic_round-inventory.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="65.0" layoutY="146.0" text="Inventory">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="30.0" layoutY="141.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="180.0" text="Inventory button" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="36.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/octicon_report-16.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="65.0" layoutY="188.0" text="Reports">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="29.0" layoutY="183.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="180.0" text="reports button" />
+            <ImageView fitHeight="45.0" fitWidth="80.0" layoutX="79.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/adminloginpics/NIKERIFY%20(4)%201.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField layoutX="260.0" layoutY="14.0" prefHeight="30.0" prefWidth="470.0" promptText="Search anthing here... " style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 3;">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="709.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/streamline_magnifying-glass-solid.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="753.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/mingcute_notification-line.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="810.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/Group.png" />
+         </image>
+      </ImageView>
+      <Line endX="532.7999877929688" endY="-7.62939453125E-6" layoutX="340.0" layoutY="60.0" startX="-100.0" />
+      <Line endX="446.0928955078125" endY="-9.292892456054688" layoutX="350.0" layoutY="70.0" startX="446.0928955078125" startY="-70.0" />
+      <Pane layoutX="240.0" layoutY="62.0" prefHeight="479.0" prefWidth="626.0" style="-fx-background-color: #EFEFEF;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Dashboard">
+               <font>
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="90.0" layoutX="14.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="146.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="146.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="90.0" layoutX="313.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="180.0" layoutX="445.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="170.0" />
+            <ComboBox layoutX="333.0" layoutY="21.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
