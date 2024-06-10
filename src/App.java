@@ -19,12 +19,12 @@ public class App extends Application{
     public void start(Stage stage) throws Exception {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/welcomepage.fxml"));
             Scene scene = new Scene(root);
 
-            // Image icon = new Image("vectorImages/movieHubLogo.png");
-            // stage.getIcons().add(icon);
-            stage.setTitle("Sonigirapp");
+            Image icon = new Image("nikelogo.png");
+            stage.getIcons().add(icon);
+            stage.setTitle("Nikerify");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
