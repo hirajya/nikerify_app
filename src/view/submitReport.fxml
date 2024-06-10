@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.submitReportController">
    <children>
       <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -50,11 +52,6 @@
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Text>
-      <Text layoutX="199.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qwert123456" wrappingWidth="83.0">
-         <font>
-            <Font name="Century Gothic" size="12.0" />
-         </font>
-      </Text>
       <Text layoutX="26.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Details">
          <font>
             <Font name="Century Gothic Bold" size="11.0" />
@@ -82,10 +79,13 @@
             <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Text>
-      <RadioButton layoutX="29.0" layoutY="385.0" mnemonicParsing="false" text="Official Nike Store" />
-      <RadioButton layoutX="29.0" layoutY="408.0" mnemonicParsing="false" text="Physical Reseller" />
-      <RadioButton layoutX="29.0" layoutY="432.0" mnemonicParsing="false" text="Online Merchant" />
-      <Pane layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
+      <RadioButton fx:id="rb1" layoutX="29.0" layoutY="385.0" mnemonicParsing="false" text="Official Nike Store">
+         <toggleGroup>
+            <ToggleGroup fx:id="choices" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rb2" layoutX="29.0" layoutY="408.0" mnemonicParsing="false" text="Physical Reseller" toggleGroup="$choices" />
+      <RadioButton fx:id="rb3" layoutX="29.0" layoutY="432.0" mnemonicParsing="false" text="Online Merchant" toggleGroup="$choices" />
+      <Pane fx:id="p1" layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
          <children>
             <Text layoutX="1.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Location">
                <font>
@@ -95,7 +95,7 @@
             <TextField layoutY="22.0" prefHeight="25.0" prefWidth="253.0" />
          </children>
       </Pane>
-      <Pane layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
+      <Pane fx:id="p2" layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
          <children>
             <Text layoutX="1.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Location">
                <font>
@@ -111,7 +111,7 @@
             <TextField layoutY="77.0" prefHeight="25.0" prefWidth="253.0" />
          </children>
       </Pane>
-      <Pane layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
+      <Pane fx:id="p3" layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
          <children>
             <Text layoutX="1.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Location">
                <font>
@@ -139,5 +139,13 @@
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Text>
+      <Button fx:id="backToHomeButton" layoutX="26.0" layoutY="64.0" mnemonicParsing="false" onAction="#backToHome" opacity="0.0" prefHeight="47.0" prefWidth="40.0" text="Button" />
+      <Button fx:id="nextButton" layoutX="20.0" layoutY="660.0" mnemonicParsing="false" onAction="#goToNext" opacity="0.0" prefHeight="28.0" prefWidth="270.0" text="Button" />
+      <Text layoutX="28.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify ID">
+         <font>
+            <Font name="Century Gothic Bold" size="11.0" />
+         </font>
+      </Text>
+      <TextField layoutX="160.0" layoutY="176.0" prefHeight="25.0" prefWidth="132.0" promptText="#qwert123456" />
    </children>
 </AnchorPane>

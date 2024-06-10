@@ -14,7 +14,7 @@ import java.io.IOException;
 public class rfidDetailsController {
 
     @FXML
-    Button backButtonRFID;
+    Button backButtonRFID, submitReportBtn, submitReportBtn2;
 
     @FXML
     Pane passResult, failResult;
@@ -35,9 +35,14 @@ public class rfidDetailsController {
         }
     }
 
+    public void goToSubmitReport(ActionEvent event) throws Exception {
+        System.out.println("Back to home button clicked");
+        changeScene(event, "/view/submitReport.fxml");
+    }
+
     public void backToRFIDVerify(ActionEvent event) throws Exception {
         System.out.println("Back to home button clicked");
-        changeScene(event, "/view/rfidverify.fxml");
+        changeScene(event, "/view/homepage.fxml");
     }
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {
