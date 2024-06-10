@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rfidDetailsController">
    <children>
       <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -53,7 +54,7 @@
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Pane layoutX="25.0" layoutY="148.0" prefHeight="548.0" prefWidth="268.0" style="-fx-background-color: #FFFFFF;" visible="false">
+      <Pane fx:id="passResult" layoutX="25.0" layoutY="148.0" prefHeight="548.0" prefWidth="268.0" style="-fx-background-color: #FFFFFF;" visible="false">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#ccffcc" height="30.0" layoutX="1.0" layoutY="7.0" stroke="#ccffcc" strokeType="INSIDE" width="30.0" />
             <ImageView fitHeight="15.0" fitWidth="20.0" layoutX="6.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -167,9 +168,20 @@
                   <Font name="Century Gothic Bold" size="9.0" />
                </font>
             </Text>
+            <Text layoutX="97.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="97.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red">
+               <font>
+                  <Font name="Century Gothic" size="11.0" />
+               </font>
+            </Text>
+            <Button fx:id="submitReportBtn" layoutX="98.0" layoutY="525.0" mnemonicParsing="false" onAction="#goToSubmitReport" opacity="0.0" prefHeight="25.0" prefWidth="80.0" text="Button" />
          </children>
       </Pane>
-      <Pane layoutX="19.0" layoutY="154.0" prefHeight="523.0" prefWidth="260.0" visible="false">
+      <Pane fx:id="failResult" layoutX="19.0" layoutY="154.0" prefHeight="523.0" prefWidth="260.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#ffcccc" height="30.0" layoutX="7.0" layoutY="1.0" stroke="#ffcccc" strokeType="INSIDE" width="30.0" />
             <ImageView fitHeight="21.0" fitWidth="22.0" layoutX="12.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
@@ -208,7 +220,9 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Text>
+            <Button fx:id="submitReportBtn2" layoutX="9.0" layoutY="161.0" mnemonicParsing="false" onAction="#goToSubmitReport" opacity="0.0" prefHeight="35.0" prefWidth="240.0" text="Button" />
          </children>
       </Pane>
+      <Button fx:id="backButtonRFID" layoutX="26.0" layoutY="68.0" mnemonicParsing="false" onAction="#backToRFIDVerify" opacity="0.0" prefHeight="41.0" prefWidth="40.0" text="Button" />
    </children>
 </AnchorPane>
