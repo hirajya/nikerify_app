@@ -188,5 +188,10 @@
             <Font name="Century Gothic Bold" size="10.0" />
          </font>
       </Label>
+      <ImageView fitHeight="17.0" fitWidth="10.0" layoutX="736.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/streamline_magnifying-glass-solid.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
