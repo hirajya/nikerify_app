@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -94,7 +95,7 @@
       <Pane layoutX="208.0" layoutY="40.0" prefHeight="501.0" prefWidth="658.0" style="-fx-background-color: FFFFFF;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="28.0" layoutX="17.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
-            <Button layoutX="562.0" layoutY="189.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #181819;" text="Add Model" textFill="WHITE">
+            <Button layoutX="507.0" layoutY="357.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #181819;" text="Update Information" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
@@ -109,7 +110,7 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="146.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model ID">
+            <TextField layoutX="146.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="PGS">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -119,7 +120,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <TextField layoutX="400.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model Name">
+            <TextField layoutX="400.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Pegasus 41">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -129,17 +130,99 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <TextField layoutX="146.0" layoutY="160.0" prefHeight="21.0" prefWidth="494.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model Color/s">
+            <TextField layoutX="146.0" layoutY="160.0" prefHeight="21.0" prefWidth="494.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Red, Blue, Yellow">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </TextField>
             <ImageView fitHeight="98.0" fitWidth="117.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/adminsidepanelicons/Group%2080.png" />
+                  <Image url="@../../assets/shoeimages/Pegasus.png" />
                </image>
             </ImageView>
             <Button layoutX="17.0" layoutY="101.0" mnemonicParsing="false" opacity="0.0" prefHeight="95.0" prefWidth="117.0" style="-fx-background-image: url(&quot;..\..\assets\dashboardpics\NIKERIFY 1.png&quot;);" text="Add Image" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="28.0" layoutX="17.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
+            <Label layoutX="28.0" layoutY="208.0" prefHeight="23.0" prefWidth="147.0" text="Unit Information" textFill="#181819">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="240.0" prefHeight="23.0" prefWidth="61.0" text="Shoe ID" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <TextField layoutX="20.0" layoutY="259.0" prefHeight="26.0" prefWidth="195.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="PGS-00000000001">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </TextField>
+            <Label layoutX="211.0" layoutY="240.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="233.0" layoutY="240.0" prefHeight="23.0" prefWidth="134.0" text="Verification Serial ID" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <TextField layoutX="233.0" layoutY="259.0" prefHeight="26.0" prefWidth="195.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="E200 0019 5300 0703 0000 1234 5678 9ABC">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </TextField>
+            <Label layoutX="424.0" layoutY="240.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="441.0" layoutY="240.0" prefHeight="23.0" prefWidth="61.0" text="Unit Color" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="632.0" layoutY="240.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="441.0" layoutY="259.0" prefHeight="0.0" prefWidth="195.0" promptText="Select Color" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" />
+            <Label layoutX="20.0" layoutY="290.0" prefHeight="23.0" prefWidth="134.0" text="Manufacturing Location" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <TextField layoutX="20.0" layoutY="309.0" prefHeight="26.0" prefWidth="195.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Makati">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </TextField>
+            <Label layoutX="233.0" layoutY="290.0" prefHeight="23.0" prefWidth="113.0" text="Manufacturing Year" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <TextField layoutX="233.0" layoutY="309.0" prefHeight="26.0" prefWidth="195.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="2014">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </TextField>
+            <Label layoutX="441.0" layoutY="290.0" prefHeight="23.0" prefWidth="97.0" text="Batch Number" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="632.0" layoutY="290.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <TextField layoutX="442.0" layoutY="309.0" prefHeight="26.0" prefWidth="195.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="24">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
       <ImageView fitHeight="17.0" fitWidth="10.0" layoutX="736.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
@@ -159,14 +242,24 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="374.0" layoutY="62.0" text="Add Model" textFill="#181819">
+      <Label layoutX="374.0" layoutY="62.0" text="Edit Unit - PGS-00000000001" textFill="#181819">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="481.0" layoutY="62.0" prefHeight="23.0" prefWidth="102.0" text="// Add Unit" textFill="#181819">
+      <Label layoutX="589.0" layoutY="133.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
          <font>
-            <Font name="Century Gothic" size="18.0" />
+            <Font name="Century Gothic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="843.0" layoutY="133.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+         <font>
+            <Font name="Century Gothic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="843.0" layoutY="180.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+         <font>
+            <Font name="Century Gothic" size="10.0" />
          </font>
       </Label>
    </children>

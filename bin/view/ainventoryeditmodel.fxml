@@ -94,7 +94,7 @@
       <Pane layoutX="208.0" layoutY="40.0" prefHeight="501.0" prefWidth="658.0" style="-fx-background-color: FFFFFF;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="28.0" layoutX="17.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
-            <Button layoutX="562.0" layoutY="189.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #181819;" text="Add Model" textFill="WHITE">
+            <Button layoutX="517.0" layoutY="189.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #181819;" text="Update Information" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
@@ -109,7 +109,7 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="146.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model ID">
+            <TextField layoutX="146.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="PGS">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -119,7 +119,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <TextField layoutX="400.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model Name">
+            <TextField layoutX="400.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Pegasus 41">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -129,14 +129,14 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <TextField layoutX="146.0" layoutY="160.0" prefHeight="21.0" prefWidth="494.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model Color/s">
+            <TextField layoutX="146.0" layoutY="160.0" prefHeight="21.0" prefWidth="494.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Red, Blue, Yellow">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </TextField>
             <ImageView fitHeight="98.0" fitWidth="117.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/adminsidepanelicons/Group%2080.png" />
+                  <Image url="@../../assets/shoeimages/Pegasus.png" />
                </image>
             </ImageView>
             <Button layoutX="17.0" layoutY="101.0" mnemonicParsing="false" opacity="0.0" prefHeight="95.0" prefWidth="117.0" style="-fx-background-image: url(&quot;..\..\assets\dashboardpics\NIKERIFY 1.png&quot;);" text="Add Image" />
@@ -159,14 +159,9 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="374.0" layoutY="62.0" text="Add Model" textFill="#181819">
+      <Label layoutX="374.0" layoutY="62.0" text="Edit Model - PGS" textFill="#181819">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="481.0" layoutY="62.0" prefHeight="23.0" prefWidth="102.0" text="// Add Unit" textFill="#181819">
-         <font>
-            <Font name="Century Gothic" size="18.0" />
          </font>
       </Label>
    </children>
