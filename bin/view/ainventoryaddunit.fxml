@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
@@ -96,7 +95,7 @@
       <Pane layoutX="208.0" layoutY="40.0" prefHeight="501.0" prefWidth="658.0" style="-fx-background-color: FFFFFF;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="28.0" layoutX="17.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" />
-            <Button layoutX="549.0" layoutY="357.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #181819;" text="Add Unit" textFill="WHITE">
+            <Button layoutX="549.0" layoutY="353.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #181819;" text="Add Unit" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
@@ -183,7 +182,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="632.0" layoutY="240.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+            <Label layoutX="631.0" layoutY="240.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -214,7 +213,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="632.0" layoutY="290.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
+            <Label layoutX="631.0" layoutY="290.0" prefHeight="23.0" prefWidth="1.0" text="*" textFill="#c60000" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
