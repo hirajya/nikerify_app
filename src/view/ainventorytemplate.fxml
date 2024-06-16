@@ -64,7 +64,7 @@
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="18.0" layoutY="134.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Reports Button" textFill="#181819" />
+            <Button layoutX="18.0" layoutY="136.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Reports Button" textFill="#181819" />
             <ImageView fitHeight="47.0" fitWidth="89.0" layoutX="60.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../assets/dashboardpics/NIKERIFY%20(4)%201.png" />
