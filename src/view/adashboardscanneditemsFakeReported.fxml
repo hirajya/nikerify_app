@@ -153,12 +153,12 @@
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="227.0" layoutY="253.0" text="Report Status" textFill="#181819">
+      <Label layoutX="227.0" layoutY="251.0" text="Report Status" textFill="#181819">
          <font>
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="600.0" layoutY="185.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819">
+      <Label alignment="CENTER_RIGHT" layoutX="598.0" layoutY="185.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>

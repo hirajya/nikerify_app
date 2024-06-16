@@ -128,7 +128,7 @@
             <Font name="Century Gothic" size="10.0" />
          </font>
       </Label>
-      <Label layoutX="734.55" layoutY="118.04" prefHeight="16.0" prefWidth="111.0" style="-fx-background-color: #EAEAEA;" text="#QWERTY12350964" textFill="#181819">
+      <Label layoutX="730.55" layoutY="118.04" prefHeight="16.0" prefWidth="111.0" style="-fx-background-color: #EAEAEA;" text="#QWERTY12350964" textFill="#181819">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
@@ -158,22 +158,22 @@
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="606.0" layoutY="185.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819">
+      <Label alignment="CENTER_RIGHT" layoutX="598.0" layoutY="185.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="208.0" text="User's Name" textAlignment="RIGHT" textFill="#181819">
+      <Label alignment="CENTER_RIGHT" layoutX="767.0" layoutY="208.0" text="User's Name" textAlignment="RIGHT" textFill="#181819">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="676.0" layoutY="230.0" text="June 09, 2024. 4:35:00 AM PST" textFill="#181819">
+      <Label alignment="CENTER_RIGHT" layoutX="670.0" layoutY="230.0" text="June 09, 2024. 4:35:00 AM PST" textFill="#181819">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="766.0" layoutY="251.0" text="Not Reported" textAlignment="RIGHT" textFill="#181819">
+      <Label alignment="CENTER_RIGHT" layoutX="760.0" layoutY="251.0" text="Not Reported" textAlignment="RIGHT" textFill="#181819">
          <font>
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
