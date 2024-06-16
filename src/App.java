@@ -22,7 +22,7 @@ public class App extends Application{
             Parent root = FXMLLoader.load(getClass().getResource("/view/welcomepage.fxml"));
             Scene scene = new Scene(root);
 
-            Image icon = new Image("nikelogo.png");
+            Image icon = new Image("NIKERIFY 1.png");
             stage.getIcons().add(icon);
             stage.setTitle("Nikerify");
             stage.setScene(scene);
