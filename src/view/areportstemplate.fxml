@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
+         <children>
+            <ImageView fitHeight="18.0" fitWidth="17.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/NIKERIFY%201.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="39.0" layoutY="12.0" prefHeight="22.0" prefWidth="65.0" text="NIKERIFY" textFill="#181819">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Text layoutX="24.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN MENU" wrappingWidth="77.79998779296875">
+               <font>
+                  <Font name="Century Gothic Bold" size="7.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#181819" height="24.0" layoutX="19.0" layoutY="135.0" stroke="#181819" strokeType="INSIDE" width="160.0" />
+            <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="24.0" layoutY="85.47" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/adminsidepanelicons/Vector-3.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="43.78" layoutY="84.0" prefHeight="17.0" prefWidth="70.0" text="Dashboard" textFill="#181819">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button layoutX="19.0" layoutY="81.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Dashboard Button" textFill="#181819" />
+            <ImageView fitHeight="12.04" fitWidth="12.04" layoutX="26.0" layoutY="140.58" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/adminsidepanelicons/reports_selected.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="44.06" layoutY="138.0" prefHeight="17.0" prefWidth="46.0" text="Reports" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="47.0" fitWidth="89.0" layoutX="60.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/NIKERIFY%20(4)%201.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="207.0" prefHeight="40.0" prefWidth="659.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 0 1 1;">
+         <children>
+            <TextField layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
+               <font>
+                  <Font name="Century Gothic" size="11.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="21.19" fitWidth="21.19" layoutX="616.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/Group.png" />
+               </image>
+            </ImageView>
+            <Line endX="599.9999389648438" endY="39.99999237060547" startX="599.9999389648438" startY="-1.5258789289873675E-6" style="-fx-opacity: 0.6;" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="21.19" fitWidth="21.19" layoutX="770.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/mingcute_notification-line.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="208.0" layoutY="40.0" prefHeight="501.0" prefWidth="658.0" style="-fx-background-color: EFEFEF;">
+         <children>
+            <Label layoutX="13.0" layoutY="10.0" prefHeight="36.0" prefWidth="153.0" text="Reports" textFill="#181819">
+               <font>
+                  <Font name="Century Gothic Bold" size="28.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="19.0" layoutY="105.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Inventory Button" />
+      <ImageView fitHeight="14.62" fitWidth="14.62" layoutX="23.0" layoutY="109.72" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/ic_round-inventory.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="44.0" layoutY="109.0" prefHeight="17.0" prefWidth="58.0" text="Inventory" textFill="#181819">
+         <font>
+            <Font name="Century Gothic Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
