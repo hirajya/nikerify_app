@@ -12,12 +12,24 @@ import java.io.IOException;
 
 public class supportDocumentsController {
 
+    static String input_verify_id1 = null;
+    static String input_shoe_model1 = null;
+    static String selectedTypeSeller1 = null;
+    static String storeLocation1 = null;
+    static String storeName1 = null;
+    static String storeContactNumber1 = null;
+
     @FXML
     Button backBtn, nextButton;
     
     @FXML
     public void initialize() {
-        // Initialization code if needed
+        System.out.println(input_verify_id1);
+        System.out.println(input_shoe_model1);
+        System.out.println(selectedTypeSeller1);
+        System.out.println(storeLocation1);
+        System.out.println(storeName1);
+        System.out.println(storeContactNumber1);
     }
 
     public void backToSubmit(ActionEvent event) throws IOException {

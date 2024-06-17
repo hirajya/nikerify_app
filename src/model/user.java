@@ -1,5 +1,10 @@
 package model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class user {
     private int user_id;
     private String first_name;
@@ -91,4 +96,50 @@ public class user {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void addUser() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/nikerify_db"; // Replace with your database name
+        String username = "root"; // Replace with your database username
+        String password = ""; // Replace with your database password
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            // Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Establish a connection
+            conn = DriverManager.getConnection(url, username, password);
+
+            // SQL insert query
+            String sql = "INSERT INTO user (first_name, middle_name, last_name, contact_number, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+
+            // Prepare the statement
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, this.first_name);
+            pstmt.setString(2, this.middle_name);
+            pstmt.setString(3, this.last_name);
+            pstmt.setString(4, this.contact_number);
+            pstmt.setString(5, this.email);
+            pstmt.setString(6, this.password);
+
+            // Execute the insert operation
+            pstmt.executeUpdate();
+            System.out.println("User added successfully!");
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            throw new SQLException("Error adding user to the database.", e);
+        } finally {
+            // Close resources
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
+    
 }

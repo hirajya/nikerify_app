@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -15,6 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.submitReportController">
    <children>
+      <TextField fx:id="shoe_model_tf" layoutX="27.0" layoutY="258.0" prefHeight="25.0" prefWidth="263.0" />
       <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/homepage/notif.png" />
@@ -72,19 +74,17 @@
             <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Text>
-      <TextField layoutX="27.0" layoutY="258.0" prefHeight="25.0" prefWidth="263.0" />
-      <TextField layoutX="27.0" layoutY="320.0" prefHeight="25.0" prefWidth="263.0" />
       <Text layoutX="28.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Where did you buy the product?">
          <font>
             <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Text>
-      <RadioButton fx:id="rb1" layoutX="29.0" layoutY="385.0" mnemonicParsing="false" text="Official Nike Store">
+      <RadioButton fx:id="rb1" layoutX="29.0" layoutY="385.0" mnemonicParsing="false" onAction="#typeSellerPicker" text="Official Nike Store">
          <toggleGroup>
             <ToggleGroup fx:id="choices" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="rb2" layoutX="29.0" layoutY="408.0" mnemonicParsing="false" text="Physical Reseller" toggleGroup="$choices" />
-      <RadioButton fx:id="rb3" layoutX="29.0" layoutY="432.0" mnemonicParsing="false" text="Online Merchant" toggleGroup="$choices" />
+      <RadioButton fx:id="rb2" layoutX="29.0" layoutY="408.0" mnemonicParsing="false" onAction="#typeSellerPicker" text="Physical Reseller" toggleGroup="$choices" />
+      <RadioButton fx:id="rb3" layoutX="29.0" layoutY="432.0" mnemonicParsing="false" onAction="#typeSellerPicker" text="Online Merchant" toggleGroup="$choices" />
       <Pane fx:id="p1" layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
          <children>
             <Text layoutX="1.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Location">
@@ -92,7 +92,7 @@
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField layoutY="22.0" prefHeight="25.0" prefWidth="253.0" />
+            <TextField fx:id="rb1_store_location" layoutY="22.0" prefHeight="25.0" prefWidth="253.0" />
          </children>
       </Pane>
       <Pane fx:id="p2" layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
@@ -102,13 +102,13 @@
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField layoutY="22.0" prefHeight="25.0" prefWidth="253.0" />
+            <TextField fx:id="rb2_store_location" layoutY="22.0" prefHeight="25.0" prefWidth="253.0" />
             <Text layoutX="1.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField layoutY="77.0" prefHeight="25.0" prefWidth="253.0" />
+            <TextField fx:id="rb2_store_name" layoutY="77.0" prefHeight="25.0" prefWidth="253.0" />
          </children>
       </Pane>
       <Pane fx:id="p3" layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
@@ -118,19 +118,19 @@
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField layoutY="22.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="rb3_store_location" layoutY="22.0" prefHeight="25.0" prefWidth="263.0" />
             <Text layoutX="1.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField layoutY="77.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="rb3_store_name" layoutY="77.0" prefHeight="25.0" prefWidth="263.0" />
             <Text layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Contact Number">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField layoutX="-1.0" layoutY="132.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="rb3_store_contact_number" layoutX="-1.0" layoutY="132.0" prefHeight="25.0" prefWidth="263.0" />
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="27.0" layoutX="24.0" layoutY="660.0" stroke="BLACK" strokeType="INSIDE" width="263.0" />
@@ -146,6 +146,7 @@
             <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Text>
-      <TextField layoutX="160.0" layoutY="176.0" prefHeight="25.0" prefWidth="132.0" promptText="#qwert123456" />
+      <TextField fx:id="verify_id_tf" layoutX="160.0" layoutY="176.0" prefHeight="25.0" prefWidth="132.0" promptText="#qwert123456" />
+      <DatePicker fx:id="purchase_date_dp" layoutX="27.0" layoutY="325.0" prefHeight="25.0" prefWidth="263.0" />
    </children>
 </AnchorPane>

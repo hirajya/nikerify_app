@@ -37,13 +37,13 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="41.0" layoutY="198.0" prefHeight="25.0" prefWidth="239.0" />
+            <TextField fx:id="email_tf" layoutX="41.0" layoutY="198.0" prefHeight="25.0" prefWidth="239.0" />
             <Label layoutX="41.0" layoutY="234.0" text="Password">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <PasswordField layoutX="41.0" layoutY="252.0" prefHeight="25.0" prefWidth="239.0" />
+            <PasswordField fx:id="password_tf" layoutX="41.0" layoutY="252.0" prefHeight="25.0" prefWidth="239.0" />
             <Button layoutX="41.0" layoutY="312.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="239.0" style="-fx-background-color: #181819; -fx-background-radius: 5;" text="Log In " textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
