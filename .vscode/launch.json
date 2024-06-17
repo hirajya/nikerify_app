@@ -6,12 +6,18 @@
   "configurations": [
     {
       "type": "java",
+      "name": "report",
+      "request": "launch",
+      "mainClass": "model.report",
+      "projectName": "nikefy_app_90a71ef4"
+    },
+    {
+      "type": "java",
       "name": "mainApp",
       "request": "launch",
       "mainClass": "mainApp",
       "projectName": "nikefy_app_90a71ef4",
       "vmArgs": "--module-path C:/javafx-sdk-20.0.1/lib --add-modules javafx.controls,javafx.media --add-modules=javafx.controls,javafx.fxml"
-
     },
     {
       "type": "java",
