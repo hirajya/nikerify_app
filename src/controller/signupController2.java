@@ -35,6 +35,8 @@ public class signupController2 {
         System.out.println(middle_n);
         System.out.println(last_n);
         System.out.println(phone_number);
+        email = null;
+        password = null;
     }
 
     public void backToSignup1(ActionEvent event) throws IOException {

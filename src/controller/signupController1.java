@@ -28,7 +28,10 @@ public class signupController1 {
 
     @FXML
     public void initialize() {
-        // Initialization code if needed
+        first_n = null;
+        middle_n = null;
+        last_n = null;
+        phone_number = null;
     }
 
     public void backToWelcome(ActionEvent event) throws IOException {

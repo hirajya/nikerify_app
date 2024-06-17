@@ -92,7 +92,7 @@
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField fx:id="rb1_store_location" layoutY="22.0" prefHeight="25.0" prefWidth="253.0" />
+            <TextField fx:id="rb1_store_location" layoutY="22.0" onMouseClicked="#showLocationPane" prefHeight="25.0" prefWidth="253.0" />
          </children>
       </Pane>
       <Pane fx:id="p2" layoutX="27.0" layoutY="460.0" prefHeight="200.0" prefWidth="263.0" visible="false">
@@ -102,7 +102,7 @@
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField fx:id="rb2_store_location" layoutY="22.0" prefHeight="25.0" prefWidth="253.0" />
+            <TextField fx:id="rb2_store_location" layoutY="22.0" onMouseClicked="#showLocationPane" prefHeight="25.0" prefWidth="253.0" />
             <Text layoutX="1.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
@@ -118,7 +118,7 @@
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField fx:id="rb3_store_location" layoutY="22.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="rb3_store_location" layoutY="22.0" onMouseClicked="#showLocationPane" prefHeight="25.0" prefWidth="263.0" />
             <Text layoutX="1.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
@@ -148,5 +148,46 @@
       </Text>
       <TextField fx:id="verify_id_tf" layoutX="160.0" layoutY="176.0" prefHeight="25.0" prefWidth="132.0" promptText="#qwert123456" />
       <DatePicker fx:id="purchase_date_dp" layoutX="27.0" layoutY="325.0" prefHeight="25.0" prefWidth="263.0" />
+      <Pane fx:id="locationPane" layoutX="1.0" layoutY="702.0" prefHeight="253.0" prefWidth="320.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="253.0" layoutX="-1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
+            <Text layoutX="13.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Number">
+               <font>
+                  <Font name="Century Gothic" size="11.0" />
+               </font>
+            </Text>
+            <TextField fx:id="street_number_tf" layoutX="13.0" layoutY="44.0" prefHeight="25.0" prefWidth="264.0" />
+            <TextField fx:id="block_number_tf" layoutX="13.0" layoutY="90.0" prefHeight="25.0" prefWidth="264.0" />
+            <TextField fx:id="barangay_tf" layoutX="13.0" layoutY="135.0" prefHeight="25.0" prefWidth="264.0" />
+            <TextField fx:id="city_tf" layoutX="13.0" layoutY="181.0" prefHeight="25.0" prefWidth="264.0" />
+            <Text layoutX="13.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
+               <font>
+                  <Font name="Century Gothic Bold" size="11.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="287.0" layoutY="9.0" stroke="#00000080" strokeType="INSIDE" width="19.0" />
+            <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="288.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/rfidAuthenticDetails/octicon_x-12.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="hideLocationBtn" layoutX="285.0" layoutY="7.0" mnemonicParsing="false" onAction="#hideLocationPane" opacity="0.43" prefHeight="25.0" prefWidth="17.0" text="Button" />
+            <Text layoutX="13.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Block Number">
+               <font>
+                  <Font name="Century Gothic" size="11.0" />
+               </font>
+            </Text>
+            <Text layoutX="13.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barangay">
+               <font>
+                  <Font name="Century Gothic" size="11.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
+               <font>
+                  <Font name="Century Gothic" size="11.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
