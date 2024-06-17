@@ -92,7 +92,7 @@
             <Image url="@../../assets/supportDocument/ph_camera-light.png" />
          </image>
       </ImageView>
-      <Text layoutX="25.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Photos">
+      <Text layoutX="25.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Photo">
          <font>
             <Font name="Century Gothic Bold" size="11.0" />
          </font>
@@ -117,5 +117,7 @@
       </Text>
       <Button fx:id="nextButton" layoutX="20.0" layoutY="660.0" mnemonicParsing="false" onAction="#goToNext" opacity="0.0" prefHeight="25.0" prefWidth="270.0" text="Button" />
       <Button fx:id="backBtn" layoutX="26.0" layoutY="64.0" mnemonicParsing="false" onAction="#backToSubmit" opacity="0.0" prefHeight="48.0" prefWidth="40.0" text="Button" />
+      <Button fx:id="receipt_photo_btn" layoutX="103.0" layoutY="318.0" mnemonicParsing="false" onAction="#uploadReceiptPhoto" prefHeight="25.0" prefWidth="100.0" text="media" />
+      <Button fx:id="product_photo_btn" layoutX="103.0" layoutY="439.0" mnemonicParsing="false" onAction="#uploadProductPhoto" prefHeight="25.0" prefWidth="100.0" text="media" />
    </children>
 </AnchorPane>

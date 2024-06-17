@@ -8,18 +8,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import model.*;
 
 import java.io.IOException; // Add import statement for IOException
+import java.sql.SQLException;
 
 public class homePageController {
+
+    static String username = null;
+    static String password = null;
+    static int accUserId;
 
 
     @FXML
     Button RFIDVerifyButton, submitReportButton, storeLocationButton, activityHistoryButton;
 
     @FXML
-    public void initialize() {
-        // Initialization code if needed
+    public void initialize() throws SQLException {
+        accUserId = user.getUserIdByEmailAndPassword(username, password);
     }
 
     public void goToRFIDVerify(ActionEvent event) throws IOException {
@@ -28,6 +34,7 @@ public class homePageController {
     }
 
     public void goToSubmitReport(ActionEvent event) throws IOException {
+        submitReportController.accUserId = accUserId;
         System.out.println("Submit Report button clicked");
         changeScene(event, "/view/submitReport.fxml");
     }

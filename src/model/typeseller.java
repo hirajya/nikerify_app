@@ -1,5 +1,10 @@
 package model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class typeseller {
     private int ts_id;
     private int store_location_id;
@@ -107,5 +112,36 @@ public class typeseller {
 
     public void setProduct_picture(String product_picture) {
         this.product_picture = product_picture;
+    }
+
+    public void saveTypeSeller() throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "INSERT INTO type_seller_table (store_location_id, store_name, store_contact_number, store_link, report_id, user_id, receipt_picture, product_picture) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, store_location_id); // Assuming store_location_id is set before calling saveTypeSeller()
+            pstmt.setString(2, store_name); // Assuming store_name is set before calling saveTypeSeller()
+            pstmt.setString(3, store_contact_number); // Assuming store_contact_number is set before calling saveTypeSeller()
+            pstmt.setString(4, store_link); // Assuming store_link is set before calling saveTypeSeller()
+            pstmt.setInt(5, report_id); // Assuming report_id is set before calling saveTypeSeller()
+            pstmt.setInt(6, user_id); // Assuming user_id is set before calling saveTypeSeller()
+            pstmt.setString(7, receipt_picture); // Assuming receipt_picture is set before calling saveTypeSeller()
+            pstmt.setString(8, product_picture); // Assuming product_picture is set before calling saveTypeSeller()
+
+            pstmt.executeUpdate();
+
+        } finally {
+            // Close resources
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
     }
 }

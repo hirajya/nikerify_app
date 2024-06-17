@@ -3,6 +3,8 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class report {
     private int report_id;
@@ -11,6 +13,8 @@ public class report {
     private String input_shoe_model;
     private String purchase_date;
     private String type_seller;
+    private byte[] product_photo;
+    private byte[] receipt_photo;
 
     public report(int report_id, int user_id, int verification_id, String input_shoe_model, String purchase_date, String type_seller) {
         this.report_id = report_id;
@@ -79,6 +83,97 @@ public class report {
     public void setType_seller(String type_seller) {
         this.type_seller = type_seller;
     }
+
+    public byte[] getProduct_photo() {
+        return product_photo;
+    }
+
+    public void setProduct_photo(byte[] product_photo) {
+        this.product_photo = product_photo;
+    }
+
+    public byte[] getReceipt_photo() {
+        return receipt_photo;
+    }
+
+    public void setReceipt_photo(byte[] receipt_photo) {
+        this.receipt_photo = receipt_photo;
+    }
+
+    public int saveReport() throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        int generatedReportId = -1;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller) VALUES (?, ?, ?, ?, ?)";
+
+            pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            pstmt.setInt(1, user_id); // Assuming user_id is set before calling saveReport()
+            pstmt.setInt(2, verification_id); // Assuming verification_id is set before calling saveReport()
+            pstmt.setString(3, input_shoe_model); // Assuming input_shoe_model is set before calling saveReport()
+            pstmt.setString(4, purchase_date); // Assuming purchase_date is set before calling saveReport()
+            pstmt.setString(5, type_seller); // Assuming type_seller is set before calling saveReport()
+
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                rs = pstmt.getGeneratedKeys();
+                if (rs.next()) {
+                    generatedReportId = rs.getInt(1); // Get the generated report_id
+                }
+            }
+
+        } finally {
+            // Close resources
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        return generatedReportId;
+    }
+
+    public void savePhotoToDatabase(String verification_id, byte[] imageData, String photoType) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql;
+            if (photoType.equals("product_photo")) {
+                sql = "UPDATE report SET product_photo = ? WHERE verification_id = ?";
+            } else if (photoType.equals("receipt_photo")) {
+                sql = "UPDATE report SET receipt_photo = ? WHERE verification_id = ?";
+            } else {
+                throw new IllegalArgumentException("Invalid photo type");
+            }
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setBytes(1, imageData);
+            pstmt.setString(2, verification_id);
+            pstmt.executeUpdate();
+
+        } finally {
+            // Close resources
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
+    
 
     
 

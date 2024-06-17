@@ -49,6 +49,7 @@ public class submitReportController {
     String storeName;
     String storeContactNumber;
     LocalDate purchaseDate;
+    static int accUserId;
 
     public void initialize() {
         // Add radio buttons to the toggle group
@@ -135,6 +136,7 @@ public class submitReportController {
             supportDocumentsController.purchaseDate1 = purchaseDate; // Pass the purchase date
             supportDocumentsController.storeName1 = storeName;
             supportDocumentsController.storeContactNumber1 = storeContactNumber;
+            supportDocumentsController.accUserId1 = accUserId;
 
             System.out.println("Next button clicked");
             changeScene(event, "/view/supportDocuments.fxml");

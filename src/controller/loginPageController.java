@@ -40,6 +40,8 @@ public class loginPageController {
     public void goToLoginProceed(ActionEvent event) throws IOException {
         if (validateCredentials(email_tf.getText(), password_tf.getText())) {
             System.out.println("Login proceed button clicked");
+            homePageController.username = email_tf.getText();
+            homePageController.password = password_tf.getText();
             changeScene(event, "/view/homepage.fxml");
         }
     }
