@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
@@ -141,23 +140,98 @@
       </Label>
       <Label layoutX="223.0" layoutY="175.21" text="Shoe Model">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Label>
       <Label layoutX="223.0" layoutY="198.05" text="Shoe ID">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Label>
       <Label layoutX="223.0" layoutY="220.0" text="Verification Serial ID">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="223.0" layoutY="246.0" text="Shoe ID">
+      <Label layoutX="223.0" layoutY="243.74" text="Manufaccturing Location">
+         <font>
+            <Font name="Century Gothic Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="223.0" layoutY="270.23" text="Manufaccturing Date">
+         <font>
+            <Font name="Century Gothic Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="223.0" layoutY="296.73" text="Batch Number">
+         <font>
+            <Font name="Century Gothic Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="223.0" layoutY="325.21" text="Scanned by">
+         <font>
+            <Font name="Century Gothic Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="223.0" layoutY="348.06" text="Scan Date">
+         <font>
+            <Font name="Century Gothic Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="420.0" layoutY="175.0" text="Nike Dunk Low Retro (Team Red)">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="462.0" layoutY="198.0" text="DNKLR-TR-0000000000001">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="372.0" layoutY="220.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="497.0" layoutY="243.0" text="Location Location">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="530.0" layoutY="270.0" text="March 2023">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="485.0" layoutY="296.0" text="E200 0019 5300 0703">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="526.0" layoutY="325.0" text="User’s Name">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="437.0" layoutY="348.0" text="June 09, 2024. 4:35:00 AM PST">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="173.0" fitWidth="223.0" layoutX="625.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/image%206.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="625.0" layoutY="291.0" mnemonicParsing="false" prefHeight="30.81" prefWidth="223.0" style="-fx-background-color: #26571D; -fx-background-radius: 2;" text="Export Certificate of Legitimacy" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
-      </Label>
+      </Button>
+      <Button layoutX="625.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.81" prefWidth="223.0" style="-fx-background-color: #181819; -fx-background-radius: 2;" text="View Shoe on Inventory" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
