@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "nikefy_app_9fe4f3a3"
+    },
+    {
+      "type": "java",
       "name": "report",
       "request": "launch",
       "mainClass": "model.report",

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.supportDocumentsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.supportDocumentsController">
    <children>
       <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -115,7 +115,7 @@
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Text>
-      <Button fx:id="nextButton" layoutX="20.0" layoutY="660.0" mnemonicParsing="false" onAction="#goToNext" opacity="0.0" prefHeight="25.0" prefWidth="270.0" text="Button" />
+      <Button fx:id="nextButton" layoutX="21.0" layoutY="617.0" mnemonicParsing="false" onAction="#goToNext" prefHeight="25.0" prefWidth="270.0" text="Button" />
       <Button fx:id="backBtn" layoutX="26.0" layoutY="64.0" mnemonicParsing="false" onAction="#backToSubmit" opacity="0.0" prefHeight="48.0" prefWidth="40.0" text="Button" />
       <Button fx:id="receipt_photo_btn" layoutX="103.0" layoutY="318.0" mnemonicParsing="false" onAction="#uploadReceiptPhoto" prefHeight="25.0" prefWidth="100.0" text="media" />
       <Button fx:id="product_photo_btn" layoutX="103.0" layoutY="439.0" mnemonicParsing="false" onAction="#uploadProductPhoto" prefHeight="25.0" prefWidth="100.0" text="media" />

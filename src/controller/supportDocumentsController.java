@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import model.report;
 import model.typeseller;
 import model.location;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class supportDocumentsController {
@@ -29,6 +32,7 @@ public class supportDocumentsController {
     static String selectedTypeSeller1 = null;
     static String storeName1 = null;
     static String storeContactNumber1 = null;
+    static String storelink1 = null;
     static LocalDate purchaseDate1 = null;
 
     static String location_street_number1 = null;
@@ -63,14 +67,19 @@ public class supportDocumentsController {
         changeScene(event, "/view/submitReport.fxml");
     }
 
-    public void goToNext(ActionEvent event) throws IOException {
+    public void goToNext(ActionEvent event) throws IOException, SQLException {
         System.out.println("Next button clicked");
 
         // Save location data first
-        int storeLocationId = saveLocation();
+        location loc = new location(location_street_number1,location_block_number1, location_barangay1, location_city1);
+        int storeLocationId = loc.saveLocation();
+
+        // save type seller
+        typeseller ts = new typeseller(storeLocationId, storeName1, storeContactNumber1, storelink1, accUserId1);
+        int ts_given_id = ts.saveTypeSeller();
 
         // Save report data and photos to the database
-        saveDataAndPhotos(storeLocationId);
+        saveDataAndPhotos(ts_given_id);
 
         // Navigate to userInfoReport.fxml
         changeScene(event, "/view/userInfoReport.fxml");
@@ -94,7 +103,7 @@ public class supportDocumentsController {
         }
     }
 
-    public void saveDataAndPhotos(int storeLocationId) {
+    public void saveDataAndPhotos(int ts_id_input) {
         try {
             // Save product and receipt photos to database
             if (productPhotoFile != null) {
@@ -105,7 +114,7 @@ public class supportDocumentsController {
             }
 
             // Save report data, including type_seller with storeLocationId
-            saveData(storeLocationId);
+            saveData(ts_id_input);
 
         } catch (SQLException | IOException e) {
             e.printStackTrace();
@@ -113,46 +122,26 @@ public class supportDocumentsController {
         }
     }
 
-    public void saveData(int storeLocationId) {
-        try {
-            // Insert report data into report table
-            int reportId = insertReport(storeLocationId);
-            // Insert type_seller data into typeseller table
-            insertTypeSeller(reportId, storeLocationId);
+    public void saveData(int ts_id_input1) {
+    try {
+        // Convert purchaseDate1 from LocalDate to String
+        
+        
 
-            System.out.println("Data saved successfully");
-
-        } catch (SQLException | IOException e) {
-            e.printStackTrace();
-            showAlert("Error", "Failed to save data: " + e.getMessage());
-        }
-    }
-
-    private int insertReport(int storeLocationId) throws SQLException, IOException {
-        // Assuming input_shoe_model1 and purchaseDate1 are non-null (validate before calling this method)
+        // Insert report data into report table
         report report = new report();
-        report.setVerification_id(Integer.parseInt(input_verify_id1));
-        report.setInput_shoe_model(input_shoe_model1);
-        report.setPurchase_date(purchaseDate1.toString());
-        report.setType_seller(selectedTypeSeller1); // Here, selectedTypeSeller1 should be the ts_id
 
-        // Save report data to database and get the generated report_id
-        return report.saveReport();
+        System.out.println("Data saved successfully");
+
+    } catch (SQLException | IOException e) {
+        e.printStackTrace();
+        showAlert("Error", "Failed to save data: " + e.getMessage());
     }
+}
 
-    private void insertTypeSeller(int reportId, int storeLocationId) throws SQLException, IOException {
-        // Assuming storeName1, storeContactNumber1, etc., are non-null (validate before calling this method)
-        typeseller typeSeller = new typeseller();
-        typeSeller.setReport_id(reportId);
-        typeSeller.setUser_id(accUserId1);
-        typeSeller.setStore_name(storeName1);
-        typeSeller.setStore_contact_number(storeContactNumber1);
-        // Set the store_location_id from the saved location data
-        typeSeller.setStore_location_id(storeLocationId);
     
-        // Save type_seller data to database
-        typeSeller.saveTypeSeller();
-    }
+
+    
 
     private void savePhotoToDatabase(String verification_id, File photoFile, String photoType) throws SQLException, IOException {
         try (FileInputStream fis = new FileInputStream(photoFile)) {

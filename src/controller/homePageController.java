@@ -26,6 +26,7 @@ public class homePageController {
     @FXML
     public void initialize() throws SQLException {
         accUserId = user.getUserIdByEmailAndPassword(username, password);
+        System.out.println(accUserId);
     }
 
     public void goToRFIDVerify(ActionEvent event) throws IOException {
