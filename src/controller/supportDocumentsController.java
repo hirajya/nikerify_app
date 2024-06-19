@@ -8,10 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.report;
 import model.typeseller;
+import model.verification;
 import model.location;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -39,11 +41,15 @@ public class supportDocumentsController {
     static String location_block_number1 = null;
     static String location_barangay1 = null;
     static String location_city1 = null;
+    static String input_report_comment = "No comment";
 
     static int accUserId1;
 
     private File productPhotoFile;
     private File receiptPhotoFile;
+
+    @FXML
+    TextField report_comment_tf;
 
     @FXML
     Button backBtn, nextButton, product_photo_btn, receipt_photo_btn;
@@ -75,7 +81,7 @@ public class supportDocumentsController {
         int storeLocationId = loc.saveLocation();
 
         // save type seller
-        typeseller ts = new typeseller(storeLocationId, storeName1, storeContactNumber1, storelink1);
+        typeseller ts = new typeseller(storeLocationId, storeName1, storeContactNumber1, storelink1, selectedTypeSeller1);
         int ts_given_id = ts.saveTypeSeller();
 
         // Save report data and photos to the database
@@ -103,8 +109,10 @@ public class supportDocumentsController {
         }
     }
 
-    public void saveDataAndPhotos(int ts_id_input) {
+    public void saveDataAndPhotos(int verification_id_int) {
         try {
+
+            saveData(verification_id_int);
             // Save product and receipt photos to database
             if (productPhotoFile != null) {
                 savePhotoToDatabase(input_verify_id1, productPhotoFile, "product_photo");
@@ -112,9 +120,6 @@ public class supportDocumentsController {
             if (receiptPhotoFile != null) {
                 savePhotoToDatabase(input_verify_id1, receiptPhotoFile, "receipt_photo");
             }
-
-            // Save report data, including type_seller with storeLocationId
-            saveData(ts_id_input);
 
         } catch (SQLException | IOException e) {
             e.printStackTrace();
@@ -124,20 +129,19 @@ public class supportDocumentsController {
 
     public void saveData(int ts_id_input1) {
     try {
-        // Convert purchaseDate1 from LocalDate to String
-        
-        
 
         // Insert report data into report table
-        report report = new report();
+        input_report_comment = report_comment_tf.getText();
+        report report = new report(accUserId1, Integer.valueOf(input_verify_id1), input_shoe_model1, purchaseDate1, ts_id_input1, input_report_comment);
+        report.saveReport2();
 
         System.out.println("Data saved successfully");
 
-    } catch (SQLException | IOException e) {
-        e.printStackTrace();
-        showAlert("Error", "Failed to save data: " + e.getMessage());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to save data: " + e.getMessage());
+        }
     }
-}
 
     
 

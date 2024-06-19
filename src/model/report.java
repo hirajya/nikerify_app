@@ -5,32 +5,36 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class report {
     private int report_id;
     private int user_id;
     private int verification_id;
     private String input_shoe_model;
-    private String purchase_date;
-    private String type_seller;
+    private LocalDate purchase_date;
+    private int type_seller;
     private byte[] product_photo;
     private byte[] receipt_photo;
+    private String report_comment;
 
-    public report(int report_id, int user_id, int verification_id, String input_shoe_model, String purchase_date, String type_seller) {
+    public report(int report_id, int user_id, int verification_id, String input_shoe_model, LocalDate purchase_date, int type_seller, String report_comment) {
         this.report_id = report_id;
         this.user_id = user_id;
         this.verification_id = verification_id;
         this.input_shoe_model = input_shoe_model;
         this.purchase_date = purchase_date;
         this.type_seller = type_seller;
+        this.report_comment = report_comment;
     }
 
-    public report(int user_id, int verification_id, String input_shoe_model, String purchase_date, String type_seller) {
+    public report(int user_id, int input_verify_id1, String input_shoe_model, LocalDate purchaseDate1, int ts_id_input1, String report_comment) {
         this.user_id = user_id;
-        this.verification_id = verification_id;
+        this.verification_id = input_verify_id1;
         this.input_shoe_model = input_shoe_model;
-        this.purchase_date = purchase_date;
-        this.type_seller = type_seller;
+        this.purchase_date = purchaseDate1;
+        this.type_seller = ts_id_input1;
+        this.report_comment = report_comment;
     }
 
     public report() {
@@ -68,19 +72,19 @@ public class report {
         this.input_shoe_model = input_shoe_model;
     }
 
-    public String getPurchase_date() {
+    public LocalDate getPurchase_date() {
         return purchase_date;
     }
 
-    public void setPurchase_date(String purchase_date) {
+    public void setPurchase_date(LocalDate purchase_date) {
         this.purchase_date = purchase_date;
     }
 
-    public String getType_seller() {
+    public int getType_seller() {
         return type_seller;
     }
 
-    public void setType_seller(String type_seller) {
+    public void setType_seller(int type_seller) {
         this.type_seller = type_seller;
     }
 
@@ -100,6 +104,14 @@ public class report {
         this.receipt_photo = receipt_photo;
     }
 
+    public String getReport_comment() {
+        return report_comment;
+    }
+
+    public void setReport_comment(String report_comment) {
+        this.report_comment = report_comment;
+    }
+
     public int saveReport() throws SQLException {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -108,14 +120,16 @@ public class report {
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller, report_comment) VALUES (?, ?, ?, ?, ?, ?)";
 
             pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setInt(1, user_id); // Assuming user_id is set before calling saveReport()
             pstmt.setInt(2, verification_id); // Assuming verification_id is set before calling saveReport()
             pstmt.setString(3, input_shoe_model); // Assuming input_shoe_model is set before calling saveReport()
-            pstmt.setString(4, purchase_date); // Assuming purchase_date is set before calling saveReport()
-            pstmt.setString(5, type_seller); // Assuming type_seller is set before calling saveReport()
+            pstmt.setDate(4, java.sql.Date.valueOf(purchase_date)); // Assuming purchase_date is set before calling saveReport2()
+            pstmt.setInt(5, type_seller); // Assuming type_seller is set before calling saveReport()
+            pstmt.setString(6, report_comment); // Assuming report_comment is set before calling saveReport()
+
 
             int affectedRows = pstmt.executeUpdate();
 
@@ -141,6 +155,33 @@ public class report {
 
         return generatedReportId;
     }
+
+    public void saveReport2() throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+    
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller) VALUES (?, ?, ?, ?, ?)";
+    
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, user_id); // Assuming user_id is set before calling saveReport2()
+            pstmt.setInt(2, verification_id); // Assuming verification_id is set before calling saveReport2()
+            pstmt.setString(3, input_shoe_model); // Assuming input_shoe_model is set before calling saveReport2()
+            pstmt.setDate(4, java.sql.Date.valueOf(purchase_date)); // Assuming purchase_date is set before calling saveReport2()
+            pstmt.setInt(5, type_seller); // Assuming type_seller is set before calling saveReport2()
+    
+            pstmt.executeUpdate();
+        } finally {
+            // Close resources
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }    
 
     public void savePhotoToDatabase(String verification_id, byte[] imageData, String photoType) throws SQLException {
         Connection conn = null;
