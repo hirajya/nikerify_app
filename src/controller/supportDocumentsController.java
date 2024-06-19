@@ -75,7 +75,7 @@ public class supportDocumentsController {
         int storeLocationId = loc.saveLocation();
 
         // save type seller
-        typeseller ts = new typeseller(storeLocationId, storeName1, storeContactNumber1, storelink1, accUserId1);
+        typeseller ts = new typeseller(storeLocationId, storeName1, storeContactNumber1, storelink1);
         int ts_given_id = ts.saveTypeSeller();
 
         // Save report data and photos to the database

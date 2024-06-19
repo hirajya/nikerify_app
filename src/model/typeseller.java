@@ -19,22 +19,20 @@ public class typeseller {
     private String product_picture;
 
     // Constructors
-    public typeseller(int ts_id, int store_location_id, String store_name, String store_contact_number, String store_link, int user_id) {
+    public typeseller(int ts_id, int store_location_id, String store_name, String store_contact_number, String store_link) {
         this.ts_id = ts_id;
         this.store_location_id = store_location_id;
         this.store_name = store_name;
         this.store_contact_number = store_contact_number;
         this.store_link = store_link;
-        this.user_id = user_id;
  
     }
 
-    public typeseller(int store_location_id, String store_name, String store_contact_number, String store_link, int user_id) {
+    public typeseller(int store_location_id, String store_name, String store_contact_number, String store_link) {
         this.store_location_id = store_location_id;
         this.store_name = store_name;
         this.store_contact_number = store_contact_number;
         this.store_link = store_link;
-        this.user_id = user_id;
 
     }
 
@@ -82,13 +80,7 @@ public class typeseller {
         this.store_link = store_link;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
 
     
 
@@ -100,14 +92,13 @@ public class typeseller {
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "INSERT INTO type_seller_table (store_location_id, store_name, store_contact_number, store_link, user_id) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO type_seller_table (store_location_id, store_name, store_contact_number, store_link) VALUES (?, ?, ?, ?)";
 
             pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setInt(1, store_location_id);
             pstmt.setString(2, store_name);
             pstmt.setString(3, store_contact_number);
             pstmt.setString(4, store_link);
-            pstmt.setInt(5, user_id);
   
 
             int affectedRows = pstmt.executeUpdate();
