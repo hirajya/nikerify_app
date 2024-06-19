@@ -33,19 +33,19 @@
             <Font name="Century Gothic" size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="30.0" layoutY="159.0" prefHeight="30.0" prefWidth="265.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 3;" />
+      <TextField fx:id="email_tf" layoutX="30.0" layoutY="159.0" prefHeight="30.0" prefWidth="265.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 3;" />
       <Label layoutX="30.0" layoutY="206.0" text="Password">
          <font>
             <Font name="Century Gothic" size="13.0" />
          </font>
       </Label>
-      <PasswordField layoutX="29.0" layoutY="222.0" prefHeight="30.0" prefWidth="266.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 3;" />
+      <PasswordField fx:id="password_tf" layoutX="29.0" layoutY="222.0" prefHeight="30.0" prefWidth="266.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 3;" />
       <Label layoutX="29.0" layoutY="271.0" text="Password Confirmation">
          <font>
             <Font name="Century Gothic" size="13.0" />
          </font>
       </Label>
-      <PasswordField layoutX="29.0" layoutY="287.0" prefHeight="30.0" prefWidth="266.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 3;" />
+      <PasswordField fx:id="passwordConfirm_tf" layoutX="29.0" layoutY="287.0" prefHeight="30.0" prefWidth="266.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 3;" />
       <Text fill="RED" layoutX="290.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font name="Century Gothic" size="14.0" />

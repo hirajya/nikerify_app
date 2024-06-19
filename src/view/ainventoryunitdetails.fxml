@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
+         <children>
+            <ImageView fitHeight="18.0" fitWidth="17.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/NIKERIFY%201.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="39.0" layoutY="12.0" prefHeight="22.0" prefWidth="65.0" text="NIKERIFY" textFill="#181819">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Text layoutX="24.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN MENU" wrappingWidth="77.79998779296875">
+               <font>
+                  <Font name="Century Gothic Bold" size="7.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#181819" height="24.0" layoutX="19.0" layoutY="109.0" stroke="#181819" strokeType="INSIDE" width="160.0" />
+            <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="24.0" layoutY="85.47" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/adminsidepanelicons/Vector-3.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="43.78" layoutY="84.0" prefHeight="17.0" prefWidth="70.0" text="Dashboard" textFill="#181819">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="14.62" fitWidth="14.62" layoutX="24.0" layoutY="112.72" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/adminsidepanelicons/ic_round-inventory-1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="43.0" layoutY="112.0" prefHeight="17.0" prefWidth="58.0" text="Inventory" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="19.0" layoutY="81.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Dashboard Button" textFill="#181819" />
+            <ImageView fitHeight="12.04" fitWidth="12.04" layoutX="26.0" layoutY="140.58" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/octicon_report-16.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="44.06" layoutY="138.0" prefHeight="17.0" prefWidth="46.0" text="Reports">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="18.0" layoutY="136.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Reports Button" textFill="#181819" />
+            <ImageView fitHeight="47.0" fitWidth="89.0" layoutX="60.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/NIKERIFY%20(4)%201.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="207.0" prefHeight="40.0" prefWidth="659.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 0 1 1;">
+         <children>
+            <TextField layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
+               <font>
+                  <Font name="Century Gothic" size="11.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="21.19" fitWidth="21.19" layoutX="616.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/dashboardpics/Group.png" />
+               </image>
+            </ImageView>
+            <Line endX="599.9999389648438" endY="39.99999237060547" startX="599.9999389648438" startY="-1.5258789289873675E-6" style="-fx-opacity: 0.6;" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="21.19" fitWidth="21.19" layoutX="770.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/mingcute_notification-line.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="208.0" layoutY="40.0" prefHeight="501.0" prefWidth="658.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <Button layoutX="556.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #520F0F; -fx-border-width: 1.5; -fx-border-radius: 3;" text="Deactivate" textFill="#520f0f">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="462.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="87.0" style="-fx-background-color: #181819;" text="Edit Unit" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Button>
+            <ScrollPane layoutX="18.0" layoutY="237.0" prefHeight="245.0" prefWidth="623.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="265.0" prefWidth="622.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="User ID" />
+                              <TableColumn prefWidth="79.0" text="User Name" />
+                              <TableColumn minWidth="7.0" prefWidth="156.0" text="Verification Request ID" />
+                              <TableColumn prefWidth="144.0" text="Authentication Result" />
+                              <TableColumn prefWidth="96.6666259765625" text="Scan Date" />
+                              <TableColumn prefWidth="79.3333740234375" text="Action" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="18.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/shoeimages/Pegasus.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="156.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Shoe Model" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="209.0" prefHeight="23.0" prefWidth="117.0" text="Scan History" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Pegasus 41" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="71.0" prefHeight="23.0" prefWidth="61.0" text="Shoe ID" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="540.0" layoutY="71.0" prefHeight="23.0" prefWidth="97.0" text="PGS-00000000001" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="89.0" prefHeight="23.0" prefWidth="117.0" text="Verification Serial ID" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="415.0" layoutY="89.0" prefHeight="23.0" prefWidth="222.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="RFID Status" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="Active" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="125.0" prefHeight="23.0" prefWidth="133.0" text="Manufacturing Location" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="125.0" prefHeight="23.0" prefWidth="61.0" text="Makati City" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="143.0" prefHeight="23.0" prefWidth="105.0" text="Manufacturing Year" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="143.0" prefHeight="23.0" prefWidth="61.0" text="2021" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="161.0" prefHeight="23.0" prefWidth="87.0" text="Batch Number" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="161.0" prefHeight="23.0" prefWidth="61.0" text="24" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="179.0" prefHeight="23.0" prefWidth="92.0" text="Number of Scans" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="179.0" prefHeight="23.0" prefWidth="61.0" text="2" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="197.0" prefHeight="23.0" prefWidth="92.0" text="Last Scan Date" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="462.0" layoutY="197.0" prefHeight="23.0" prefWidth="175.0" text="June 09, 2024. 4:35:00 AM PST" textFill="#181819" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="17.0" fitWidth="10.0" layoutX="736.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/streamline_magnifying-glass-solid.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="32.0" layoutX="223.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="232.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/dashboardpics/ep_back.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="223.0" layoutY="57.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="32.0" text="back button" />
+      <Label layoutX="265.0" layoutY="62.0" prefHeight="23.0" prefWidth="240.0" text="Inventory // Pegasus 41 // " textFill="#181819">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="494.0" layoutY="63.0" text="PGS-00000000001" textFill="#181819">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

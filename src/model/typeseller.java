@@ -1,5 +1,12 @@
 package model;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class typeseller {
     private int ts_id;
     private int store_location_id;
@@ -10,33 +17,32 @@ public class typeseller {
     private int user_id;
     private String receipt_picture;
     private String product_picture;
+    private String type_seller_kind;
 
-    public typeseller(int ts_id, int store_location_id, String store_name, String store_contact_number, String store_link, int report_id, int user_id, String receipt_picture, String product_picture) {
+    // Constructors
+    public typeseller(int ts_id, int store_location_id, String store_name, String store_contact_number, String store_link, String type_seller_kind) {
         this.ts_id = ts_id;
         this.store_location_id = store_location_id;
         this.store_name = store_name;
         this.store_contact_number = store_contact_number;
         this.store_link = store_link;
-        this.report_id = report_id;
-        this.user_id = user_id;
-        this.receipt_picture = receipt_picture;
-        this.product_picture = product_picture;
+        this.type_seller_kind = type_seller_kind;
+ 
     }
 
-    public typeseller(int store_location_id, String store_name, String store_contact_number, String store_link, int report_id, int user_id, String receipt_picture, String product_picture) {
+    public typeseller(int store_location_id, String store_name, String store_contact_number, String store_link, String type_seller_kind) {
         this.store_location_id = store_location_id;
         this.store_name = store_name;
         this.store_contact_number = store_contact_number;
         this.store_link = store_link;
-        this.report_id = report_id;
-        this.user_id = user_id;
-        this.receipt_picture = receipt_picture;
-        this.product_picture = product_picture;
+        this.type_seller_kind = type_seller_kind;
+
     }
 
     public typeseller() {
     }
 
+    // Getters and setters
     public int getTs_id() {
         return ts_id;
     }
@@ -77,35 +83,59 @@ public class typeseller {
         this.store_link = store_link;
     }
 
-    public int getReport_id() {
-        return report_id;
+    public String getType_seller_kind() {
+        return type_seller_kind;
     }
 
-    public void setReport_id(int report_id) {
-        this.report_id = report_id;
+    public void setType_seller_kind(String type_seller_kind) {
+        this.type_seller_kind = type_seller_kind;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
 
-    public String getReceipt_picture() {
-        return receipt_picture;
-    }
+    
 
-    public void setReceipt_picture(String receipt_picture) {
-        this.receipt_picture = receipt_picture;
-    }
+    public int saveTypeSeller() throws SQLException, IOException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        int generatedId = -1;
 
-    public String getProduct_picture() {
-        return product_picture;
-    }
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "INSERT INTO type_seller_table (store_location_id, store_name, store_contact_number, store_link, type_seller_kind) VALUES (?, ?, ?, ?, ?)";
 
-    public void setProduct_picture(String product_picture) {
-        this.product_picture = product_picture;
+            pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            pstmt.setInt(1, store_location_id);
+            pstmt.setString(2, store_name);
+            pstmt.setString(3, store_contact_number);
+            pstmt.setString(4, store_link);
+            pstmt.setString(5, type_seller_kind);
+  
+
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                rs = pstmt.getGeneratedKeys();
+                if (rs.next()) {
+                    generatedId = rs.getInt(1); // Retrieve the generated ts_id
+                    this.ts_id = generatedId; // Set the ts_id in the current instance
+                }
+            } else {
+                throw new SQLException("Failed to insert type seller data, no rows affected.");
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        return generatedId; // Return the generated ts_id
     }
 }
