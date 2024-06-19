@@ -91,49 +91,5 @@ public class verification {
         this.serial_number = serial_number;
     }
 
-    public static void addVerification(int user_id, String verification_date, String verification_time, int shoe_id, boolean authenticity_result, String serial_number) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-
-        try {
-            // Replace with your XAMPP connection details
-            String url = "jdbc:mysql://localhost:3306/sonigiri_database";
-            String username = "root";
-            String password = "";
-
-            // Establish connection
-            connection = DriverManager.getConnection(url, username, password);
-
-            // Prepare SQL statement
-            String sql = "INSERT INTO verification (user_id, verification_date, verification_time, shoe_id, authenticity_result, serial_number) VALUES (?, ?, ?, ?, ?, ?)";
-            preparedStatement = connection.prepareStatement(sql);
-            
-            // Set parameters
-            preparedStatement.setInt(1, user_id);
-            preparedStatement.setString(2, verification_date);
-            preparedStatement.setString(3, verification_time);
-            preparedStatement.setInt(4, shoe_id);
-            preparedStatement.setBoolean(5, authenticity_result);
-            preparedStatement.setString(6, serial_number);
-
-            // Execute statement
-            int rowsInserted = preparedStatement.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("A new verification record was inserted successfully!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+    
 }

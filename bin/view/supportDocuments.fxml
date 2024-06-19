@@ -92,7 +92,7 @@
             <Image url="@../../assets/supportDocument/ph_camera-light.png" />
          </image>
       </ImageView>
-      <Text layoutX="25.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Photos">
+      <Text layoutX="25.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Photo">
          <font>
             <Font name="Century Gothic Bold" size="11.0" />
          </font>
@@ -108,14 +108,22 @@
             <Font name="Century Gothic Bold" size="11.0" />
          </font>
       </Text>
-      <TextField layoutX="24.0" layoutY="515.0" prefHeight="54.0" prefWidth="262.0" />
+      <TextField fx:id="report_comment_tf" layoutX="24.0" layoutY="515.0" prefHeight="54.0" prefWidth="262.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="27.0" layoutX="24.0" layoutY="660.0" stroke="BLACK" strokeType="INSIDE" width="263.0" />
       <Text layoutX="141.0" layoutY="677.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next">
          <font>
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Text>
-      <Button fx:id="nextButton" layoutX="20.0" layoutY="660.0" mnemonicParsing="false" onAction="#goToNext" opacity="0.0" prefHeight="25.0" prefWidth="270.0" text="Button" />
+      <Button fx:id="nextButton" layoutX="21.0" layoutY="617.0" mnemonicParsing="false" onAction="#goToNext" prefHeight="25.0" prefWidth="270.0" text="Button" />
       <Button fx:id="backBtn" layoutX="26.0" layoutY="64.0" mnemonicParsing="false" onAction="#backToSubmit" opacity="0.0" prefHeight="48.0" prefWidth="40.0" text="Button" />
+      <Button fx:id="receipt_photo_btn" layoutX="103.0" layoutY="318.0" mnemonicParsing="false" onAction="#uploadReceiptPhoto" prefHeight="25.0" prefWidth="100.0" text="media" />
+      <Button fx:id="product_photo_btn" layoutX="103.0" layoutY="439.0" mnemonicParsing="false" onAction="#uploadProductPhoto" prefHeight="25.0" prefWidth="100.0" text="media" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#831010" height="27.0" layoutX="23.0" layoutY="661.0" stroke="#831010" strokeType="INSIDE" width="263.0" />
+      <Text fill="WHITE" layoutX="118.0" layoutY="678.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Submit Report">
+         <font>
+            <Font name="Century Gothic Bold" size="12.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
