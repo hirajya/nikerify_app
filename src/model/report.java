@@ -162,7 +162,7 @@ public class report {
     
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller, report_comment) VALUES (?, ?, ?, ?, ?, ?)";
     
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, user_id); // Assuming user_id is set before calling saveReport2()
@@ -170,6 +170,7 @@ public class report {
             pstmt.setString(3, input_shoe_model); // Assuming input_shoe_model is set before calling saveReport2()
             pstmt.setDate(4, java.sql.Date.valueOf(purchase_date)); // Assuming purchase_date is set before calling saveReport2()
             pstmt.setInt(5, type_seller); // Assuming type_seller is set before calling saveReport2()
+            pstmt.setString(6, report_comment); // Assuming report_comment is set before calling saveReport2()
     
             pstmt.executeUpdate();
         } finally {

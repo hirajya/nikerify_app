@@ -88,7 +88,7 @@ public class supportDocumentsController {
         saveDataAndPhotos(ts_given_id);
 
         // Navigate to userInfoReport.fxml
-        changeScene(event, "/view/userInfoReport.fxml");
+        changeScene(event, "/view/scanhistoryreports.fxml");
     }
 
     public int saveLocation() {
