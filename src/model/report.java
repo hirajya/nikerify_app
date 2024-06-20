@@ -17,8 +17,9 @@ public class report {
     private byte[] product_photo;
     private byte[] receipt_photo;
     private String report_comment;
+    private String report_status;
 
-    public report(int report_id, int user_id, int verification_id, String input_shoe_model, LocalDate purchase_date, int type_seller, String report_comment) {
+    public report(int report_id, int user_id, int verification_id, String input_shoe_model, LocalDate purchase_date, int type_seller, String report_comment, String report_status) {
         this.report_id = report_id;
         this.user_id = user_id;
         this.verification_id = verification_id;
@@ -26,15 +27,17 @@ public class report {
         this.purchase_date = purchase_date;
         this.type_seller = type_seller;
         this.report_comment = report_comment;
+        this.report_status = report_status;
     }
 
-    public report(int user_id, int input_verify_id1, String input_shoe_model, LocalDate purchaseDate1, int ts_id_input1, String report_comment) {
+    public report(int user_id, int input_verify_id1, String input_shoe_model, LocalDate purchaseDate1, int ts_id_input1, String report_comment, String report_status) {
         this.user_id = user_id;
         this.verification_id = input_verify_id1;
         this.input_shoe_model = input_shoe_model;
         this.purchase_date = purchaseDate1;
         this.type_seller = ts_id_input1;
         this.report_comment = report_comment;
+        this.report_status = report_status;
     }
 
     public report() {
@@ -120,7 +123,7 @@ public class report {
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller, report_comment) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller, report_comment, report_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setInt(1, user_id); // Assuming user_id is set before calling saveReport()
@@ -129,6 +132,7 @@ public class report {
             pstmt.setDate(4, java.sql.Date.valueOf(purchase_date)); // Assuming purchase_date is set before calling saveReport2()
             pstmt.setInt(5, type_seller); // Assuming type_seller is set before calling saveReport()
             pstmt.setString(6, report_comment); // Assuming report_comment is set before calling saveReport()
+            pstmt.setString(7, report_status); // Assuming report_status is set before calling saveReport()
 
 
             int affectedRows = pstmt.executeUpdate();
@@ -162,7 +166,7 @@ public class report {
     
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller, report_comment) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO report (user_id, verification_id, input_shoe_model, purchase_date, type_seller, report_comment, report_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
     
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, user_id); // Assuming user_id is set before calling saveReport2()
@@ -171,6 +175,7 @@ public class report {
             pstmt.setDate(4, java.sql.Date.valueOf(purchase_date)); // Assuming purchase_date is set before calling saveReport2()
             pstmt.setInt(5, type_seller); // Assuming type_seller is set before calling saveReport2()
             pstmt.setString(6, report_comment); // Assuming report_comment is set before calling saveReport2()
+            pstmt.setString(7, report_status); // Assuming report_status is set before calling saveReport2()
     
             pstmt.executeUpdate();
         } finally {

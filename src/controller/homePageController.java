@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
 
@@ -19,6 +20,9 @@ public class homePageController {
     static String password = null;
     static int accUserId;
 
+    @FXML
+    Text acc_name_text;
+
 
     @FXML
     Button RFIDVerifyButton, submitReportButton, storeLocationButton, activityHistoryButton;
@@ -28,6 +32,12 @@ public class homePageController {
         accUserId = user.getUserIdByEmailAndPassword(username, password);
         System.out.println(accUserId);
     }
+
+    // public void intro_name(int accUserId) throws SQLException {
+    //     String acc_name = user.getUserName(accUserId);
+    //     acc_name_text.setText(acc_name);
+
+    // }
 
     public void goToRFIDVerify(ActionEvent event) throws IOException {
         System.out.println("RFID Verify button clicked");
