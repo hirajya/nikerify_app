@@ -31,13 +31,14 @@ public class homePageController {
     public void initialize() throws SQLException {
         accUserId = user.getUserIdByEmailAndPassword(username, password);
         System.out.println(accUserId);
+        intro_name(accUserId);
     }
 
-    // public void intro_name(int accUserId) throws SQLException {
-    //     String acc_name = user.getUserName(accUserId);
-    //     acc_name_text.setText(acc_name);
+    public void intro_name(int accUserId_input) throws SQLException {
+        String acc_name = user.getNameById(accUserId_input);
+        acc_name_text.setText(acc_name + "!");
 
-    // }
+    }
 
     public void goToRFIDVerify(ActionEvent event) throws IOException {
         System.out.println("RFID Verify button clicked");
