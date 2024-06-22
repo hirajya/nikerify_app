@@ -11,10 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class adashboardscanneditemsAuthenticController {
+public class areportdetailsController {
 
     @FXML
-    Button inventoryButton, reportsButton, backButton;
+    Button inventoryButton, reportsButton, backButton, resolvedButton;
 
     @FXML
     TextField search_tf;
@@ -34,9 +34,13 @@ public class adashboardscanneditemsAuthenticController {
         changeScene(event, "/view/areports.fxml");
     }
 
-    public void backToDashboard(ActionEvent event) throws IOException {
+    public void backToDashboardOrReports(ActionEvent event) throws IOException {
         System.out.println("Back button clicked");
         changeScene(event, "/view/adashboardscansandreports.fxml");
+    }
+
+    public void markAsResolved(ActionEvent event) throws IOException {
+        System.out.println("Resolved Button clicked");
     }
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {
