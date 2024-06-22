@@ -7,17 +7,26 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException; 
 
 public class reportHistoryController {
 
     @FXML
-    Button backBtn, reportsDetailButton, goToHistoryScanBtn;
+    ScrollPane scrollPaneReport;
+
+    @FXML
+    Button backBtn, goToHistoryScanBtn;
     
     @FXML
     public void initialize() {
-        // Initialization code if needed
+        try {
+            loadReportCards();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void backToHome(ActionEvent event) throws IOException {
@@ -43,5 +52,23 @@ public class reportHistoryController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void loadReportCards() throws IOException {
+        VBox content = new VBox();
+        content.setSpacing(10);
+
+        for (int i = 0; i < 10; i++) {  // Example: Load 10 report cards
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/utils/scanHistoryCard.fxml"));
+            Parent reportCard = loader.load();
+
+            // Optionally, set data for each report card
+            controller.utils_card.reportCardController controller = loader.getController();
+            controller.setLabelText("Report Card " + (i + 1));
+
+            content.getChildren().add(reportCard);
+        }
+
+        scrollPaneReport.setContent(content);
     }
 }

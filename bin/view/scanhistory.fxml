@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -53,49 +54,8 @@
             <Font name="Century Gothic Bold" size="13.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="77.0" layoutX="24.0" layoutY="185.0" stroke="BLACK" strokeType="INSIDE" width="271.0" />
-      <ImageView fitHeight="51.0" fitWidth="112.0" layoutX="34.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/activityhistory/image%206.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="16.0" fitWidth="14.0" layoutX="112.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00A36C;">
-         <image>
-            <Image url="@../../assets/activityhistory/iconamoon_check-fill.png" />
-         </image>
-      </ImageView>
-      <Text fill="#23a14d" layoutX="123.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Authentic!">
-         <font>
-            <Font name="Century Gothic Bold" size="10.0" />
-         </font>
-      </Text>
-      <Text layoutX="200.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#QWERTY12350964" wrappingWidth="107.20001220703125">
-         <font>
-            <Font name="Century Gothic" size="9.0" />
-         </font>
-      </Text>
-      <Text layoutX="114.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro (Team Red)" wrappingWidth="162.80810546875">
-         <font>
-            <Font name="Century Gothic Bold" size="10.0" />
-         </font>
-      </Text>
-      <Text layoutX="114.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNKLR-TR-0000000000001" wrappingWidth="117.60003662109375">
-         <font>
-            <Font name="Century Gothic" size="9.0" />
-         </font>
-      </Text>
-      <Text layoutX="115.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Date" wrappingWidth="50.4000244140625">
-         <font>
-            <Font name="Century Gothic" size="9.0" />
-         </font>
-      </Text>
-      <Text layoutX="115.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024. 4:35:00 AM PST" wrappingWidth="141.60003662109375">
-         <font>
-            <Font name="Century Gothic" size="9.0" />
-         </font>
-      </Text>
-      <Button fx:id="itemDetailBtn" layoutX="243.0" layoutY="236.0" mnemonicParsing="false" onAction="#goToItemDetails" opacity="0.0" text="Button" />
       <Button fx:id="backBtn" layoutX="28.0" layoutY="84.0" mnemonicParsing="false" onAction="#backToHome" opacity="0.0" prefHeight="41.0" prefWidth="40.0" text="Button" />
       <Button fx:id="reportsButton" layoutX="170.0" layoutY="134.0" mnemonicParsing="false" onAction="#goToReports" opacity="0.0" prefHeight="35.0" prefWidth="118.0" text="Button" />
+      <ScrollPane fx:id="scrollPaneReport" layoutX="15.0" layoutY="186.0" prefHeight="479.0" prefWidth="291.0" stylesheets="@css/styleCssFile.css" />
    </children>
 </AnchorPane>
