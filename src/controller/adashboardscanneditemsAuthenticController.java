@@ -11,22 +11,27 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class adminloginController {
+public class adashboardscanneditemsAuthenticController {
 
     @FXML
-    Button aloginButton;
+    Button inventoryButton, reportsButton;
 
     @FXML
-    TextField aemail_tf, apassword_tf;
+    TextField search_tf;
 
     @FXML
     public void initialize() {
         // Initialization code if needed
     }
 
-    public void adminLogin(ActionEvent event) throws IOException {
-        System.out.println("Admin Login button clicked");
-        changeScene(event, "/view/adashboardscansandreports.fxml");
+    public void goToInventory(ActionEvent event) throws IOException {
+        System.out.println("Inventory button clicked");
+        changeScene(event, "/view/ainventory.fxml");
+    }
+
+    public void goToReports(ActionEvent event) throws IOException {
+        System.out.println("Reports button clicked");
+        changeScene(event, "/view/areports.fxml");
     }
 
 
