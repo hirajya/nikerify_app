@@ -8,6 +8,9 @@ public class activityCardController {
     @FXML
     private Label label1;
 
+    // @FXML
+    // Text verify_id, shoe_model, shoe_color, scan_date
+
     public void initialize() {
         // Initialization code if needed
     }

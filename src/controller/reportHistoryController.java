@@ -10,21 +10,29 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import java.io.IOException; 
+import model.report;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class reportHistoryController {
 
     @FXML
-    ScrollPane scrollPaneReport;
+    private ScrollPane scrollPaneReport;
 
     @FXML
-    Button backBtn, goToHistoryScanBtn;
+    private Button backBtn, goToHistoryScanBtn;
     
     @FXML
     public void initialize() {
         try {
             loadReportCards();
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }
@@ -54,21 +62,74 @@ public class reportHistoryController {
         stage.show();
     }
 
-    private void loadReportCards() throws IOException {
+    private void loadReportCards() throws IOException, SQLException {
         VBox content = new VBox();
         content.setSpacing(10);
 
-        for (int i = 0; i < 10; i++) {  // Example: Load 10 report cards
+        // Fetch the list of reports from the database
+        List<report> reports = getReportsFromDatabase();
+
+        for (report rep : reports) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/utils/scanHistoryCard.fxml"));
             Parent reportCard = loader.load();
 
-            // Optionally, set data for each report card
+            // Set data for each report card
             controller.utils_card.reportCardController controller = loader.getController();
-            controller.setLabelText("Report Card " + (i + 1));
+            controller.setVerify_Id(String.valueOf(rep.getVerification_id()));
+            controller.setShoeModel(rep.getInput_shoe_model());
+            controller.setScanDate(rep.getReport_date().toString());
+            controller.setValidityText("ito nlng muna");
+            controller.setScanTime(rep.getReport_time().toString());
+
 
             content.getChildren().add(reportCard);
         }
 
         scrollPaneReport.setContent(content);
+    }
+
+    private List<report> getReportsFromDatabase() throws SQLException {
+        // Implement the logic to fetch the reports from the database
+        // For example:
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "SELECT * FROM report";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            List<report> reports = new ArrayList<>();
+            while (rs.next()) {
+                report rep = new report(
+                    rs.getInt("report_id"),
+                    rs.getInt("user_id"),
+                    rs.getInt("verification_id"),
+                    rs.getString("input_shoe_model"),
+                    rs.getDate("purchase_date").toLocalDate(),
+                    rs.getInt("type_seller"),
+                    rs.getString("report_comment"),
+                    rs.getString("report_status"),
+                    rs.getDate("scan_date").toLocalDate(),
+                    rs.getTime("scan_time").toLocalTime()
+
+                );
+                reports.add(rep);
+            }
+            return reports;
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
     }
 }
