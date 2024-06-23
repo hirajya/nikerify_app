@@ -50,6 +50,22 @@ public class report {
         this.report_time = localTime;
     }
 
+    // Add a new constructor to include the image data
+    public report(int report_id, int user_id, int verification_id, String input_shoe_model, LocalDate purchase_date, int type_seller, String report_comment, String report_status, LocalDate report_date, LocalTime report_time, byte[] product_photo, byte[] receipt_photo) {
+        this.report_id = report_id;
+        this.user_id = user_id;
+        this.verification_id = verification_id;
+        this.input_shoe_model = input_shoe_model;
+        this.purchase_date = purchase_date;
+        this.type_seller = type_seller;
+        this.report_comment = report_comment;
+        this.report_status = report_status;
+        this.report_date = report_date;
+        this.report_time = report_time;
+        this.product_photo = product_photo;
+        this.receipt_photo = receipt_photo;
+    }
+
     public report() {
     }
 

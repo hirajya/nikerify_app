@@ -8,9 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.report;
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,7 +30,9 @@ public class reportHistoryController {
 
     @FXML
     private Button backBtn, goToHistoryScanBtn;
-    
+
+    static int accUserId;
+
     @FXML
     public void initialize() {
         try {
@@ -81,6 +86,13 @@ public class reportHistoryController {
             controller.setValidityText("ito nlng muna");
             controller.setScanTime(rep.getReport_time().toString());
 
+            // Convert byte array to Image and set to ImageView
+            if (rep.getProduct_photo() != null) {
+                Image productImage = new Image(new ByteArrayInputStream(rep.getProduct_photo()));
+                controller.setProductImage(productImage);
+            } else {
+                controller.setProductImage("/resources/images/shoe.png"); // Default image
+            }
 
             content.getChildren().add(reportCard);
         }
@@ -89,16 +101,15 @@ public class reportHistoryController {
     }
 
     private List<report> getReportsFromDatabase() throws SQLException {
-        // Implement the logic to fetch the reports from the database
-        // For example:
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "SELECT * FROM report";
+            String sql = "SELECT * FROM report WHERE user_id = ?";
             pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accUserId);
             rs = pstmt.executeQuery();
 
             List<report> reports = new ArrayList<>();
@@ -113,8 +124,9 @@ public class reportHistoryController {
                     rs.getString("report_comment"),
                     rs.getString("report_status"),
                     rs.getDate("scan_date").toLocalDate(),
-                    rs.getTime("scan_time").toLocalTime()
-
+                    rs.getTime("scan_time").toLocalTime(),
+                    rs.getBytes("product_photo"), // Fetch the product photo
+                    rs.getBytes("receipt_photo")  // Fetch the receipt photo
                 );
                 reports.add(rep);
             }

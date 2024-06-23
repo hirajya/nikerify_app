@@ -17,7 +17,7 @@
          </font>
       </Text>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="271.0" />
-      <ImageView fitHeight="51.0" fitWidth="112.0" layoutX="10.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image_product" fitHeight="51.0" fitWidth="112.0" layoutX="10.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/activityhistory/image%2010.png" />
          </image>
@@ -47,7 +47,7 @@
             <Font name="Century Gothic" size="9.0" />
          </font>
       </Text>
-      <Button layoutX="228.0" layoutY="46.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="34.0" text="Button" />
+      <Button fx:id="seeDetailsBnt" layoutX="228.0" layoutY="46.0" mnemonicParsing="false" onAction="#goToItemDetails" prefHeight="14.0" prefWidth="34.0" text="Button" />
       <Label fx:id="verify_id" layoutX="187.0" layoutY="11.0" text="Label" />
       <Text fx:id="scan_time" layoutX="156.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4:35:00 AM PST">
          <font>

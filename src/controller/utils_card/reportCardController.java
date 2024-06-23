@@ -1,10 +1,19 @@
 package controller.utils_card;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class reportCardController {
 
@@ -12,13 +21,38 @@ public class reportCardController {
     private Label verify_id;
 
     @FXML
-    Text shoe_model_txt, scan_date, scan_time, validity_text;
+    private Button seeDetailsBnt;
 
-    // @FXML
-    // ImageView validity_symbol;
+    @FXML
+    private ImageView image_product;
+
+    @FXML
+    Text shoe_model_txt, scan_date, scan_time, validity_text;
 
     public void initialize() {
         // Initialization code if needed
+    }
+
+    public void goToItemDetails(ActionEvent event) throws IOException {
+        System.out.println("Proceed to see details");
+        changeScene(event, "/view/reportDetailsOnline.fxml");
+    }
+
+    public void changeScene(ActionEvent event, String fxml) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fxml));
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setProductImage(Image image) {
+        image_product.setImage(image);
+    }
+
+    public void setProductImage(String p_image) {
+        image_product.setImage(new Image(getClass().getResourceAsStream(p_image)));
     }
 
     public void setVerify_Id(String v_id) {
@@ -40,9 +74,4 @@ public class reportCardController {
     public void setValidityText(String v_text) {
         validity_text.setText(v_text);
     }
-
-    // public void setValiditySymbol(String v_symbol) {
-    //     validity_symbol.setImage(new Image(getClass().getResourceAsStream(v_symbol)));
-    // }
-
 }

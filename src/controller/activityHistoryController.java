@@ -20,6 +20,8 @@ public class activityHistoryController {
     @FXML
     private Button backBtn, reportsButton;
 
+    static int accUserId;
+
     @FXML
     public void initialize() {
         try {
