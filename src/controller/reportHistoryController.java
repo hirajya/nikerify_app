@@ -85,6 +85,7 @@ public class reportHistoryController {
             controller.setScanDate(rep.getReport_date().toString());
             controller.setValidityText("ito nlng muna");
             controller.setScanTime(rep.getReport_time().toString());
+            controller.setTsId(rep.getType_seller());
 
             // Convert byte array to Image and set to ImageView
             if (rep.getProduct_photo() != null) {
