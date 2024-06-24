@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.report;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -21,6 +22,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import controller.reportDetailOfficialController;
+import controller.reportDetailOnlineController;
 
 public class reportCardController {
 
@@ -96,8 +98,22 @@ public class reportCardController {
 
 
         } else if (valuets.equals("Physical Reseller")) {
+            fetchCombinedData(report_id);
+            
             changeScene(event, "/view/reportDetailsPhysical.fxml");
         } else if (valuets.equals("Online Merchant")) {
+            fetchCombinedData(report_id);
+            reportDetailOnlineController.status_val1 = reportStatus_val;
+            reportDetailOnlineController.report_id1 = reportId_val;
+            reportDetailOnlineController.verification_id1 = verificationId_val;
+            reportDetailOnlineController.authenticity_result1 = "Goods lng muna";
+            reportDetailOnlineController.report_date1 = scanDate_val;
+            reportDetailOnlineController.shoe_model1 = shoeModel_val;
+            reportDetailOnlineController.purchase_date1 = purchaseDate_val;
+            reportDetailOnlineController.typeSeller_kind1 = typeSellerKind_val;
+            reportDetailOnlineController.store_location_full = streetNumber_val + " " + blockNumber_val + " " + barangay_val + " " + city_val;
+            reportDetailOnlineController.store_name1 = storeName_val;
+            reportDetailOnlineController.store_contact_number1 = storeContactNumber_val;
             changeScene(event, "/view/reportDetailsOnline.fxml");
         }
     }
