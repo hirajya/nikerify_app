@@ -15,7 +15,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,7 +22,7 @@ import javafx.stage.Stage;
 public class loginPageController {
 
     @FXML
-    Button loginProceedButton, backToWelcomeButton, toSignupButton, adminBnt;
+    Button loginProceedButton, backToWelcomeButton, toSignupButton;
 
     @FXML
     TextField email_tf, password_tf;
@@ -51,13 +50,6 @@ public class loginPageController {
         System.out.println("Signup button clicked");
         changeScene(event, "/view/signupage1.fxml");
     }
-
-    public void goToAdmin(ActionEvent event) throws IOException {
-        System.out.println("Signup button clicked");
-        changeScene(event, "/view/adminlogin.fxml");
-    }
-
-
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
