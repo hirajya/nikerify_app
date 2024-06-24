@@ -120,50 +120,49 @@
          </font>
       </Text>
       <TextArea layoutX="32.0" layoutY="647.0" prefHeight="37.0" prefWidth="263.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b7bc" height="20.0" layoutX="215.0" layoutY="126.0" stroke="#b2b7bc" strokeType="INSIDE" width="72.0" />
-      <Text layoutX="230.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assessing">
+      <Text fx:id="status_txt" layoutX="75.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assessing" textAlignment="RIGHT" wrappingWidth="210.103515625">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="230.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
+      <Text fx:id="report_id_txt" layoutX="57.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31" textAlignment="RIGHT" wrappingWidth="229.0859375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="230.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
+      <Text fx:id="verification_id_txt" layoutX="57.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31" textAlignment="RIGHT" wrappingWidth="229.0859375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="206.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 10, 2024">
+      <Text fx:id="report_date_txt" layoutX="55.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 10, 2024" textAlignment="RIGHT" wrappingWidth="229.0859375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text fill="#831010" layoutX="218.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Invalid">
+      <Text fx:id="authenticity_result_txt" fill="#831010" layoutX="68.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Invalid" textAlignment="RIGHT" wrappingWidth="216.71484375">
          <font>
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="164.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro">
+      <Text fx:id="shoe_model_txt" layoutX="33.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro" textAlignment="RIGHT" wrappingWidth="249.623046875">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="203.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024">
+      <Text fx:id="purchase_date_txt" layoutX="52.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024" textAlignment="RIGHT" wrappingWidth="229.0859375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="199.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Physical Store">
+      <Text fx:id="typeSeller_kind_txt" layoutX="61.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Physical Store" textAlignment="RIGHT" wrappingWidth="216.71484375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="215.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Makati City">
+      <Text fx:id="store_location_txt" layoutX="31.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Makati City" textAlignment="RIGHT" wrappingWidth="249.623046875">
          <font>
-            <Font name="Century Gothic" size="12.0" />
+            <Font name="Century Gothic" size="11.0" />
          </font>
       </Text>
       <Text layoutX="30.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name">
@@ -171,7 +170,7 @@
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="194.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Michael's Soles">
+      <Text fx:id="store_name_txt" layoutX="63.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Michael's Soles" textAlignment="RIGHT" wrappingWidth="216.71484375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>

@@ -29,9 +29,10 @@ public class reportDetailOnlineController {
     public static String store_location_full;
     public static String store_name1;
     public static String store_contact_number1;
+    public static String store_link1;
 
     @FXML
-    Text status_txt, report_id_txt, verification_id_txt, authenticity_result_txt, report_date_txt, shoe_model_txt, purchase_date_txt, typeSeller_kind_txt, store_location_txt, store_name_txt, store_contact_number_txt;
+    Text status_txt, report_id_txt, verification_id_txt, authenticity_result_txt, report_date_txt, shoe_model_txt, purchase_date_txt, typeSeller_kind_txt, store_location_txt, store_name_txt, store_contact_number_txt, store_link_txt;
 
     @FXML
     public void initialize() {
@@ -49,6 +50,7 @@ public class reportDetailOnlineController {
         store_location_txt.setText(store_location_full);
         store_name_txt.setText(store_name1);
         store_contact_number_txt.setText(store_contact_number1);
+        store_link_txt.setText(store_link1);
     }
 
 

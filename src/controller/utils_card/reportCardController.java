@@ -23,6 +23,7 @@ import java.sql.SQLException;
 
 import controller.reportDetailOfficialController;
 import controller.reportDetailOnlineController;
+import controller.reportDetailPhysicalController;
 
 public class reportCardController {
 
@@ -99,6 +100,16 @@ public class reportCardController {
 
         } else if (valuets.equals("Physical Reseller")) {
             fetchCombinedData(report_id);
+            reportDetailPhysicalController.status_val1 = reportStatus_val;
+            reportDetailPhysicalController.report_id1 = reportId_val;
+            reportDetailPhysicalController.verification_id1 = verificationId_val;
+            reportDetailPhysicalController.authenticity_result1 = "Goods lng muna";
+            reportDetailPhysicalController.report_date1 = scanDate_val;
+            reportDetailPhysicalController.shoe_model1 = shoeModel_val;
+            reportDetailPhysicalController.purchase_date1 = purchaseDate_val;
+            reportDetailPhysicalController.typeSeller_kind1 = typeSellerKind_val;
+            reportDetailPhysicalController.store_location_full = streetNumber_val + " " + blockNumber_val + " " + barangay_val + " " + city_val;
+            reportDetailPhysicalController.store_name1 = storeName_val;
             
             changeScene(event, "/view/reportDetailsPhysical.fxml");
         } else if (valuets.equals("Online Merchant")) {
@@ -114,6 +125,7 @@ public class reportCardController {
             reportDetailOnlineController.store_location_full = streetNumber_val + " " + blockNumber_val + " " + barangay_val + " " + city_val;
             reportDetailOnlineController.store_name1 = storeName_val;
             reportDetailOnlineController.store_contact_number1 = storeContactNumber_val;
+            reportDetailOnlineController.store_link1 = storeLink_val;
             changeScene(event, "/view/reportDetailsOnline.fxml");
         }
     }
