@@ -138,4 +138,38 @@ public class typeseller {
 
         return generatedId; // Return the generated ts_id
     }
+
+    public String getTypeSellerKindById(int ts_id) throws SQLException {
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    String typeSellerKind = null;
+
+    try {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+        String sql = "SELECT type_seller_kind FROM type_seller_table WHERE ts_id = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, ts_id);
+        rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            typeSellerKind = rs.getString("type_seller_kind");
+        } else {
+            throw new SQLException("No type seller found with the provided ts_id.");
+        }
+    } finally {
+        if (rs != null) {
+            rs.close();
+        }
+        if (pstmt != null) {
+            pstmt.close();
+        }
+        if (conn != null) {
+            conn.close();
+        }
+    }
+
+    return typeSellerKind;
+}
+
 }

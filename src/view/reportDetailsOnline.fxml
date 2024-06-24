@@ -121,47 +121,47 @@
       </Text>
       <TextArea layoutX="32.0" layoutY="647.0" prefHeight="37.0" prefWidth="263.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b7bc" height="20.0" layoutX="215.0" layoutY="126.0" stroke="#b2b7bc" strokeType="INSIDE" width="72.0" />
-      <Text layoutX="230.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assessing">
+      <Text fx:id="status" layoutX="230.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assessing">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="230.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
+      <Text fx:id="report_id" layoutX="230.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="230.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
+      <Text fx:id="verification_request_id" layoutX="230.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="206.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 10, 2024">
+      <Text fx:id="report_date" layoutX="206.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 10, 2024">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text fill="#831010" layoutX="218.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Invalid">
+      <Text fx:id="authenticity_result" fill="#831010" layoutX="218.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Invalid">
          <font>
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="164.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro">
+      <Text fx:id="shoe_model" layoutX="164.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="203.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024">
+      <Text fx:id="purchase_date" layoutX="203.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="199.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Physical Store">
+      <Text fx:id="WDYproduct" layoutX="199.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Physical Store">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="215.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Makati City">
+      <Text fx:id="store_location" layoutX="215.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Makati City">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
@@ -171,7 +171,7 @@
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="194.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Michael's Soles">
+      <Text fx:id="store_name" layoutX="194.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Michael's Soles">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
@@ -181,7 +181,7 @@
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="213.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0961123123">
+      <Text fx:id="store_contact_number" layoutX="213.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0961123123">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
