@@ -133,4 +133,12 @@ public class reportCardController {
 
         return typeSellerKind;
     }
+
+    public void fetchDataDetails() {
+        // Fetch data from database
+    }
+
+    public void loadDetail() {
+        // Load the details of the report
+    }
 }
