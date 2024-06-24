@@ -20,6 +20,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import controller.reportDetailOfficialController;
+
 public class reportCardController {
 
     @FXML
@@ -80,7 +82,19 @@ public class reportCardController {
         String valuets = getTypeSellerKind(Integer.valueOf(ts_id_txt.getText()));
 
         if (valuets.equals("Official Nike Store")) {
+            fetchCombinedData(report_id);
+            reportDetailOfficialController.status_val1 = reportStatus_val;
+            reportDetailOfficialController.report_id1 = reportId_val;
+            reportDetailOfficialController.verification_id1 = verificationId_val;
+            reportDetailOfficialController.authenticity_result1 = "Goods lng muna";
+            reportDetailOfficialController.report_date1 = scanDate_val;
+            reportDetailOfficialController.shoe_model1 = shoeModel_val;
+            reportDetailOfficialController.purchase_date1 = purchaseDate_val;
+            reportDetailOfficialController.typeSeller_kind1 = typeSellerKind_val;
+            reportDetailOfficialController.store_location_full = streetNumber_val + " " + blockNumber_val + " " + barangay_val + " " + city_val;
             changeScene(event, "/view/reportDetailsOfficial.fxml");
+
+
         } else if (valuets.equals("Physical Reseller")) {
             changeScene(event, "/view/reportDetailsPhysical.fxml");
         } else if (valuets.equals("Online Merchant")) {
