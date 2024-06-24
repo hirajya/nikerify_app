@@ -8,21 +8,21 @@ public class shoe {
     private String batch_number;
     private String shoe_model;
 
-    public shoe(int shoe_id, String serial_number, String manufacture_year, String shoe_color, String batch_number, String shoe_model) {
+    public shoe(int shoe_id, String shoe_color, String serial_number, String manufacture_year, String batch_number, String shoe_model) {
         this.shoe_id = shoe_id;
+        this.shoe_color = shoe_color;
         this.serial_number = serial_number;
         this.manufacture_year = manufacture_year;
-        this.shoe_color = shoe_color;
         this.batch_number = batch_number;
         this.shoe_model = shoe_model;
     }
 
-    public shoe(String serial_number, String manufacture_year, String shoe_color, String batch_number, String shoe_model) {
+    public shoe(String serial_number, String manufacture_year, String batch_number, String shoe_model, String shoe_color) {
         this.serial_number = serial_number;
         this.manufacture_year = manufacture_year;
-        this.shoe_color = shoe_color;
         this.batch_number = batch_number;
         this.shoe_model = shoe_model;
+        this.shoe_color = shoe_color;
     }
 
     public shoe() {
@@ -52,10 +52,6 @@ public class shoe {
         this.manufacture_year = manufacture_year;
     }
 
-    public String getShoe_color() {
-        return shoe_color;
-    }
-
     public void setShoe_color(String shoe_color) {
         this.shoe_color = shoe_color;
     }
@@ -75,4 +71,14 @@ public class shoe {
     public void setShoe_model(String shoe_model) {
         this.shoe_model = shoe_model;
     }
+
+    public String getShoe_color() {
+        return shoe_color;
+    }
+
+    public void setShoe_Color(String shoe_color) {
+        this.shoe_color = shoe_color;
+    }
+
+    
 }

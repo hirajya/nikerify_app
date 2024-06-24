@@ -11,16 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homePageController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homePageController">
    <children>
       <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/homepage/notif.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="279.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/homepage/profile.png" />
          </image>
       </ImageView>
       <Line endX="303.5" layoutX="27.0" layoutY="51.0" opacity="0.36" startX="-100.0" />
@@ -29,7 +24,7 @@
             <Font name="Century Gothic Bold" size="17.0" />
          </font>
       </Text>
-      <Text layoutX="28.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, User!" wrappingWidth="166.1103515625">
+      <Text layoutX="26.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello," wrappingWidth="78.77704620361328">
          <font>
             <Font name="Century Gothic Bold" size="24.0" />
          </font>
@@ -143,5 +138,38 @@
       <Button fx:id="RFIDVerifyButton" layoutX="26.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToRFIDVerify" opacity="0.0" prefHeight="71.0" prefWidth="266.0" text="Button" />
       <Button fx:id="submitReportButton" layoutX="29.0" layoutY="398.0" mnemonicParsing="false" onAction="#goToSubmitReport" opacity="0.0" prefHeight="71.0" prefWidth="266.0" text="Button" />
       <Button fx:id="activityHistoryButton" layoutX="28.0" layoutY="562.0" mnemonicParsing="false" onAction="#goToActivityHistory" opacity="0.0" prefHeight="71.0" prefWidth="266.0" text="Button" />
+      <Text fx:id="acc_name_text" layoutX="95.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="input name" wrappingWidth="166.77706146240234">
+         <font>
+            <Font name="Century Gothic Bold" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="279.0" layoutY="11.0" onMouseClicked="#showLocationPane" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/homepage/profile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="blackBg" fitHeight="726.0" fitWidth="954.0" layoutX="-334.0" layoutY="-14.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../assets/A_black_image.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="locationPane" layoutX="1.0" layoutY="701.0" prefHeight="253.0" prefWidth="320.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="253.0" layoutX="-1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="287.0" layoutY="9.0" stroke="#00000080" strokeType="INSIDE" width="19.0" />
+            <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="288.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/rfidAuthenticDetails/octicon_x-12.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="hideLocationBtn" layoutX="285.0" layoutY="7.0" mnemonicParsing="false" onAction="#hideLocationPane" opacity="0.43" prefHeight="25.0" prefWidth="17.0" text="Button" />
+            <Button fx:id="signoutBtn" layoutX="210.0" layoutY="179.0" mnemonicParsing="false" onAction="#signout" text="Sign Out" />
+            <ImageView fitHeight="80.0" fitWidth="72.0" layoutX="22.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/homepage/profile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

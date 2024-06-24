@@ -17,7 +17,7 @@ import model.verification;
 import model.location;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,6 +26,14 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+
+import javax.imageio.ImageIO;
 
 public class supportDocumentsController {
 
@@ -132,7 +140,7 @@ public class supportDocumentsController {
 
         // Insert report data into report table
         input_report_comment = report_comment_tf.getText();
-        report report = new report(accUserId1, Integer.valueOf(input_verify_id1), input_shoe_model1, purchaseDate1, ts_id_input1, input_report_comment);
+        report report = new report(accUserId1, Integer.valueOf(input_verify_id1), input_shoe_model1, purchaseDate1, ts_id_input1, input_report_comment, "Assessing", LocalDate.now(), java.time.LocalTime.now());
         report.saveReport2();
 
         System.out.println("Data saved successfully");
@@ -174,39 +182,44 @@ public class supportDocumentsController {
         receiptPhotoFile = uploadPhoto("receipt_photo");
     }
 
-    private File uploadPhoto(String photoType) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-    
-        if (selectedFile != null) {
-            // Generate a unique file name for saving locally
-            String uniqueFileName = UUID.randomUUID().toString() + "_" + selectedFile.getName();
-            File directory = new File("temp");
-            if (!directory.exists()) {
-                directory.mkdirs(); // Ensure temp directory exists
-            }
-            File destinationFile = new File(directory, uniqueFileName); // Save in a temp directory
-    
-            try (FileInputStream fis = new FileInputStream(selectedFile);
-                 FileOutputStream fos = new FileOutputStream(destinationFile)) {
-    
-                byte[] buffer = new byte[1024];
-                int length;
-                while ((length = fis.read(buffer)) > 0) {
-                    fos.write(buffer, 0, length);
-                }
-    
-                System.out.println(photoType + " saved locally: " + destinationFile.getAbsolutePath());
-                return destinationFile;
-    
-            } catch (IOException e) {
-                e.printStackTrace();
-                showAlert("Error", "Failed to upload " + photoType + ".");
-            }
-        }
-        return null;
+    private File compressImage(File originalFile) throws IOException {
+    BufferedImage originalImage = ImageIO.read(originalFile);
+    BufferedImage compressedImage = new BufferedImage(
+            originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+
+    compressedImage.createGraphics().drawImage(originalImage, 0, 0, java.awt.Color.WHITE, null);
+
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    ImageIO.write(compressedImage, "jpg", baos);
+
+    // Save the compressed image to a temporary file
+    File compressedFile = new File("temp", UUID.randomUUID().toString() + ".jpg");
+    try (FileOutputStream fos = new FileOutputStream(compressedFile)) {
+        fos.write(baos.toByteArray());
     }
+
+    return compressedFile;
+}
+
+private File uploadPhoto(String photoType) {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+    File selectedFile = fileChooser.showOpenDialog(null);
+
+    if (selectedFile != null) {
+        try {
+            // Compress the image before saving
+            File compressedFile = compressImage(selectedFile);
+            System.out.println(photoType + " saved locally: " + compressedFile.getAbsolutePath());
+            return compressedFile;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to upload " + photoType + ".");
+        }
+    }
+    return null;
+}
     
 
     private void changeScene(ActionEvent event, String fxml) throws IOException {
