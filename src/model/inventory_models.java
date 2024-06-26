@@ -39,7 +39,7 @@ public class inventory_models {
             if (rs.next()) {
                 shoe_name_value = rs.getString("shoe_name");
             } else {
-                System.out.println("User not found with provided user ID.");
+                System.out.println("Userzz.");
             }
 
         } catch (SQLException | ClassNotFoundException e) {

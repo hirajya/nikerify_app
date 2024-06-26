@@ -106,9 +106,9 @@ public class rfidDetailsController {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
 
-            String sql = "SELECT batch_number, model_id,manufacturing_location, manufacturing_year, unit_color, last_scan_date FROM inventory_units WHERE verification_serial_ID = ?";
+            String sql = "SELECT batch_number, model_ID,manufacturing_location, manufacturing_year, unit_color, last_scan_date FROM inventory_units WHERE verification_serial_ID = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, shoe_id1);
+            pstmt.setString(1, rfid_val);
 
             rs = pstmt.executeQuery();
 
@@ -118,7 +118,17 @@ public class rfidDetailsController {
                 Year manufacturingYear = Year.of(rs.getInt("manufacturing_year"));
                 String unit_color = rs.getString("unit_color");
                 String scan_date = rs.getString("last_scan_date");
-                String model_id = rs.getString("model_id");
+                String model_id = rs.getString("model_ID");
+                
+                System.out.println("----");
+                System.out.println(batchNumber);
+                System.out.println(manufacturingLocation);
+                System.out.println(manufacturingYear);
+                System.out.println(unit_color);
+                System.out.println(scan_date);
+                System.out.println(model_id);
+                System.out.println("----");
+
 
                 batch_number_txt.setText(batchNumber);
                 manufacturing_location_txt.setText(manufacturingLocation);
@@ -148,6 +158,8 @@ public class rfidDetailsController {
 
     public void fetchShoeModel() throws SQLException {
         String shoe_model_value1 = inventory_models.getShoeModelByModelId(model_id1);
+        System.out.println(model_id1);
+        System.out.println(shoe_model_value1);
         model_shoe_txt.setText(shoe_model_value1);
     }
 }
