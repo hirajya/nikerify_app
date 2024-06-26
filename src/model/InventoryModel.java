@@ -1,40 +1,53 @@
 package model;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.ImageView;
 
 public class InventoryModel {
-    private ImageView imageView; // Changed from 'picture' to 'imageView'
-    private String modelID;
-    private String shoeName;
 
-    public InventoryModel(ImageView imageView, String modelID, String shoeName) {
-        this.imageView = imageView;
-        this.modelID = modelID;
-        this.shoeName = shoeName;
+    private final SimpleObjectProperty<ImageView> picture;
+    private final SimpleObjectProperty<String> modelID;
+    private final SimpleObjectProperty<String> shoeName;
+
+    public InventoryModel(ImageView picture, String modelID, String shoeName) {
+        this.picture = new SimpleObjectProperty<>(picture);
+        this.modelID = new SimpleObjectProperty<>(modelID);
+        this.shoeName = new SimpleObjectProperty<>(shoeName);
     }
 
-    // Getters and setters
-    public ImageView getImageView() {
-        return imageView;
+    public ImageView getPicture() {
+        return picture.get();
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
+    public SimpleObjectProperty<ImageView> pictureProperty() {
+        return picture;
+    }
+
+    public void setPicture(ImageView picture) {
+        this.picture.set(picture);
     }
 
     public String getModelID() {
+        return modelID.get();
+    }
+
+    public SimpleObjectProperty<String> modelIDProperty() {
         return modelID;
     }
 
     public void setModelID(String modelID) {
-        this.modelID = modelID;
+        this.modelID.set(modelID);
     }
 
     public String getShoeName() {
+        return shoeName.get();
+    }
+
+    public SimpleObjectProperty<String> shoeNameProperty() {
         return shoeName;
     }
 
     public void setShoeName(String shoeName) {
-        this.shoeName = shoeName;
+        this.shoeName.set(shoeName);
     }
 }

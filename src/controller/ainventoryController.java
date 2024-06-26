@@ -10,11 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.InventoryModel;
 
@@ -61,11 +63,26 @@ public class ainventoryController {
     }
 
     public void initialize() {
-        colPicture.setCellValueFactory(new PropertyValueFactory<>("imageView")); // Match this with the model property
+        colPicture.setCellValueFactory(new PropertyValueFactory<>("picture"));
         colModelID.setCellValueFactory(new PropertyValueFactory<>("modelID"));
         colShoeName.setCellValueFactory(new PropertyValueFactory<>("shoeName"));
 
         loadInventoryData();
+
+        inventoryTable.setRowFactory(tv -> {
+            TableRow<InventoryModel> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 1 && (!row.isEmpty())) {
+                    InventoryModel rowData = row.getItem();
+                    try {
+                        goToDetails(rowData, event); // Pass the event parameter here
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row;
+        });
     }
 
     private void loadInventoryData() {
@@ -110,14 +127,40 @@ public class ainventoryController {
         }
     }
 
+    private void goToDetails(InventoryModel inventoryModel, MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/amodeldetails.fxml"));
+        Parent root = loader.load();
+
+        // Get the controller instance
+        amodeldetailsController detailsController = loader.getController();
+
+        // Optionally pass data to the details controller
+        // detailsController.setData(...);
+
+        // Create a new stage for the details view
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+        // Close the current stage if needed
+        if (event != null) {
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+        }
+    }
+
+    @FXML
     public void goToDashboard(ActionEvent event) throws IOException {
         changeScene(event, "/view/adashboardscansandreports.fxml");
     }
 
+    @FXML
     public void goToReports(ActionEvent event) throws IOException {
         changeScene(event, "/view/areports.fxml");
     }
 
+    @FXML
     public void addModel(ActionEvent event) throws IOException {
         changeScene(event, "/view/ainventoryaddmodel.fxml");
     }
