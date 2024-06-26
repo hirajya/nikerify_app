@@ -140,7 +140,7 @@ public class supportDocumentsController {
 
         // Insert report data into report table
         input_report_comment = report_comment_tf.getText();
-        report report = new report(accUserId1, Integer.valueOf(input_verify_id1), input_shoe_model1, purchaseDate1, ts_id_input1, input_report_comment, "Assessing");
+        report report = new report(accUserId1, Integer.valueOf(input_verify_id1), input_shoe_model1, purchaseDate1, ts_id_input1, input_report_comment, "Assessing", LocalDate.now(), java.time.LocalTime.now());
         report.saveReport2();
 
         System.out.println("Data saved successfully");

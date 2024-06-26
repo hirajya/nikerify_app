@@ -138,4 +138,6 @@ public class typeseller {
 
         return generatedId; // Return the generated ts_id
     }
+
+    
 }

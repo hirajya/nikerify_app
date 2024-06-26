@@ -40,13 +40,14 @@ public class submitReportController {
     private ToggleGroup choices;
 
     @FXML
-    TextField rb1_store_location, rb2_store_location, rb2_store_name, rb3_store_location, rb3_store_name, rb3_store_contact_number;
+    TextField rb1_store_location, rb2_store_location, rb2_store_name, rb3_store_location, rb3_store_name, rb3_store_contact_number, rb3_store_contact_link;
 
     String input_verify_id;
     String input_shoe_model;
     String selectedTypeSeller;
     String storeLocation;
     String storeName;
+    String storelink;
     String storeContactNumber;
     LocalDate purchaseDate;
     static int accUserId;
@@ -104,6 +105,7 @@ public class submitReportController {
                 storeLocation = rb3_store_location.getText();
                 storeName = rb3_store_name.getText();
                 storeContactNumber = rb3_store_contact_number.getText();
+                storelink = rb3_store_contact_link.getText();
             }
 
             // Validate all fields are filled
@@ -136,6 +138,7 @@ public class submitReportController {
             supportDocumentsController.purchaseDate1 = purchaseDate; // Pass the purchase date
             supportDocumentsController.storeName1 = storeName;
             supportDocumentsController.storeContactNumber1 = storeContactNumber;
+            supportDocumentsController.storelink1 = storelink;
             supportDocumentsController.accUserId1 = accUserId;
 
             System.out.println("Next button clicked");

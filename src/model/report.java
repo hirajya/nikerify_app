@@ -1,11 +1,14 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class report {
     private int report_id;
@@ -18,8 +21,11 @@ public class report {
     private byte[] receipt_photo;
     private String report_comment;
     private String report_status;
+    private LocalDate report_date;
+    private LocalTime report_time;
+    
 
-    public report(int report_id, int user_id, int verification_id, String input_shoe_model, LocalDate purchase_date, int type_seller, String report_comment, String report_status) {
+    public report(int report_id, int user_id, int verification_id, String input_shoe_model, LocalDate purchase_date, int type_seller, String report_comment, String report_status, LocalDate report_date, LocalTime report_time) {
         this.report_id = report_id;
         this.user_id = user_id;
         this.verification_id = verification_id;
@@ -28,9 +34,11 @@ public class report {
         this.type_seller = type_seller;
         this.report_comment = report_comment;
         this.report_status = report_status;
+        this.report_date = report_date;
+        this.report_time = report_time;
     }
 
-    public report(int user_id, int input_verify_id1, String input_shoe_model, LocalDate purchaseDate1, int ts_id_input1, String report_comment, String report_status) {
+    public report(int user_id, int input_verify_id1, String input_shoe_model, LocalDate purchaseDate1, int ts_id_input1, String report_comment, String report_status, LocalDate report_date, LocalTime localTime) {
         this.user_id = user_id;
         this.verification_id = input_verify_id1;
         this.input_shoe_model = input_shoe_model;
@@ -38,6 +46,24 @@ public class report {
         this.type_seller = ts_id_input1;
         this.report_comment = report_comment;
         this.report_status = report_status;
+        this.report_date = report_date;
+        this.report_time = localTime;
+    }
+
+    // Add a new constructor to include the image data
+    public report(int report_id, int user_id, int verification_id, String input_shoe_model, LocalDate purchase_date, int type_seller, String report_comment, String report_status, LocalDate report_date, LocalTime report_time, byte[] product_photo, byte[] receipt_photo) {
+        this.report_id = report_id;
+        this.user_id = user_id;
+        this.verification_id = verification_id;
+        this.input_shoe_model = input_shoe_model;
+        this.purchase_date = purchase_date;
+        this.type_seller = type_seller;
+        this.report_comment = report_comment;
+        this.report_status = report_status;
+        this.report_date = report_date;
+        this.report_time = report_time;
+        this.product_photo = product_photo;
+        this.receipt_photo = receipt_photo;
     }
 
     public report() {
@@ -113,6 +139,30 @@ public class report {
 
     public void setReport_comment(String report_comment) {
         this.report_comment = report_comment;
+    }
+
+    public String getReport_status() {
+        return report_status;
+    }
+
+    public void setReport_status(String report_status) {
+        this.report_status = report_status;
+    }
+
+    public LocalDate getReport_date() {
+        return report_date;
+    }
+
+    public void setReport_date(LocalDate report_date) {
+        this.report_date = report_date;
+    }
+
+    public LocalTime getReport_time() {
+        return report_time;
+    }
+
+    public void setReport_time(LocalTime report_time) {
+        this.report_time = report_time;
     }
 
     public int saveReport() throws SQLException {
