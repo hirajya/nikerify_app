@@ -1,5 +1,6 @@
 package controller.utils_card;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.Action;
@@ -12,6 +13,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,11 +26,18 @@ public class activityCardController {
     @FXML
     Text validity_txt, shoe_model_txt, scan_time_txt, scan_date_txt,verify_id_txt, serialNum_txt;
 
+    @FXML
+    ImageView authenPic;
+    
+    private Image checkImage;
+    private Image crossImage;
     // @FXML
     // Text verify_id, shoe_model, shoe_color, scan_date
 
     public void initialize() {
-        // Initialization code if needed
+        checkImage = new Image(new File("assets\\activityhistory\\iconamoon_check-fill.png").toURI().toString());
+        crossImage = new Image(new File("assets\\activityhistory\\iconamoon_check-filll.png").toURI().toString());
+        
     }
 
     public void seeDetails(ActionEvent event) throws IOException {
@@ -51,6 +61,14 @@ public class activityCardController {
 
     public void setValidity_txt(String text) {
         validity_txt.setText(text);
+        // Set text color based on validity
+        if ("RFID Authentic".equals(text)) {
+            validity_txt.setStyle("-fx-fill: green;");
+            authenPic.setImage(checkImage);
+        } else {
+            validity_txt.setStyle("-fx-fill: red;");
+            authenPic.setImage(crossImage);
+        }
     }
 
     public void setShoe_model_txt(String text) {
@@ -61,8 +79,8 @@ public class activityCardController {
         scan_time_txt.setText(text);
     }
 
-    public void setVerify_id_txt(String text) {
-        verify_id_txt.setText(text);
+    public void setValidity_id_txt(String text) {
+        validity_txt.setText(text);
     }
 
     public void setVerify_id(String text) {

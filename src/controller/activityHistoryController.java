@@ -18,8 +18,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import controller.utils_card.activityCardController;
 
 public class activityHistoryController {
 
@@ -72,6 +76,8 @@ public class activityHistoryController {
         // Fetch the list of reports from the database
         List<verification> verifications = getReportsFromDatabase();
 
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
+
         for (verification veri : verifications) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/utils/scanActivityCard.fxml"));
             Parent reportCard = loader.load();
@@ -80,17 +86,62 @@ public class activityHistoryController {
             controller.utils_card.activityCardController controller = loader.getController();
             controller.setLabelText("RFID Authentic");
             controller.setScan_date_txt(veri.getVerification_date().toString());
-            controller.setScan_time_txt(veri.getVerification_time().toString());
+            controller.setScan_time_txt(veri.getVerification_time().format(timeFormatter)); // Format the time
             controller.setShoe_model_txt(getShoeModel2(getShoeModel(veri.getShoe_id())));
-            controller.setValidity_txt("RFID Authentic");
-            controller.setVerify_id_txt(String.valueOf(veri.getVerification_id()));
+            controller.setValidity_txt(checkIfAuthentic(veri.getSerial_number()));
+            controller.setVerify_id(String.valueOf(veri.getVerification_id()));
             controller.setSerialNum_txt(veri.getSerial_number());
-            
 
             content.getChildren().add(reportCard);
         }
 
         scrollPaneReport.setContent(content);
+    }
+
+    public String checkIfAuthentic(String serialNumber) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String authenticityStatus = "Not Authentic"; // Default value
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "SELECT authenticity_result FROM verification WHERE serial_number = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, serialNumber);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                boolean isAuthentic = rs.getBoolean("authenticity_result");
+                if (isAuthentic) {
+                    authenticityStatus = "RFID Authentic";
+                } else {
+                    authenticityStatus = "RFID Not Authentic";
+                }
+            } else {
+                authenticityStatus = "Not Found";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle exception as needed
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle exception as needed
+            }
+        }
+
+        return authenticityStatus;
     }
 
     public String getShoeModel(String shoeId) throws SQLException {
@@ -154,8 +205,6 @@ public class activityHistoryController {
 
         return shoeModel;
     }
-
-
 
     private List<verification> getReportsFromDatabase() throws SQLException {
         Connection conn = null;
