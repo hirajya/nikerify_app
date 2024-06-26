@@ -75,7 +75,7 @@ public class ainventoryController {
                 if (event.getClickCount() == 1 && (!row.isEmpty())) {
                     InventoryModel rowData = row.getItem();
                     try {
-                        goToDetails(rowData, event); // Pass the event parameter here
+                        goToDetails(rowData, event);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -100,7 +100,6 @@ public class ainventoryController {
                 byte[] imageBytes = resultSet.getBytes("shoe_img");
                 String shoeName = resultSet.getString("shoe_name");
 
-                // Convert byte[] to ImageView
                 ImageView imageView = new ImageView(new Image(new ByteArrayInputStream(imageBytes)));
                 imageView.setFitHeight(80);
                 imageView.setFitWidth(80);
@@ -132,19 +131,14 @@ public class ainventoryController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/amodeldetails.fxml"));
         Parent root = loader.load();
 
-        // Get the controller instance
         amodeldetailsController detailsController = loader.getController();
+        detailsController.initData(inventoryModel.getModelID(), inventoryModel.getShoeName());
 
-        // Pass modelID to amodeldetailsController
-        detailsController.initData(inventoryModel.getModelID());
-
-        // Create a new stage for the details view
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
-        // Close the current stage if needed
         if (event != null) {
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.close();

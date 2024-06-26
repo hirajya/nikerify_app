@@ -1,31 +1,30 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import model.InventoryModel;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import model.InventoryUnit;
-import javafx.scene.Node;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import java.sql.*;
+import javafx.scene.Node;
 
 public class amodeldetailsController {
 
@@ -47,9 +46,25 @@ public class amodeldetailsController {
     @FXML
     private TableColumn<InventoryUnit, Integer> colScans;
 
+    @FXML
+    private ImageView modelImg;
+
+    @FXML
+    private Label modelTitlePage;
+
+    @FXML
+    private Label shoeNamelbl;
+
+    @FXML
+    private Label shoeCountLbl;
+
+    @FXML
+    private Label scannedCountLbl;
+
     private ObservableList<InventoryUnit> unitList = FXCollections.observableArrayList();
 
     private String selectedModelID;
+    private String selectedShoeName;
 
     @FXML
     public void initialize() {
@@ -60,13 +75,26 @@ public class amodeldetailsController {
         colScans.setCellValueFactory(new PropertyValueFactory<>("numberOfScans"));
     }
 
-    public void initData(String modelID) {
+    public void initData(String modelID, String shoeName) {
         this.selectedModelID = modelID;
-        loadUnitData(modelID);
+        this.selectedShoeName = shoeName;
+        updateDetails();
+    }
+
+    public void updateDetails() {
+        if (selectedModelID != null && selectedShoeName != null) {
+            modelTitlePage.setText("Details for Model ID: " + selectedModelID);
+            shoeNamelbl.setText(selectedShoeName);
+            loadImage(selectedModelID); // Load image for the model ID
+
+            loadUnitData(selectedModelID);
+            updateShoeCount(selectedModelID);
+            updateScannedCount(selectedModelID);
+        }
     }
 
     private void loadUnitData(String modelID) {
-        unitList.clear(); // Clear the list before adding new data
+        unitList.clear();
 
         Connection con = getConnection();
         PreparedStatement statement = null;
@@ -91,6 +119,111 @@ public class amodeldetailsController {
             }
 
             unitTable.setItems(unitList);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+                if (statement != null)
+                    statement.close();
+                if (con != null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void updateShoeCount(String modelID) {
+        Connection con = getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            String query = "SELECT COUNT(*) FROM inventory_units WHERE model_ID = ?";
+            statement = con.prepareStatement(query);
+            statement.setString(1, modelID);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                System.out.println("Total Shoes: " + count); // Debug statement
+                // Update the label on the JavaFX Application Thread
+                Platform.runLater(() -> shoeCountLbl.setText(String.valueOf(count)));
+            } else {
+                System.out.println("No results found for shoe count."); // Debug statement
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+                if (statement != null)
+                    statement.close();
+                if (con != null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void updateScannedCount(String modelID) {
+        Connection con = getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            String query = "SELECT SUM(number_of_scans) FROM inventory_units WHERE model_ID = ?";
+            statement = con.prepareStatement(query);
+            statement.setString(1, modelID);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                System.out.println("Total Scans: " + count); // Debug statement
+                // Update the label on the JavaFX Application Thread
+                Platform.runLater(() -> scannedCountLbl.setText(String.valueOf(count)));
+            } else {
+                System.out.println("No results found for scanned count."); // Debug statement
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+                if (statement != null)
+                    statement.close();
+                if (con != null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadImage(String modelID) {
+        Connection con = getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            String query = "SELECT shoe_img FROM inventory_model WHERE model_ID = ?";
+            statement = con.prepareStatement(query);
+            statement.setString(1, modelID);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                byte[] imageBytes = resultSet.getBytes("shoe_img");
+                Image image = new Image(new ByteArrayInputStream(imageBytes));
+                modelImg.setImage(image);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
