@@ -27,6 +27,7 @@ public class reportDetailPhysicalController {
     public static int verification_id1;
     public static String authenticity_result1;
     public static String report_date1;
+    public static String comment_val1;
 
     public static String shoe_model1;
     public static String purchase_date1;
@@ -42,7 +43,7 @@ public class reportDetailPhysicalController {
     ImageView receipt_pht, product_pht;
 
     @FXML
-    Text status_txt, report_id_txt, verification_id_txt, authenticity_result_txt, report_date_txt, shoe_model_txt, purchase_date_txt, typeSeller_kind_txt, store_location_txt, store_name_txt;
+    Text comment_txt, status_txt, report_id_txt, verification_id_txt, authenticity_result_txt, report_date_txt, shoe_model_txt, purchase_date_txt, typeSeller_kind_txt, store_location_txt, store_name_txt;
 
     @FXML
     public void initialize() {
@@ -60,6 +61,7 @@ public class reportDetailPhysicalController {
         store_location_txt.setText(store_location_full);
         store_name_txt.setText(store_name1);
         initializeImages();
+        comment_txt.setText(comment_val1);
     }
 
     public void initializeImages() {

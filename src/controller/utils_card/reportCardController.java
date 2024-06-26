@@ -55,6 +55,7 @@ public class reportCardController {
     public static Blob receiptPicture_val;
     public static Blob productPicture_val;
     
+    
     public static int tsId_val;
     public static int storeLocationId_val;
     public static String storeName_val;
@@ -102,6 +103,7 @@ public class reportCardController {
             reportDetailOfficialController.store_location_full = streetNumber_val + " " + blockNumber_val + " " + barangay_val + " " + city_val;
             reportDetailOfficialController.product_photo1 = productPicture_val;
             reportDetailOfficialController.receipt_photo1 = receiptPicture_val;
+            reportDetailOfficialController.comment_val1 = reportComment_val;
 
             changeScene(event, "/view/reportDetailsOfficial.fxml");
 
@@ -120,6 +122,7 @@ public class reportCardController {
             reportDetailPhysicalController.store_name1 = storeName_val;
             reportDetailPhysicalController.product_photo1 = productPicture_val;
             reportDetailPhysicalController.receipt_photo1 = receiptPicture_val;
+            reportDetailPhysicalController.comment_val1 = reportComment_val;
 
             
             changeScene(event, "/view/reportDetailsPhysical.fxml");
@@ -139,6 +142,7 @@ public class reportCardController {
             reportDetailOnlineController.store_link1 = storeLink_val;
             reportDetailOnlineController.product_photo1 = productPicture_val;
             reportDetailOnlineController.receipt_photo1 = receiptPicture_val;
+            reportDetailOnlineController.comment_val1 = reportComment_val;
             changeScene(event, "/view/reportDetailsOnline.fxml");
         }
     }
