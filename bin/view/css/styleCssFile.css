@@ -1,9 +1,0 @@
-/* styles.css */
-.scroll-pane {
-  -fx-background-color: transparent;
-  -fx-border-color: transparent;
-}
-
-.scroll-pane .viewport {
-  -fx-background-color: transparent;
-}

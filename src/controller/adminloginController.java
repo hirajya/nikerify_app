@@ -19,6 +19,9 @@ public class adminloginController {
     @FXML
     TextField aemail_tf, apassword_tf;
 
+    private final String predefinedEmail = "nikerifyadmin@gmail.com";
+    private final String predefinedPassword = "admin123";
+
     @FXML
     public void initialize() {
         // Initialization code if needed
@@ -26,9 +29,17 @@ public class adminloginController {
 
     public void adminLogin(ActionEvent event) throws IOException {
         System.out.println("Admin Login button clicked");
-        changeScene(event, "/view/adashboardscansandreports.fxml");
+
+        if (checkCredentials(aemail_tf.getText(), apassword_tf.getText())) {
+            changeScene(event, "/view/adashboardscansandreports.fxml");
+        } else {
+            System.out.println("Invalid email or password");
+        }
     }
 
+    private boolean checkCredentials(String email, String password) {
+        return predefinedEmail.equals(email) && predefinedPassword.equals(password);
+    }
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
