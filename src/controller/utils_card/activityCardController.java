@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.swing.Action;
 
+import controller.rfidDetailsController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ public class activityCardController {
     private Label label1;
 
     @FXML
-    Text validity_txt, shoe_model_txt, scan_time_txt, scan_date_txt,verify_id_txt;
+    Text validity_txt, shoe_model_txt, scan_time_txt, scan_date_txt,verify_id_txt, serialNum_txt;
 
     // @FXML
     // Text verify_id, shoe_model, shoe_color, scan_date
@@ -30,11 +31,18 @@ public class activityCardController {
     }
 
     public void seeDetails(ActionEvent event) throws IOException {
+        System.out.println("See details button clicked");
+        rfidDetailsController.forViewing = true;
+        rfidDetailsController.rfid_val = serialNum_txt.getText();
         changeScene(event, "/view/rfidAutheticDetails.fxml");
     }
 
     public void setLabelText(String text) {
         label1.setText(text);
+    }
+
+    public void setSerialNum_txt(String text) {
+        serialNum_txt.setText(text);
     }
 
     public void setScan_date_txt(String text) {

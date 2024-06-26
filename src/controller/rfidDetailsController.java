@@ -35,25 +35,34 @@ public class rfidDetailsController {
 
     static boolean isRFIDVerified = false;
 
-    static String rfid_val;
+    public static String rfid_val;
     static String shoe_id1;
     static String model_id1;
 
     public static int accUserId;
+
+    public static boolean forViewing = false;
     
     @FXML
-    Text verify_id_txt, batch_number_txt, manufacturing_location_txt, scan_date_txt, manufacturing_year_txt, unit_color_txt, full_name_txt, model_shoe_txt; 
+    Text verify_id_txt, batch_number_txt, manufacturing_location_txt, scan_date_txt, manufacturing_year_txt, unit_color_txt, full_name_txt, model_shoe_txt;
 
     public void initialize() throws SQLException {
         System.out.println(rfid_val);
-        saveVerification();
+
+        if (!forViewing) {
+            saveVerification();
+        }
+
+        // Common fetch operations
         fetchData();
         fetchUserName();
         fetchShoeModel();
         showValue();
+
     }
 
-    public void showValue() {
+    public void showValue() throws SQLException {
+        isRFIDVerified = inventory_units.checkRFIDExists(rfid_val);
         if (isRFIDVerified) {
             passResult.setVisible(true);
             failResult.setVisible(false);
@@ -106,7 +115,7 @@ public class rfidDetailsController {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
 
-            String sql = "SELECT batch_number, model_ID,manufacturing_location, manufacturing_year, unit_color, last_scan_date FROM inventory_units WHERE verification_serial_ID = ?";
+            String sql = "SELECT batch_number, model_ID, manufacturing_location, manufacturing_year, unit_color, last_scan_date FROM inventory_units WHERE verification_serial_ID = ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, rfid_val);
 
@@ -119,16 +128,6 @@ public class rfidDetailsController {
                 String unit_color = rs.getString("unit_color");
                 String scan_date = rs.getString("last_scan_date");
                 String model_id = rs.getString("model_ID");
-                
-                System.out.println("----");
-                System.out.println(batchNumber);
-                System.out.println(manufacturingLocation);
-                System.out.println(manufacturingYear);
-                System.out.println(unit_color);
-                System.out.println(scan_date);
-                System.out.println(model_id);
-                System.out.println("----");
-
 
                 batch_number_txt.setText(batchNumber);
                 manufacturing_location_txt.setText(manufacturingLocation);
@@ -136,7 +135,6 @@ public class rfidDetailsController {
                 unit_color_txt.setText(unit_color);
                 scan_date_txt.setText(scan_date);
                 model_id1 = model_id;
-
             }
         } finally {
             if (rs != null) {
@@ -158,8 +156,6 @@ public class rfidDetailsController {
 
     public void fetchShoeModel() throws SQLException {
         String shoe_model_value1 = inventory_models.getShoeModelByModelId(model_id1);
-        System.out.println(model_id1);
-        System.out.println(shoe_model_value1);
         model_shoe_txt.setText(shoe_model_value1);
     }
 }

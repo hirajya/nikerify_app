@@ -9,23 +9,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.report;
 import model.verification;
+import javafx.scene.control.ScrollPane;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
 
 public class activityHistoryController {
 
@@ -38,10 +32,10 @@ public class activityHistoryController {
     static int accUserId;
 
     @FXML
-    public void initialize() throws SQLException {
+    public void initialize() {
         try {
             loadReportCards();
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }
@@ -71,8 +65,6 @@ public class activityHistoryController {
         stage.show();
     }
 
-    
-
     private void loadReportCards() throws IOException, SQLException {
         VBox content = new VBox();
         content.setSpacing(10);
@@ -86,29 +78,14 @@ public class activityHistoryController {
 
             // Set data for each report card
             controller.utils_card.activityCardController controller = loader.getController();
-            controller.setLabelText("RFID Authentic nlng muna");
-            controller.setScan_date_txt(veri.getVerification_time().toString());
+            controller.setLabelText("RFID Authentic");
+            controller.setScan_date_txt(veri.getVerification_date().toString());
             controller.setScan_time_txt(veri.getVerification_time().toString());
-            controller.setShoe_model(getShoeModel(veri.getShoe_id()));
-            controller.setValidity_txt("RFID Authentic nlng muna.");
+            controller.setShoe_model_txt(getShoeModel2(getShoeModel(veri.getShoe_id())));
+            controller.setValidity_txt("RFID Authentic");
             controller.setVerify_id_txt(String.valueOf(veri.getVerification_id()));
-
-
+            controller.setSerialNum_txt(veri.getSerial_number());
             
-            
-
-            // Convert byte array to Image and set to ImageView
-            // if (rep.getProduct_photo() != null) {
-            //     Image productImage = new Image(new ByteArrayInputStream(rep.getProduct_photo()));
-            //     controller.setProductImage(productImage);
-            // } else {
-            //     controller.setProductImage("/resources/images/shoe.png"); // Default image
-            // }
-
-            // Format scan time to 9:00 pm format
-            // LocalTime scanTime = rep.getReport_time();
-            // String formattedTime = scanTime.format(DateTimeFormatter.ofPattern("h:mm a"));
-            // controller.setScanTime(formattedTime);
 
             content.getChildren().add(reportCard);
         }
@@ -124,13 +101,13 @@ public class activityHistoryController {
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "SELECT shoe_model FROM inventory_units WHERE shoe_id = ?";
+            String sql = "SELECT model_ID FROM inventory_units WHERE shoe_id = ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, shoeId);
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                shoeModel = rs.getString("shoe_model");
+                shoeModel = rs.getString("model_ID");
             }
         } finally {
             if (rs != null) {
@@ -147,34 +124,22 @@ public class activityHistoryController {
         return shoeModel;
     }
 
-    private List<verification> getReportsFromDatabase() throws SQLException {
+    public String getShoeModel2(String model_id) throws SQLException {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        String shoeModel = null;
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-            String sql = "SELECT * FROM verification WHERE user_id = ?";
+            String sql = "SELECT shoe_name FROM inventory_model WHERE model_ID = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, accUserId);
+            pstmt.setString(1, model_id);
             rs = pstmt.executeQuery();
 
-            List<verification> verifications = new ArrayList<>();
-            while (rs.next()) {
-                verification verification = new verification(
-                    rs.getInt("verification_id"),
-                    rs.getInt("user_id"),
-                    rs.getDate("verification_time").toLocalDate(),
-                    rs.getTime("verification_time").toLocalTime(),
-                    rs.getString("shoe_id"),
-                    rs.getBoolean("authenticity_result"),
-                    rs.getString("serial_number")
-                    );
-                
-                
-                verifications.add(verification);
+            if (rs.next()) {
+                shoeModel = rs.getString("shoe_name");
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -186,6 +151,48 @@ public class activityHistoryController {
                 conn.close();
             }
         }
-        return null;
+
+        return shoeModel;
+    }
+
+
+
+    private List<verification> getReportsFromDatabase() throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<verification> verifications = new ArrayList<>();
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "SELECT * FROM verification WHERE user_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, accUserId);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                verification verification = new verification(
+                    rs.getInt("verification_id"),
+                    rs.getInt("user_id"),
+                    rs.getDate("verification_time").toLocalDate(),
+                    rs.getTime("verification_time").toLocalTime(),
+                    rs.getString("shoe_id"),
+                    rs.getBoolean("authenticity_result"),
+                    rs.getString("serial_number")
+                );
+                verifications.add(verification);
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return verifications;
     }
 }

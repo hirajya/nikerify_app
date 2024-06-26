@@ -33,6 +33,7 @@ public class rfidverifyController {
     
     @FXML
     public void initialize() {
+
         responseAnswerPass.setVisible(false);
         responseAnswerFail.setVisible(false);
         recAccepted.setVisible(false);
@@ -52,6 +53,7 @@ public class rfidverifyController {
     public void continueToDetails(ActionEvent event) throws IOException {
         rfidDetailsController.rfid_val = input_rfid;
         System.out.println("Proceed to details clicked");
+        rfidDetailsController.forViewing = false;
         changeScene(event, "/view/rfidAutheticDetails.fxml");
     }
 
