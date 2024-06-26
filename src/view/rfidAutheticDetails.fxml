@@ -54,7 +54,7 @@
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Pane fx:id="passResult" layoutX="25.0" layoutY="148.0" prefHeight="548.0" prefWidth="268.0" style="-fx-background-color: #FFFFFF;" visible="false">
+      <Pane fx:id="passResult" layoutX="25.0" layoutY="148.0" prefHeight="548.0" prefWidth="268.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#ccffcc" height="30.0" layoutX="1.0" layoutY="7.0" stroke="#ccffcc" strokeType="INSIDE" width="30.0" />
             <ImageView fitHeight="15.0" fitWidth="20.0" layoutX="6.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -82,12 +82,7 @@
                   <Font name="Century Gothic Bold" size="19.0" />
                </font>
             </Text>
-            <Text layoutX="7.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shoe Model">
-               <font>
-                  <Font name="Century Gothic Bold" size="12.0" />
-               </font>
-            </Text>
-            <Text layoutX="7.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shoe ID">
+            <Text layoutX="7.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shoe Model">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
@@ -117,37 +112,32 @@
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="7.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk  Low Retro">
+            <Text fx:id="model_shoe_txt" layoutX="7.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk  Low Retro" wrappingWidth="236.0">
+               <font>
+                  <Font name="Century Gothic" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="batch_number_txt" layoutX="7.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
             </Text>
-            <Text layoutX="7.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNKLKR-TR-00001">
+            <Text fx:id="manufacturing_location_txt" layoutX="7.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Golden State Jhocson">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
             </Text>
-            <Text layoutX="7.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
+            <Text fx:id="manufacturing_year_txt" layoutX="7.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 / 4 / 24">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
             </Text>
-            <Text layoutX="7.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Golden State Jhocson">
+            <Text fx:id="full_name_txt" layoutX="7.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
             </Text>
-            <Text layoutX="7.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 / 4 / 24">
-               <font>
-                  <Font name="Century Gothic" size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="7.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
-               <font>
-                  <Font name="Century Gothic" size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="7.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9 / 6 / 24">
+            <Text fx:id="scan_date_txt" layoutX="7.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9 / 6 / 24">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
@@ -168,12 +158,12 @@
                   <Font name="Century Gothic Bold" size="9.0" />
                </font>
             </Text>
-            <Text layoutX="97.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color">
+            <Text layoutX="147.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="97.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red">
+            <Text fx:id="unit_color_txt" layoutX="147.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
@@ -181,7 +171,7 @@
             <Button fx:id="submitReportBtn" layoutX="98.0" layoutY="525.0" mnemonicParsing="false" onAction="#goToSubmitReport" opacity="0.0" prefHeight="25.0" prefWidth="80.0" text="Button" />
          </children>
       </Pane>
-      <Pane fx:id="failResult" layoutX="19.0" layoutY="154.0" prefHeight="523.0" prefWidth="260.0">
+      <Pane fx:id="failResult" layoutX="19.0" layoutY="154.0" prefHeight="523.0" prefWidth="260.0" visible="false">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#ffcccc" height="30.0" layoutX="7.0" layoutY="1.0" stroke="#ffcccc" strokeType="INSIDE" width="30.0" />
             <ImageView fitHeight="21.0" fitWidth="22.0" layoutX="12.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">

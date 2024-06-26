@@ -74,7 +74,7 @@ public class homePageController {
 
     public void goToActivityHistory(ActionEvent event) throws IOException {
         System.out.println("Activity History button clicked");
-        changeScene(event, "/view/scanHistory.fxml");
+        changeScene(event, "/view/scanhistory.fxml");
     }
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {

@@ -78,5 +78,6 @@
       <Button fx:id="TryAgainBnt" layoutX="27.0" layoutY="578.0" mnemonicParsing="false" onAction="#ReadRFIDagain" opacity="0.0" prefHeight="48.0" prefWidth="270.0" text="Try again" />
       <Button fx:id="continueButton" layoutX="27.0" layoutY="578.0" mnemonicParsing="false" onAction="#continueToDetails" opacity="0.0" prefHeight="48.0" prefWidth="270.0" text="Button" />
       <TextField fx:id="rfid_sample_tf" layoutX="66.0" layoutY="635.0" onAction="#verifyRFID" />
+      <Button fx:id="TryAgainBnt" layoutX="253.0" layoutY="660.0" mnemonicParsing="false" onAction="#ReadRFIDagain" opacity="0.1" text="Button" />
    </children>
 </AnchorPane>

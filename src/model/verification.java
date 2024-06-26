@@ -3,6 +3,7 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -96,15 +97,17 @@ public class verification {
 
 
 
-    public void saveVerification() throws SQLException {
+    public int saveVerification() throws SQLException {
         Connection conn = null;
         PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        int generatedId = -1;
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
 
             String sql = "INSERT INTO verification (user_id, verification_date, verification_time, shoe_id, authenticity_result, serial_number) VALUES (?, ?, ?, ?, ?, ?)";
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
             pstmt.setInt(1, user_id);
             pstmt.setDate(2, java.sql.Date.valueOf(verification_date));
@@ -113,8 +116,21 @@ public class verification {
             pstmt.setBoolean(5, authenticity_result);
             pstmt.setString(6, serial_number);
 
-            pstmt.executeUpdate();
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                rs = pstmt.getGeneratedKeys();
+                if (rs.next()) {
+                    generatedId = rs.getInt(1); // Retrieve the generated verification_id
+                    this.verification_id = generatedId; // Set the verification_id in the current instance
+                }
+            } else {
+                throw new SQLException("Failed to insert verification record, no rows affected.");
+            }
         } finally {
+            if (rs != null) {
+                rs.close();
+            }
             if (pstmt != null) {
                 pstmt.close();
             }
@@ -122,6 +138,8 @@ public class verification {
                 conn.close();
             }
         }
+
+        return generatedId; // Return the generated verification_id
     }
 
     

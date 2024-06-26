@@ -250,5 +250,61 @@ public class user {
         }
     }
 
+    public static String getFullNameById(int userId) throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/nikerify_db"; // Replace with your database name
+        String username = "root"; // Replace with your database username
+        String dbPassword = ""; // Replace with your database password
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String fullName = null;
+
+        try {
+            // Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Establish a connection
+            conn = DriverManager.getConnection(url, username, dbPassword);
+
+            // SQL query to retrieve name based on user_id
+            String sql = "SELECT first_name, middle_name, last_name FROM user WHERE user_id = ?";
+
+            // Prepare the statement
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, userId);
+
+            // Execute the query
+            rs = pstmt.executeQuery();
+
+            // Check if any rows were returned
+            if (rs.next()) {
+                String firstName = rs.getString("first_name");
+                String middleName = rs.getString("middle_name");
+                String lastName = rs.getString("last_name");
+                fullName = firstName + " " + middleName + " " + lastName;
+            } else {
+                System.out.println("User not found with provided user ID.");
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            throw new SQLException("Error retrieving user name from the database.", e);
+        } finally {
+            // Close resources
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        return fullName;
+    }
+
     
 }
