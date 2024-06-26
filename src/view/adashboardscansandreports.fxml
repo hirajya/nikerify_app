@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -165,7 +166,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="312.0" layoutY="72.0" text="0" textFill="#6c6660">
+            <Label fx:id="NoofReports" layoutX="312.0" layoutY="72.0" text="Number of Reports" textFill="#6c6660">
                <font>
                   <Font name="Century Gothic" size="40.0" />
                </font>
@@ -176,17 +177,17 @@
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 1 1 0;" text="Scanned Items">
+            <Button fx:id="sccanneditemButton" layoutX="13.0" layoutY="138.0" mnemonicParsing="false" onAction="#showscanneditemsPane" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 1 1 0;" text="Scanned Items">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="122.0" layoutY="138.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 0 1 0;" text="Reports">
+            <Button fx:id="reportspaneButton" layoutX="122.0" layoutY="138.0" mnemonicParsing="false" onAction="#showReportsPane" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 0 1 0;" text="Reports">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Button>
-            <Pane layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;">
+            <Pane fx:id="scanneditemsPane" layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;">
                <children>
                   <TableView layoutX="14.0" layoutY="14.0" prefHeight="305.0" prefWidth="600.0">
                     <columns>
@@ -199,17 +200,26 @@
                   </TableView>
                </children>
             </Pane>
-            <Pane layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;" visible="false">
+            <Pane fx:id="reportsPane" layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="305.0" prefWidth="600.0">
-                     <columns>
-                        <TableColumn prefWidth="152.79998779296875" text="Report ID" />
-                        <TableColumn prefWidth="162.39993286132812" text="Source of Product" />
-                        <TableColumn prefWidth="124.0" text="Report Date" />
-                        <TableColumn prefWidth="101.5999755859375" text="Status" />
-                        <TableColumn prefWidth="59.99993896484375" text="Action" />
-                     </columns>
-                  </TableView>
+                  <ScrollPane prefHeight="325.0" prefWidth="628.0">
+                     <content>
+                        <TableView fx:id="reportsTable" prefHeight="317.0" prefWidth="630.0">
+                           <columns>
+                              <TableColumn fx:id="report_id_column" text="Report ID" />
+                              <TableColumn fx:id="user_id_column" text="User ID" />
+                              <TableColumn fx:id="verification_id_column" text="Verification ID" />
+                              <TableColumn fx:id="input_shoe_model_column" text="Shoe Model" />
+                              <TableColumn fx:id="purchase_date_column" text="Purchase Date" />
+                              <TableColumn fx:id="type_seller_column" text="Seller Type" />
+                              <TableColumn fx:id="report_comment_column" text="Comment" />
+                              <TableColumn fx:id="report_status_column" text="Status" />
+                              <TableColumn fx:id="report_date_column" text="Report Date" />
+                              <TableColumn fx:id="report_time_column" text="Report Time" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </children>
             </Pane>
          </children>
