@@ -42,6 +42,8 @@ public class rfidDetailsController {
     public static int accUserId;
 
     public static boolean forViewing = false;
+
+    public static String ver_id;
     
     @FXML
     Text verify_id_txt, batch_number_txt, manufacturing_location_txt, scan_date_txt, manufacturing_year_txt, unit_color_txt, full_name_txt, model_shoe_txt;
@@ -54,6 +56,7 @@ public class rfidDetailsController {
         }
 
         // Common fetch operations
+        verify_id_txt.setText(ver_id);
         fetchData();
         fetchUserName();
         fetchShoeModel();

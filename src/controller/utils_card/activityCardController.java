@@ -42,6 +42,7 @@ public class activityCardController {
 
     public void seeDetails(ActionEvent event) throws IOException {
         System.out.println("See details button clicked");
+        rfidDetailsController.ver_id = verify_id_txt.getText();
         rfidDetailsController.forViewing = true;
         rfidDetailsController.rfid_val = serialNum_txt.getText();
         changeScene(event, "/view/rfidAutheticDetails.fxml");
