@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import model.report;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
@@ -37,7 +38,9 @@ public class reportCardController {
     private Button seeDetailsBnt;
 
     @FXML
-    private ImageView image_product;
+    private ImageView image_product, validity_symbol;
+
+    
 
     @FXML
     public int report_id;
@@ -68,12 +71,17 @@ public class reportCardController {
     public static String barangay_val;
     public static String city_val;
 
+    private Image checkImage;
+    private Image crossImage;
+
 
     @FXML
     Text shoe_model_txt, scan_date, scan_time, validity_text, ts_id_txt;
 
     public void initialize() throws SQLException {
         System.out.println("Report Card Controller Initialized");
+        checkImage = new Image(new File("assets\\activityhistory\\iconamoon_check-fill.png").toURI().toString());
+        crossImage = new Image(new File("assets\\activityhistory\\iconamoon_check-filll.png").toURI().toString());
         
     }
 
@@ -184,6 +192,14 @@ public class reportCardController {
 
     public void setValidityText(String v_text) {
         validity_text.setText(v_text);
+        // Set text color based on validity
+        if ("RFID Authentic".equals(v_text)) {
+            validity_text.setStyle("-fx-fill: green;");
+            validity_symbol.setImage(checkImage);
+        } else {
+            validity_text.setStyle("-fx-fill: red;");
+            validity_symbol.setImage(crossImage);
+        }
     }
 
     public void setTsId(int ts_id) {

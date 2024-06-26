@@ -85,10 +85,8 @@ public class reportHistoryController {
             controller.setVerify_Id(String.valueOf(rep.getVerification_id()));
             controller.setShoeModel(rep.getInput_shoe_model());
             controller.setScanDate(rep.getReport_date().toString());
-            controller.setValidityText("ito nlng muna");
             controller.setTsId(rep.getType_seller());
             controller.setReportId(rep.getReport_id());
-            
 
             // Convert byte array to Image and set to ImageView
             if (rep.getProduct_photo() != null) {
@@ -103,10 +101,60 @@ public class reportHistoryController {
             String formattedTime = scanTime.format(DateTimeFormatter.ofPattern("h:mm a"));
             controller.setScanTime(formattedTime);
 
+            // Set validity text based on the authenticity result
+            String validityText = checkIfAuthentic(rep.getVerification_id());
+            controller.setValidityText(validityText);
+
             content.getChildren().add(reportCard);
         }
 
         scrollPaneReport.setContent(content);
+    }
+
+    private String checkIfAuthentic(int verificationId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String authenticityStatus = "Not Authentic"; // Default value
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+            String sql = "SELECT authenticity_result FROM verification WHERE verification_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, verificationId);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                boolean isAuthentic = rs.getBoolean("authenticity_result");
+                if (isAuthentic) {
+                    authenticityStatus = "RFID Authentic";
+                } else {
+                    authenticityStatus = "RFID Not Authentic";
+                }
+            } else {
+                authenticityStatus = "Not Found";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle exception as needed
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle exception as needed
+            }
+        }
+
+        return authenticityStatus;
     }
 
     private List<report> getReportsFromDatabase() throws SQLException {

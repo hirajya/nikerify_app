@@ -47,7 +47,7 @@
             <Font name="Century Gothic" size="9.0" />
          </font>
       </Text>
-      <Button fx:id="seeDetailsBnt" layoutX="232.0" layoutY="43.0" mnemonicParsing="false" onAction="#seeDetails" opacity="0.91" prefHeight="25.0" prefWidth="26.0" text="Button" />
+      <Button fx:id="seeDetailsBnt" layoutX="-6.0" layoutY="-8.0" mnemonicParsing="false" onAction="#seeDetails" opacity="0.0" prefHeight="93.0" prefWidth="283.0" text="Button" />
       <Label fx:id="label1" layoutX="161.0" layoutY="-4.0" opacity="0.0" text="Label" />
       <Text fx:id="scan_time_txt" layoutX="154.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5:00 pm" wrappingWidth="141.60003662109375">
          <font>
