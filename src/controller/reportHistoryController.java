@@ -20,6 +20,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,7 +86,6 @@ public class reportHistoryController {
             controller.setShoeModel(rep.getInput_shoe_model());
             controller.setScanDate(rep.getReport_date().toString());
             controller.setValidityText("ito nlng muna");
-            controller.setScanTime(rep.getReport_time().toString());
             controller.setTsId(rep.getType_seller());
             controller.setReportId(rep.getReport_id());
             
@@ -96,6 +97,11 @@ public class reportHistoryController {
             } else {
                 controller.setProductImage("/resources/images/shoe.png"); // Default image
             }
+
+            // Format scan time to 9:00 pm format
+            LocalTime scanTime = rep.getReport_time();
+            String formattedTime = scanTime.format(DateTimeFormatter.ofPattern("h:mm a"));
+            controller.setScanTime(formattedTime);
 
             content.getChildren().add(reportCard);
         }

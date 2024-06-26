@@ -32,28 +32,28 @@
             <Font name="Century Gothic Bold" size="10.0" />
          </font>
       </Text>
-      <Text fx:id="shoe_model_txt" layoutX="90.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro " wrappingWidth="162.80810546875">
+      <Text fx:id="shoe_model_txt" layoutX="88.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro " wrappingWidth="178.30810546875">
          <font>
-            <Font name="Century Gothic Bold" size="10.0" />
+            <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="91.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Date" wrappingWidth="50.4000244140625">
+      <Text layoutX="87.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Date" wrappingWidth="81.4000244140625">
          <font>
-            <Font name="Century Gothic" size="9.0" />
+            <Font name="Century Gothic" size="10.0" />
          </font>
       </Text>
-      <Text fx:id="scan_date" layoutX="91.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024" wrappingWidth="141.60003662109375">
+      <Text fx:id="scan_date" layoutX="87.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024" wrappingWidth="141.60003662109375">
          <font>
-            <Font name="Century Gothic" size="9.0" />
+            <Font name="Century Gothic" size="10.0" />
          </font>
       </Text>
-      <Button fx:id="seeDetailsBnt" layoutX="228.0" layoutY="46.0" mnemonicParsing="false" onAction="#goToNextSceneDetails" prefHeight="14.0" prefWidth="34.0" text="Button" />
-      <Label fx:id="verify_id" layoutX="187.0" layoutY="11.0" text="Label" />
-      <Text fx:id="scan_time" layoutX="156.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4:35:00 AM PST">
+      <Label fx:id="verify_id" layoutX="214.0" layoutY="6.0" opacity="0.0" text="Label" />
+      <Text fx:id="scan_time" layoutX="169.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4:35:00 AM PST">
          <font>
-            <Font size="9.0" />
+            <Font name="Century Gothic" size="10.0" />
          </font>
       </Text>
       <Text fx:id="ts_id_txt" layoutX="77.0" layoutY="68.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Button fx:id="seeDetailsBnt" layoutX="-7.0" layoutY="-13.0" mnemonicParsing="false" onAction="#goToNextSceneDetails" opacity="0.0" prefHeight="95.0" prefWidth="273.0" text="Button" />
    </children>
 </Pane>
