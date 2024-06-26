@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -21,7 +22,14 @@ public class rfidverifyController {
     Text responseAnswerPass, textMiddleInstruc, responseAnswerFail;
 
     @FXML
+    TextField rfid_sample_tf;
+
+    @FXML
     Rectangle recAccepted, recDenied, completeTransacRec;
+
+    public String input_rfid;
+
+    
     
     @FXML
     public void initialize() {
@@ -42,11 +50,14 @@ public class rfidverifyController {
     }
 
     public void continueToDetails(ActionEvent event) throws IOException {
+        rfidDetailsController.rfid_val = input_rfid;
         System.out.println("Proceed to details clicked");
         changeScene(event, "/view/rfidAutheticDetails.fxml");
     }
 
     public void verifyRFID(ActionEvent event) {
+        input_rfid = rfid_sample_tf.getText();
+        System.out.println("RFID scanned: " + input_rfid);
         TryAgainBnt.setVisible(false);
         System.out.println("RFID verified");
         textMiddleInstruc.setText("RFID detected successfully! Tap 'Continue' to proceed");

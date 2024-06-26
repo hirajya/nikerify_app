@@ -9,7 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.inventory_units;
+import model.verification;
+
 import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class rfidDetailsController {
 
@@ -21,7 +27,15 @@ public class rfidDetailsController {
 
     static boolean isRFIDVerified = false;
 
-    public void initialize() {
+    static String rfid_val;
+    static String shoe_id1;
+
+    public static int accUserId;
+
+
+    public void initialize() throws SQLException {
+        System.out.println(rfid_val);
+        saveVerification();
         showValue();
     }
 
@@ -34,6 +48,21 @@ public class rfidDetailsController {
             failResult.setVisible(true);
         }
     }
+
+    public void saveVerification() throws SQLException {
+        isRFIDVerified = inventory_units.checkRFIDExists(rfid_val);
+        System.out.println(isRFIDVerified);
+        if (isRFIDVerified) {
+            shoe_id1 = inventory_units.getShoeIdByRFID(rfid_val);
+            verification v = new verification(accUserId, LocalDate.now(), LocalTime.now(), shoe_id1, isRFIDVerified, rfid_val);
+            v.saveVerification();
+        } else {
+            verification v = new verification(accUserId, LocalDate.now(), LocalTime.now(), null, isRFIDVerified, rfid_val);
+            v.saveVerification();
+        }
+    }
+
+    
 
     public void goToSubmitReport(ActionEvent event) throws Exception {
         System.out.println("Back to home button clicked");

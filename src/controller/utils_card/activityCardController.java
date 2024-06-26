@@ -1,12 +1,26 @@
 package controller.utils_card;
 
+import java.io.IOException;
+
+import javax.swing.Action;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class activityCardController {
 
     @FXML
     private Label label1;
+
+    @FXML
+    Text validity_txt, shoe_model_txt, scan_time_txt, scan_date_txt,verify_id_txt;
 
     // @FXML
     // Text verify_id, shoe_model, shoe_color, scan_date
@@ -15,7 +29,47 @@ public class activityCardController {
         // Initialization code if needed
     }
 
+    public void seeDetails(ActionEvent event) throws IOException {
+        changeScene(event, "/view/rfidAutheticDetails.fxml");
+    }
+
     public void setLabelText(String text) {
         label1.setText(text);
+    }
+
+    public void setScan_date_txt(String text) {
+        scan_date_txt.setText(text);
+    }
+
+    public void setValidity_txt(String text) {
+        validity_txt.setText(text);
+    }
+
+    public void setShoe_model_txt(String text) {
+        shoe_model_txt.setText(text);
+    }
+
+    public void setScan_time_txt(String text) {
+        scan_time_txt.setText(text);
+    }
+
+    public void setVerify_id_txt(String text) {
+        verify_id_txt.setText(text);
+    }
+
+    public void setVerify_id(String text) {
+        verify_id_txt.setText(text);
+    }
+
+    public void setShoe_model(String text) {
+        shoe_model_txt.setText(text);
+    }
+
+    public void changeScene(ActionEvent event, String fxml) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fxml));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

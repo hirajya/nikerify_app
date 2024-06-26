@@ -44,12 +44,12 @@
             <Image url="@../../assets/rfidverify/ep_back.png" />
          </image>
       </ImageView>
-      <Text layoutX="26.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authencity Result">
+      <Text layoutX="26.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verification ID">
          <font>
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="207.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qwerty12345">
+      <Text fx:id="verify_id_txt" layoutX="207.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qwerty12345">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
@@ -199,14 +199,9 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Text>
-            <Text layoutX="10.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verification Serial ID">
+            <Text layoutX="10.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Serial ID RFID does not match">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="10.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC">
-               <font>
-                  <Font name="Century Gothic" size="10.0" />
                </font>
             </Text>
             <Text layoutX="10.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning: This product's RFID does not match our records. It may be a fake. Please get in touch with our support team immediately." textAlignment="JUSTIFY" wrappingWidth="241.33335876464844">

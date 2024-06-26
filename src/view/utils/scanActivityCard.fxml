@@ -22,24 +22,19 @@
             <Image url="@../../../assets/activityhistory/iconamoon_check-fill.png" />
          </image>
       </ImageView>
-      <Text fill="#23a14d" layoutX="101.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Authentic!">
+      <Text fx:id="validity_txt" fill="#23a14d" layoutX="101.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Authentic!">
          <font>
             <Font name="Century Gothic Bold" size="10.0" />
          </font>
       </Text>
-      <Text layoutX="199.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#QWERTY12350964" wrappingWidth="71.20001220703125">
+      <Text fx:id="verify_id_txt" layoutX="199.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#QWERTY12350964" wrappingWidth="71.20001220703125">
          <font>
             <Font name="Century Gothic" size="7.0" />
          </font>
       </Text>
-      <Text layoutX="90.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro (Team Red)" wrappingWidth="162.80810546875">
+      <Text fx:id="shoe_model_txt" layoutX="90.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro (Team Red)" wrappingWidth="162.80810546875">
          <font>
             <Font name="Century Gothic Bold" size="10.0" />
-         </font>
-      </Text>
-      <Text layoutX="90.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNKLR-TR-0000000000001" wrappingWidth="117.60003662109375">
-         <font>
-            <Font name="Century Gothic" size="9.0" />
          </font>
       </Text>
       <Text layoutX="91.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Date" wrappingWidth="50.4000244140625">
@@ -47,12 +42,17 @@
             <Font name="Century Gothic" size="9.0" />
          </font>
       </Text>
-      <Text layoutX="91.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024. 4:35:00 AM PST" wrappingWidth="141.60003662109375">
+      <Text fx:id="scan_date_txt" layoutX="91.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024" wrappingWidth="141.60003662109375">
          <font>
             <Font name="Century Gothic" size="9.0" />
          </font>
       </Text>
-      <Button layoutX="232.0" layoutY="43.0" mnemonicParsing="false" opacity="0.91" prefHeight="25.0" prefWidth="26.0" text="Button" />
-      <Label fx:id="label1" layoutX="173.0" layoutY="2.0" text="Label" />
+      <Button fx:id="seeDetailsBnt" layoutX="232.0" layoutY="43.0" mnemonicParsing="false" onAction="#seeDetails" opacity="0.91" prefHeight="25.0" prefWidth="26.0" text="Button" />
+      <Label fx:id="label1" layoutX="161.0" layoutY="-4.0" opacity="0.0" text="Label" />
+      <Text fx:id="scan_time_txt" layoutX="154.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5:00 pm" wrappingWidth="141.60003662109375">
+         <font>
+            <Font name="Century Gothic" size="9.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

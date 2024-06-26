@@ -44,6 +44,7 @@ public class homePageController {
     @FXML
     public void initialize() throws SQLException {
         accUserId = user.getUserIdByEmailAndPassword(username, password);
+        rfidDetailsController.accUserId = accUserId;
         activityHistoryController.accUserId = accUserId;
         reportHistoryController.accUserId = accUserId;
         System.out.println(accUserId);

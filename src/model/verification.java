@@ -3,17 +3,20 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class verification {
     private int verification_id;
     private int user_id;
-    private String verification_date;
-    private String verification_time;
-    private int shoe_id;
+    private LocalDate verification_date;
+    private LocalTime verification_time;
+    private String shoe_id;
     private boolean authenticity_result;
     private String serial_number;
 
-    public verification(int verification_id, int user_id, String verification_date, String verification_time, int shoe_id, boolean authenticity_result, String serial_number) {
+    public verification(int verification_id, int user_id, LocalDate verification_date, LocalTime verification_time, String shoe_id, boolean authenticity_result, String serial_number) {
         this.verification_id = verification_id;
         this.user_id = user_id;
         this.verification_date = verification_date;
@@ -23,7 +26,7 @@ public class verification {
         this.serial_number = serial_number;
     }
 
-    public verification(int user_id, String verification_date, String verification_time, int shoe_id, boolean authenticity_result, String serial_number) {
+    public verification(int user_id, LocalDate verification_date, LocalTime verification_time, String shoe_id, boolean authenticity_result, String serial_number) {
         this.user_id = user_id;
         this.verification_date = verification_date;
         this.verification_time = verification_time;
@@ -51,27 +54,27 @@ public class verification {
         this.user_id = user_id;
     }
 
-    public String getVerification_date() {
+    public LocalDate getVerification_date() {
         return verification_date;
     }
 
-    public void setVerification_date(String verification_date) {
+    public void setVerification_date(LocalDate verification_date) {
         this.verification_date = verification_date;
     }
 
-    public String getVerification_time() {
+    public LocalTime getVerification_time() {
         return verification_time;
     }
 
-    public void setVerification_time(String verification_time) {
+    public void setVerification_time(LocalTime verification_time) {
         this.verification_time = verification_time;
     }
 
-    public int getShoe_id() {
+    public String getShoe_id() {
         return shoe_id;
     }
 
-    public void setShoe_id(int shoe_id) {
+    public void setShoe_id(String shoe_id) {
         this.shoe_id = shoe_id;
     }
 
@@ -89,6 +92,36 @@ public class verification {
 
     public void setSerial_number(String serial_number) {
         this.serial_number = serial_number;
+    }
+
+
+
+    public void saveVerification() throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+
+            String sql = "INSERT INTO verification (user_id, verification_date, verification_time, shoe_id, authenticity_result, serial_number) VALUES (?, ?, ?, ?, ?, ?)";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setInt(1, user_id);
+            pstmt.setDate(2, java.sql.Date.valueOf(verification_date));
+            pstmt.setTime(3, java.sql.Time.valueOf(verification_time));
+            pstmt.setString(4, shoe_id);
+            pstmt.setBoolean(5, authenticity_result);
+            pstmt.setString(6, serial_number);
+
+            pstmt.executeUpdate();
+        } finally {
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
     }
 
     
