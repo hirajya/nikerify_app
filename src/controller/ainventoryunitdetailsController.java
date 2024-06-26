@@ -44,7 +44,7 @@ public class ainventoryunitdetailsController {
         changeScene(event, "/view/ainventoryunitdetails.fxml");
     }
 
-    public void goTodeactivateRFID(ActionEvent event) throws IOException {
+    public void goToDeactivateRFID(ActionEvent event) throws IOException {
         System.out.println("deactivate");
     }
 
