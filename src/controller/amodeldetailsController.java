@@ -12,7 +12,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.InventoryModel;
 import model.InventoryUnit;
+import javafx.scene.Node;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,6 +24,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import java.sql.*;
 
 public class amodeldetailsController {
 
@@ -45,15 +49,7 @@ public class amodeldetailsController {
 
     private ObservableList<InventoryUnit> unitList = FXCollections.observableArrayList();
 
-    public Connection getConnection() {
-        Connection con = null;
-        try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
-        } catch (SQLException ex) {
-            Logger.getLogger(amodeldetailsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return con;
-    }
+    private String selectedModelID;
 
     @FXML
     public void initialize() {
@@ -62,16 +58,16 @@ public class amodeldetailsController {
         colUnitColor.setCellValueFactory(new PropertyValueFactory<>("unitColor"));
         colManufactureYear.setCellValueFactory(new PropertyValueFactory<>("manufacturingYear"));
         colScans.setCellValueFactory(new PropertyValueFactory<>("numberOfScans"));
+    }
 
-        // Load units for the selected model (implement logic to fetch units)
-        // For example, if you have a method to set selected model ID:
-        // String selectedModelID = getSelectedModelID();
-        String selectedModelID = "your_logic_to_get_selected_model_id";
-
-        loadUnitData(selectedModelID);
+    public void initData(String modelID) {
+        this.selectedModelID = modelID;
+        loadUnitData(modelID);
     }
 
     private void loadUnitData(String modelID) {
+        unitList.clear(); // Clear the list before adding new data
+
         Connection con = getConnection();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -110,6 +106,16 @@ public class amodeldetailsController {
                 e.printStackTrace();
             }
         }
+    }
+
+    private Connection getConnection() {
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return con;
     }
 
     public void goToDashboard(ActionEvent event) throws IOException {

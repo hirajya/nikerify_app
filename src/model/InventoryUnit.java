@@ -1,28 +1,27 @@
 package model;
 
 public class InventoryUnit {
-    // Properties
-    private int shoeID;
+    private String shoeID;
     private String verificationSerialID;
     private String unitColor;
-    private int manufactureYear;
-    private int scans;
+    private int manufacturingYear; // Keep this one, as it's being used
+    private int numberOfScans;
 
-    // Constructors
-    public InventoryUnit(int shoeID, String verificationSerialID, String unitColor, int manufactureYear, int scans) {
+    public InventoryUnit(String shoeID, String verificationSerialID, String unitColor, int manufacturingYear,
+            int numberOfScans) {
         this.shoeID = shoeID;
         this.verificationSerialID = verificationSerialID;
         this.unitColor = unitColor;
-        this.manufactureYear = manufactureYear;
-        this.scans = scans;
+        this.manufacturingYear = manufacturingYear;
+        this.numberOfScans = numberOfScans;
     }
 
-    // Getters and Setters (Encapsulation)
-    public int getShoeID() {
+    // Getters and Setters for all properties
+    public String getShoeID() {
         return shoeID;
     }
 
-    public void setShoeID(int shoeID) {
+    public void setShoeID(String shoeID) {
         this.shoeID = shoeID;
     }
 
@@ -42,19 +41,19 @@ public class InventoryUnit {
         this.unitColor = unitColor;
     }
 
-    public int getManufactureYear() {
-        return manufactureYear;
+    public int getManufacturingYear() {
+        return manufacturingYear;
     }
 
-    public void setManufactureYear(int manufactureYear) {
-        this.manufactureYear = manufactureYear;
+    public void setManufacturingYear(int manufacturingYear) {
+        this.manufacturingYear = manufacturingYear;
     }
 
-    public int getScans() {
-        return scans;
+    public int getNumberOfScans() {
+        return numberOfScans;
     }
 
-    public void setScans(int scans) {
-        this.scans = scans;
+    public void setNumberOfScans(int numberOfScans) {
+        this.numberOfScans = numberOfScans;
     }
 }
