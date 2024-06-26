@@ -14,7 +14,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.report;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,6 +52,8 @@ public class reportCardController {
     public static String reportStatus_val;
     public static String scanDate_val;
     public static String scanTime_val;
+    public static Blob receiptPicture_val;
+    public static Blob productPicture_val;
     
     public static int tsId_val;
     public static int storeLocationId_val;
@@ -95,6 +100,9 @@ public class reportCardController {
             reportDetailOfficialController.purchase_date1 = purchaseDate_val;
             reportDetailOfficialController.typeSeller_kind1 = typeSellerKind_val;
             reportDetailOfficialController.store_location_full = streetNumber_val + " " + blockNumber_val + " " + barangay_val + " " + city_val;
+            reportDetailOfficialController.product_photo1 = productPicture_val;
+            reportDetailOfficialController.receipt_photo1 = receiptPicture_val;
+
             changeScene(event, "/view/reportDetailsOfficial.fxml");
 
 
@@ -110,6 +118,9 @@ public class reportCardController {
             reportDetailPhysicalController.typeSeller_kind1 = typeSellerKind_val;
             reportDetailPhysicalController.store_location_full = streetNumber_val + " " + blockNumber_val + " " + barangay_val + " " + city_val;
             reportDetailPhysicalController.store_name1 = storeName_val;
+            reportDetailPhysicalController.product_photo1 = productPicture_val;
+            reportDetailPhysicalController.receipt_photo1 = receiptPicture_val;
+
             
             changeScene(event, "/view/reportDetailsPhysical.fxml");
         } else if (valuets.equals("Online Merchant")) {
@@ -126,6 +137,8 @@ public class reportCardController {
             reportDetailOnlineController.store_name1 = storeName_val;
             reportDetailOnlineController.store_contact_number1 = storeContactNumber_val;
             reportDetailOnlineController.store_link1 = storeLink_val;
+            reportDetailOnlineController.product_photo1 = productPicture_val;
+            reportDetailOnlineController.receipt_photo1 = receiptPicture_val;
             changeScene(event, "/view/reportDetailsOnline.fxml");
         }
     }
@@ -216,7 +229,7 @@ public class reportCardController {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
             String sql = "SELECT r.report_id, r.user_id, r.verification_id, r.input_shoe_model, r.purchase_date, " +
-                         "r.type_seller, r.report_comment, r.report_status, r.scan_date, r.scan_time, " +
+                         "r.type_seller, r.report_comment, r.report_status, r.scan_date, r.scan_time, r.receipt_photo, r.product_photo," +
                          "ts.ts_id, ts.store_location_id, ts.store_name, ts.store_contact_number, ts.store_link, ts.type_seller_kind, " +
                          "l.street_number, l.block_number, l.barangay, l.city " +
                          "FROM report r " +
@@ -241,6 +254,8 @@ public class reportCardController {
                 String reportStatus = rs.getString("report_status");
                 java.sql.Date reportDate = rs.getDate("scan_date");
                 java.sql.Time reportTime = rs.getTime("scan_time");
+                Blob receiptPicture = rs.getBlob("receipt_photo");
+                Blob productPicture = rs.getBlob("product_photo");
 
                 int tsId = rs.getInt("ts_id");
                 int storeLocationId = rs.getInt("store_location_id");
@@ -264,6 +279,8 @@ public class reportCardController {
                 reportStatus_val = reportStatus;
                 scanDate_val = reportDate.toString();
                 scanTime_val = reportTime.toString();
+                receiptPicture_val = receiptPicture;
+                productPicture_val = productPicture;
 
                 tsId_val = tsId;
                 storeLocationId_val = storeLocationId;
@@ -301,9 +318,7 @@ public class reportCardController {
     }
     
 
-    public void loadDetail() {
-        // Load the details of the report
-    }
+    
 
 }
 

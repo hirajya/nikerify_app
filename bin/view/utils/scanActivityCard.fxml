@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="271.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.utils_card.activityCardController">
    <children>
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="77.0" stroke="BLACK" strokeType="INSIDE" width="271.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="271.0" />
       <ImageView fitHeight="51.0" fitWidth="112.0" layoutX="10.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/activityhistory/image%206.png" />
