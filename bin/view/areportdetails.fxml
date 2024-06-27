@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.areportdetailsController">
    <children>
       <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
          <children>
@@ -42,7 +42,7 @@
                   <Font name="Century Gothic Bold" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="18.0" layoutY="108.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Inventory Button" />
+            <Button fx:id="inventoryButton" layoutX="18.0" layoutY="108.0" mnemonicParsing="false" onAction="#goToInventory" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Inventory Button" />
             <ImageView fitHeight="14.62" fitWidth="14.62" layoutX="24.0" layoutY="112.72" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../assets/dashboardpics/ic_round-inventory.png" />
@@ -58,7 +58,7 @@
                   <Image url="@../../assets/dashboardpics/octicon_report-16.png" />
                </image>
             </ImageView>
-            <Button layoutX="18.0" layoutY="134.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Reports Button" />
+            <Button fx:id="reportsButton" layoutX="18.0" layoutY="134.0" mnemonicParsing="false" onAction="#goToReports" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Reports Button" />
             <Label layoutX="44.06" layoutY="138.0" prefHeight="17.0" prefWidth="46.0" text="Reports" textFill="#181819">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
@@ -73,7 +73,7 @@
       </Pane>
       <Pane layoutX="207.0" prefHeight="40.0" prefWidth="659.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 0 1 1;">
          <children>
-            <TextField layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
+            <TextField fx:id="search_tf" layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
@@ -99,7 +99,7 @@
                   <Image url="@../../assets/dashboardpics/ep_back.png" />
                </image>
             </ImageView>
-            <Button layoutX="15.0" layoutY="14.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="32.0" text="back button" />
+            <Button fx:id="backButton" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToDashboardOrReports" opacity="0.0" prefHeight="32.0" prefWidth="32.0" text="back button" />
             <Label layoutX="57.0" layoutY="19.0" text="Reports // " textFill="#181819">
                <font>
                   <Font name="Century Gothic" size="18.0" />
@@ -126,7 +126,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="274.0" layoutY="91.0" prefHeight="16.0" prefWidth="111.0" style="-fx-background-color: #EAEAEA;" text="#QWERTY12350964">
+            <Label fx:id="reportIDLabel" layoutX="302.0" layoutY="91.0" prefHeight="16.0" prefWidth="83.0" style="-fx-background-color: #EAEAEA;" text="#QWERTY12350964" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
@@ -136,7 +136,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="274.0" layoutY="121.0" prefHeight="16.0" prefWidth="111.0" style="-fx-background-color: #EAEAEA;" text="#QWERTY12350964">
+            <Label fx:id="verificationIdLabel" layoutX="302.0" layoutY="121.0" prefHeight="16.0" prefWidth="83.0" style="-fx-background-color: #EAEAEA;" text="#QWERTY12350964" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
@@ -156,7 +156,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="304.0" layoutY="182.0" text="June 10, 2024">
+            <Label fx:id="reportdateLabel" layoutX="310.0" layoutY="182.0" prefHeight="15.0" prefWidth="72.0" text="June 10, 2024" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
@@ -186,27 +186,27 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="276.0" layoutY="59.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="107.0" style="-fx-background-color: ffffff; -fx-border-width: 1; -fx-border-color: #181819;" text="Mark as Resolved">
+            <Button fx:id="resolvedButton" layoutX="276.0" layoutY="59.0" mnemonicParsing="false" onAction="#markAsResolved" prefHeight="20.0" prefWidth="107.0" style="-fx-background-color: ffffff; -fx-border-width: 1; -fx-border-color: #181819;" text="Mark as Resolved">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Button>
-            <Label layoutX="195.0" layoutY="252.0" text="Nike Dunk Low Retro (Team Red)">
+            <Label fx:id="shoemodelLabel" layoutX="307.0" layoutY="252.0" prefHeight="15.0" prefWidth="78.0" text="Nike Dunk Low Retro (Team Red)" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="304.0" layoutY="282.0" text="June 09, 2024">
+            <Label fx:id="purchasedateLabel" layoutX="304.0" layoutY="282.0" text="June 09, 2024" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="282.0" layoutY="312.0" text="Official Nike Store">
+            <Label fx:id="typesellerLabel" layoutX="352.0" layoutY="312.0" prefHeight="15.0" prefWidth="32.0" text="Official Nike Store" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="319.0" layoutY="341.0" text="Makati City">
+            <Label layoutX="319.0" layoutY="341.0" text="Makati City" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
@@ -241,7 +241,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="406.0" layoutY="296.0" text="The shoe has discoloration ">
+            <Label fx:id="reportcommentLabel" layoutX="406.0" layoutY="296.0" text="The shoe has discoloration ">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -263,14 +263,19 @@
                </font>
             </Label>
             <Text layoutX="108.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="submitted a report on a counterfeit product." />
-            <Label layoutX="340.0" layoutY="402.0" text=" Report ID #QWERTY12345678">
+            <Label layoutX="340.0" layoutY="402.0" text=" Report ID ">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="566.0" layoutY="402.0" text="12:34 PM">
+            <Label fx:id="reportTimeLabel" layoutX="566.0" layoutY="402.0" text="12:34 PM">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="reportIDLabel1" layoutX="400.0" layoutY="402.0" text="#QWERTY12345678">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
          </children>

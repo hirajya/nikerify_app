@@ -44,6 +44,7 @@ public class homePageController {
     @FXML
     public void initialize() throws SQLException {
         accUserId = user.getUserIdByEmailAndPassword(username, password);
+        rfidDetailsController.accUserId = accUserId;
         activityHistoryController.accUserId = accUserId;
         reportHistoryController.accUserId = accUserId;
         System.out.println(accUserId);
@@ -73,7 +74,7 @@ public class homePageController {
 
     public void goToActivityHistory(ActionEvent event) throws IOException {
         System.out.println("Activity History button clicked");
-        changeScene(event, "/view/scanHistory.fxml");
+        changeScene(event, "/view/scanhistory.fxml");
     }
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {

@@ -141,12 +141,12 @@ public class report {
         this.report_comment = report_comment;
     }
 
-    public String getReport_status() {
-        return report_status;
+    public void setReport_status(String status) {
+        this.report_status = status;
     }
 
-    public void setReport_status(String report_status) {
-        this.report_status = report_status;
+    public String getReport_status() {
+        return this.report_status;
     }
 
     public LocalDate getReport_date() {
@@ -164,6 +164,8 @@ public class report {
     public void setReport_time(LocalTime report_time) {
         this.report_time = report_time;
     }
+
+   
 
     public int saveReport() throws SQLException {
         Connection conn = null;

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -94,12 +93,12 @@
             <Font name="Century Gothic Bold" size="16.0" />
          </font>
       </Text>
-      <ImageView fitHeight="95.0" fitWidth="303.0" layoutX="30.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="receipt_pht" fitHeight="95.0" fitWidth="303.0" layoutX="30.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/reportDetails/image%208.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="102.0" fitWidth="263.0" layoutX="31.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="product_pht" fitHeight="102.0" fitWidth="263.0" layoutX="31.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/reportDetails/image%2010.png" />
          </image>
@@ -119,53 +118,56 @@
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Text>
-      <TextArea layoutX="32.0" layoutY="623.0" prefHeight="37.0" prefWidth="263.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b7bc" height="20.0" layoutX="215.0" layoutY="126.0" stroke="#b2b7bc" strokeType="INSIDE" width="72.0" />
-      <Text layoutX="230.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assessing">
+      <Text fx:id="status_txt" layoutX="43.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assessing" textAlignment="RIGHT" wrappingWidth="242.0859375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="230.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
+      <Text fx:id="report_id_txt" layoutX="44.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31" textAlignment="RIGHT" wrappingWidth="242.0859375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="230.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31">
+      <Text fx:id="verification_id_txt" layoutX="167.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#qweq31" textAlignment="RIGHT" wrappingWidth="118.623046875">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="206.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 10, 2024">
+      <Text fx:id="report_date_txt" layoutX="86.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 10, 2024" textAlignment="RIGHT" wrappingWidth="197.7119140625">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text fill="#831010" layoutX="218.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Invalid">
+      <Text fx:id="authenticity_result_txt" fill="#831010" layoutX="119.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RFID Invalid" textAlignment="RIGHT" wrappingWidth="165.71484375">
          <font>
             <Font name="Century Gothic Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="164.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro">
+      <Text fx:id="shoe_model_txt" layoutX="95.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nike Dunk Low Retro" textAlignment="RIGHT" wrappingWidth="187.681640625">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="203.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024">
+      <Text fx:id="purchase_date_txt" layoutX="93.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="June 09, 2024" textAlignment="RIGHT" wrappingWidth="187.681640625">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="181.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Official Nike Store">
+      <Text fx:id="typeSeller_kind_txt" layoutX="117.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Official Nike Store" textAlignment="RIGHT" wrappingWidth="165.71484375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="215.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Makati City">
+      <Text fx:id="store_location_txt" layoutX="38.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Makati City" textAlignment="RIGHT" wrappingWidth="242.0859375">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Text>
       <Button fx:id="backToHistoryReportsBtn" layoutX="26.0" layoutY="70.0" mnemonicParsing="false" onAction="#backToRepHist" opacity="0.0" prefHeight="41.0" prefWidth="40.0" text="Button" />
+      <Text fx:id="comment_txt" layoutX="44.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text comment" wrappingWidth="235.6494140625">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

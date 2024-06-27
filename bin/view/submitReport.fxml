@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.submitReportController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.submitReportController">
    <children>
       <TextField fx:id="shoe_model_tf" layoutX="27.0" layoutY="258.0" prefHeight="25.0" prefWidth="263.0" />
       <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
@@ -119,18 +119,24 @@
                </font>
             </Text>
             <TextField fx:id="rb3_store_location" layoutY="22.0" onMouseClicked="#showLocationPane" prefHeight="25.0" prefWidth="263.0" />
-            <Text layoutX="1.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name">
+            <Text layoutX="1.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Name">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField fx:id="rb3_store_name" layoutY="77.0" prefHeight="25.0" prefWidth="263.0" />
-            <Text layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Contact Number">
+            <TextField fx:id="rb3_store_name" layoutY="69.0" prefHeight="25.0" prefWidth="263.0" />
+            <Text layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Contact Number">
                <font>
                   <Font name="Century Gothic Bold" size="11.0" />
                </font>
             </Text>
-            <TextField fx:id="rb3_store_contact_number" layoutX="-1.0" layoutY="132.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="rb3_store_contact_number" layoutX="-1.0" layoutY="117.0" prefHeight="25.0" prefWidth="263.0" />
+            <Text layoutX="1.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Contact Link">
+               <font>
+                  <Font name="Century Gothic Bold" size="11.0" />
+               </font>
+            </Text>
+            <TextField fx:id="rb3_store_contact_link" layoutY="165.0" prefHeight="25.0" prefWidth="263.0" />
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="27.0" layoutX="24.0" layoutY="660.0" stroke="BLACK" strokeType="INSIDE" width="263.0" />
@@ -140,7 +146,7 @@
          </font>
       </Text>
       <Button fx:id="backToHomeButton" layoutX="26.0" layoutY="64.0" mnemonicParsing="false" onAction="#backToHome" opacity="0.0" prefHeight="47.0" prefWidth="40.0" text="Button" />
-      <Button fx:id="nextButton" layoutX="21.0" layoutY="632.0" mnemonicParsing="false" onAction="#goToNext" prefHeight="28.0" prefWidth="270.0" text="Button" />
+      <Button fx:id="nextButton" layoutX="21.0" layoutY="643.0" mnemonicParsing="false" onAction="#goToNext" prefHeight="28.0" prefWidth="270.0" text="Button" />
       <Text layoutX="28.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify ID">
          <font>
             <Font name="Century Gothic Bold" size="11.0" />
