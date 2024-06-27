@@ -174,7 +174,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="locationLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="125.0" prefHeight="23.0" prefWidth="61.0" text="Makati City" textFill="#181819" wrapText="true">
+            <Label fx:id="unitManufactureLocation" alignment="CENTER_RIGHT" layoutX="366.0" layoutY="125.0" prefHeight="23.0" prefWidth="271.0" text="Makati City" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -194,7 +194,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="batchNumberLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="161.0" prefHeight="23.0" prefWidth="61.0" text="24" textFill="#181819" wrapText="true">
+            <Label fx:id="unitBNumber" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="161.0" prefHeight="23.0" prefWidth="61.0" text="24" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -214,7 +214,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="scanDateLbl" alignment="CENTER_RIGHT" layoutX="462.0" layoutY="197.0" prefHeight="23.0" prefWidth="175.0" text="June 09, 2024. 4:35:00 AM PST" textFill="#181819" wrapText="true">
+            <Label fx:id="unitLastScan" alignment="CENTER_RIGHT" layoutX="462.0" layoutY="197.0" prefHeight="23.0" prefWidth="175.0" text="June 09, 2024. 4:35:00 AM PST" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>

@@ -33,13 +33,32 @@ public class ainventoryunitdetailsController {
     private ImageView unitImage;
 
     @FXML
-    private Label unitShoeID, unitSerialID, unitColor, unitManufactureYear, unitScans;
+    private Label unitModelID, unitShoeID, unitSerialID, unitColor, unitManufactureLocation, unitManufactureYear,
+            unitBNumber, unitScans, unitLastScan;
 
     @FXML
     private TableView<InventoryUnit> unitTable;
 
+    String serialID;
+    String modelID;
+    String location;
+    int batch;
+    String color;
+    int manufactureYear;
+    int scans;
+    String lastScanDate;
+
     public void initData(String modelID, String shoeID) {
         loadUnitDetails(modelID, shoeID);
+        unitModelID.setText(modelID);
+        unitShoeID.setText(shoeID);
+        unitSerialID.setText(serialID);
+        unitScans.setText(String.valueOf(scans));
+        unitColor.setText(color);
+        unitManufactureYear.setText(String.valueOf(manufactureYear));
+        unitManufactureLocation.setText(location);
+        unitBNumber.setText(String.valueOf(batch));
+        unitLastScan.setText(lastScanDate);
     }
 
     private void loadUnitDetails(String modelID, String shoeID) {
@@ -55,16 +74,24 @@ public class ainventoryunitdetailsController {
             resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String serialID = resultSet.getString("verification_serial_ID");
-                String color = resultSet.getString("unit_color");
-                int manufactureYear = resultSet.getInt("manufacturing_year");
-                int scans = resultSet.getInt("number_of_scans");
+                serialID = resultSet.getString("verification_serial_ID");
+                color = resultSet.getString("unit_color");
+                manufactureYear = resultSet.getInt("manufacturing_year");
+                scans = resultSet.getInt("number_of_scans");
+                location = resultSet.getString("manufacturing_location");
+                batch = resultSet.getInt("batch_number");
+                lastScanDate = resultSet.getString("last_scan_date");
 
+                unitModelID.setText(modelID);
                 unitShoeID.setText(shoeID);
                 unitSerialID.setText(serialID);
+                unitScans.setText(String.valueOf(scans));
                 unitColor.setText(color);
                 unitManufactureYear.setText(String.valueOf(manufactureYear));
-                unitScans.setText(String.valueOf(scans));
+                unitManufactureLocation.setText(location);
+                unitBNumber.setText(String.valueOf(batch));
+                unitLastScan.setText(lastScanDate);
+
             }
 
         } catch (SQLException e) {
