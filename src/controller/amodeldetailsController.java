@@ -96,14 +96,15 @@ public class amodeldetailsController {
         });
     }
 
-    @FXML
     private void goToDetails(InventoryUnit inventoryUnit, MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ainventoryunitdetails.fxml"));
         Parent root = loader.load();
 
-        // InventoryModel inventoryModel;
-        // detailsController = loader.getController();
-        // .initData(inventoryModel.getModelID(), inventoryUnit.getShoeID());
+        // Access the controller
+        ainventoryunitdetailsController controller = loader.getController();
+
+        // Pass data to the controller
+        controller.initData(selectedModelID, inventoryUnit.getShoeID());
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);
