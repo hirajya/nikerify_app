@@ -11,10 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class adashboardscanneditemsAuthenticController {
+public class ainventoryunitdetailsController {
 
     @FXML
-    Button inventoryButton, reportsButton, backButton;
+    Button dashboardButton, reportsButton, editButton, deactivateButton, backButton;
 
     @FXML
     TextField search_tf;
@@ -24,9 +24,9 @@ public class adashboardscanneditemsAuthenticController {
         // Initialization code if needed
     }
 
-    public void goToInventory(ActionEvent event) throws IOException {
-        System.out.println("Inventory button clicked");
-        changeScene(event, "/view/ainventory.fxml");
+    public void goToDashboard(ActionEvent event) throws IOException {
+        System.out.println("Dashboard button clicked");
+        changeScene(event, "/view/adashboardscansandreports.fxml");
     }
 
     public void goToReports(ActionEvent event) throws IOException {
@@ -34,9 +34,18 @@ public class adashboardscanneditemsAuthenticController {
         changeScene(event, "/view/areports.fxml");
     }
 
-    public void backToDashboard(ActionEvent event) throws IOException {
+    public void goToEditUnit(ActionEvent event) throws IOException {
+        System.out.println("Update Information button clicked");
+        changeScene(event, "/view/ainventoryeditunit.fxml");
+    }
+
+    public void backToModelInformation(ActionEvent event) throws IOException {
         System.out.println("Back button clicked");
-        changeScene(event, "/view/adashboardscansandreports.fxml");
+        changeScene(event, "/view/ainventoryunitdetails.fxml");
+    }
+
+    public void goToDeactivateRFID(ActionEvent event) throws IOException {
+        System.out.println("deactivate");
     }
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {

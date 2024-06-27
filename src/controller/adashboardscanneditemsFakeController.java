@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class adashboardscanneditemsFakeController {
-        
+
     @FXML
     Button inventoryButton, reportsButton;
 
@@ -34,6 +34,10 @@ public class adashboardscanneditemsFakeController {
         changeScene(event, "/view/areports.fxml");
     }
 
+    public void backToDashboard(ActionEvent event) throws IOException {
+        System.out.println("Back button clicked");
+        changeScene(event, "/view/adashboardscansandreports.fxml");
+    }
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));

@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aunitdetailsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ainventoryunitdetailsController">
    <children>
       <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
          <children>
@@ -76,7 +76,7 @@
       </Pane>
       <Pane layoutX="207.0" prefHeight="40.0" prefWidth="659.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 0 1 1;">
          <children>
-            <TextField layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
+            <TextField fx:id="search_tf" layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
@@ -96,12 +96,12 @@
       </ImageView>
       <Pane layoutX="208.0" layoutY="40.0" prefHeight="501.0" prefWidth="658.0" style="-fx-background-color: FFFFFF;">
          <children>
-            <Button layoutX="556.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #520F0F; -fx-border-width: 1.5; -fx-border-radius: 3;" text="Deactivate" textFill="#520f0f">
+            <Button fx:id="deactivateButton" layoutX="556.0" layoutY="20.0" mnemonicParsing="false" onAction="#goToDeactivateRFID" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #520F0F; -fx-border-width: 1.5; -fx-border-radius: 3;" text="Deactivate" textFill="#520f0f">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="editunitButton" layoutX="462.0" layoutY="20.0" mnemonicParsing="false" onAction="#editunit" prefHeight="28.0" prefWidth="87.0" style="-fx-background-color: #181819;" text="Edit Unit" textFill="WHITE">
+            <Button fx:id="editButton" layoutX="462.0" layoutY="20.0" mnemonicParsing="false" onAction="#goToEditUnit" prefHeight="28.0" prefWidth="87.0" style="-fx-background-color: #181819;" text="Edit Unit" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
@@ -124,7 +124,7 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="18.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="modelImg" fitHeight="130.0" fitWidth="130.0" layoutX="18.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../assets/shoeimages/Pegasus.png" />
                </image>
@@ -139,7 +139,7 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Pegasus 41" textFill="#181819" wrapText="true">
+            <Label fx:id="shoeModelLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Pegasus 41" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -149,7 +149,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="540.0" layoutY="71.0" prefHeight="23.0" prefWidth="97.0" text="PGS-00000000001" textFill="#181819" wrapText="true">
+            <Label fx:id="shoeIDLbl" alignment="CENTER_RIGHT" layoutX="540.0" layoutY="71.0" prefHeight="23.0" prefWidth="97.0" text="PGS-00000000001" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -159,7 +159,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="415.0" layoutY="89.0" prefHeight="23.0" prefWidth="222.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819" wrapText="true">
+            <Label fx:id="VerificationSerialIDLbl" alignment="CENTER_RIGHT" layoutX="415.0" layoutY="89.0" prefHeight="23.0" prefWidth="222.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -169,7 +169,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="Active" textFill="#181819" wrapText="true">
+            <Label fx:id="ActiveStatusLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="Active" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -179,7 +179,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="125.0" prefHeight="23.0" prefWidth="61.0" text="Makati City" textFill="#181819" wrapText="true">
+            <Label fx:id="locationLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="125.0" prefHeight="23.0" prefWidth="61.0" text="Makati City" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -189,7 +189,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="143.0" prefHeight="23.0" prefWidth="61.0" text="2021" textFill="#181819" wrapText="true">
+            <Label fx:id="yearLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="143.0" prefHeight="23.0" prefWidth="61.0" text="2021" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -199,7 +199,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="161.0" prefHeight="23.0" prefWidth="61.0" text="24" textFill="#181819" wrapText="true">
+            <Label fx:id="batchNumberLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="161.0" prefHeight="23.0" prefWidth="61.0" text="24" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -209,7 +209,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="576.0" layoutY="179.0" prefHeight="23.0" prefWidth="61.0" text="2" textFill="#181819" wrapText="true">
+            <Label fx:id="scansLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="179.0" prefHeight="23.0" prefWidth="61.0" text="2" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -219,7 +219,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="462.0" layoutY="197.0" prefHeight="23.0" prefWidth="175.0" text="June 09, 2024. 4:35:00 AM PST" textFill="#181819" wrapText="true">
+            <Label fx:id="scanDateLbl" alignment="CENTER_RIGHT" layoutX="462.0" layoutY="197.0" prefHeight="23.0" prefWidth="175.0" text="June 09, 2024. 4:35:00 AM PST" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -237,13 +237,13 @@
             <Image url="@../../assets/dashboardpics/ep_back.png" />
          </image>
       </ImageView>
-      <Button fx:id="backButton" layoutX="223.0" layoutY="57.0" mnemonicParsing="false" onAction="#goToModelDetails" opacity="0.0" prefHeight="32.0" prefWidth="32.0" text="back button" />
-      <Label layoutX="265.0" layoutY="62.0" prefHeight="23.0" prefWidth="240.0" text="Inventory // Pegasus 41 // " textFill="#181819">
+      <Button fx:id="backButton" layoutX="223.0" layoutY="57.0" mnemonicParsing="false" onAction="#backToModelInformation" opacity="0.0" prefHeight="32.0" prefWidth="32.0" text="back button" />
+      <Label layoutX="265.0" layoutY="62.0" prefHeight="23.0" prefWidth="240.0" text="Inventory //  " textFill="#181819">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="494.0" layoutY="63.0" text="PGS-00000000001" textFill="#181819">
+      <Label fx:id="modelIDLbl" layoutX="373.0" layoutY="64.0" text="PGS-00000000001" textFill="#181819">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
