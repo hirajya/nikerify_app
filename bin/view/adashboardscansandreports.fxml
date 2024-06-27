@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adashboardscansandreportsController">
    <children>
       <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
          <children>
@@ -46,7 +47,7 @@
                   <Font name="Century Gothic Bold" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="18.0" layoutY="108.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Inventory Button" />
+            <Button fx:id="inventoryButton" layoutX="18.0" layoutY="108.0" mnemonicParsing="false" onAction="#goToInventory" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Inventory Button" />
             <ImageView fitHeight="14.62" fitWidth="14.62" layoutX="24.0" layoutY="112.72" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../assets/dashboardpics/ic_round-inventory.png" />
@@ -62,7 +63,7 @@
                   <Image url="@../../assets/dashboardpics/octicon_report-16.png" />
                </image>
             </ImageView>
-            <Button layoutX="18.0" layoutY="134.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Reports Button" />
+            <Button fx:id="reportsButton" layoutX="18.0" layoutY="134.0" mnemonicParsing="false" onAction="#goToReports" opacity="0.0" prefHeight="25.0" prefWidth="160.0" text="Reports Button" />
             <Label layoutX="44.06" layoutY="138.0" prefHeight="17.0" prefWidth="46.0" text="Reports" textFill="#181819">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
@@ -77,7 +78,7 @@
       </Pane>
       <Pane layoutX="207.0" prefHeight="40.0" prefWidth="659.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 0 1 1;">
          <children>
-            <TextField layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
+            <TextField fx:id="search_tf" layoutX="8.0" layoutY="7.0" prefHeight="27.0" prefWidth="543.0" promptText="Search anything here..." style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-radius: 1.92; -fx-border-width: 0.6;">
                <font>
                   <Font name="Century Gothic" size="11.0" />
                </font>
@@ -165,7 +166,7 @@
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="312.0" layoutY="72.0" text="0" textFill="#6c6660">
+            <Label fx:id="NoofReports" layoutX="312.0" layoutY="72.0" text="Number of Reports" textFill="#6c6660">
                <font>
                   <Font name="Century Gothic" size="40.0" />
                </font>
@@ -176,17 +177,17 @@
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 1 1 0;" text="Scanned Items">
+            <Button fx:id="sccanneditemButton" layoutX="13.0" layoutY="138.0" mnemonicParsing="false" onAction="#showscanneditemsPane" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 1 1 0;" text="Scanned Items">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="122.0" layoutY="138.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 0 1 0;" text="Reports">
+            <Button fx:id="reportspaneButton" layoutX="122.0" layoutY="138.0" mnemonicParsing="false" onAction="#showReportsPane" prefHeight="30.0" prefWidth="109.0" style="-fx-background-color: #ffffff; -fx-border-color: #181819; -fx-border-width: 0 0 1 0;" text="Reports">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Button>
-            <Pane layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;">
+            <Pane fx:id="scanneditemsPane" layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;">
                <children>
                   <TableView layoutX="14.0" layoutY="14.0" prefHeight="305.0" prefWidth="600.0">
                     <columns>
@@ -199,17 +200,26 @@
                   </TableView>
                </children>
             </Pane>
-            <Pane layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;" visible="false">
+            <Pane fx:id="reportsPane" layoutX="13.0" layoutY="168.0" prefHeight="325.0" prefWidth="628.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="305.0" prefWidth="600.0">
-                     <columns>
-                        <TableColumn prefWidth="152.79998779296875" text="Report ID" />
-                        <TableColumn prefWidth="162.39993286132812" text="Source of Product" />
-                        <TableColumn prefWidth="124.0" text="Report Date" />
-                        <TableColumn prefWidth="101.5999755859375" text="Status" />
-                        <TableColumn prefWidth="59.99993896484375" text="Action" />
-                     </columns>
-                  </TableView>
+                  <ScrollPane prefHeight="325.0" prefWidth="628.0">
+                     <content>
+                        <TableView fx:id="reportsTable" prefHeight="334.0" prefWidth="921.0">
+                           <columns>
+                              <TableColumn fx:id="report_id_column" text="Report ID" />
+                              <TableColumn fx:id="user_id_column" text="User ID" />
+                              <TableColumn fx:id="verification_id_column" prefWidth="101.59999084472656" text="Verification ID" />
+                              <TableColumn fx:id="input_shoe_model_column" prefWidth="100.00003051757812" text="Shoe Model" />
+                              <TableColumn fx:id="purchase_date_column" prefWidth="105.59991455078125" text="Purchase Date" />
+                              <TableColumn fx:id="type_seller_column" minWidth="4.80010986328125" prefWidth="85.5999755859375" text="Seller Type" />
+                              <TableColumn fx:id="report_comment_column" minWidth="0.0" prefWidth="88.0" text="Comment" />
+                              <TableColumn fx:id="report_status_column" minWidth="0.0" prefWidth="72.7999267578125" text="Status" />
+                              <TableColumn fx:id="report_date_column" prefWidth="85.5999755859375" text="Report Date" />
+                              <TableColumn fx:id="report_time_column" prefWidth="79.199951171875" text="Report Time" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </children>
             </Pane>
          </children>
