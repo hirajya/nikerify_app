@@ -50,4 +50,6 @@ public class InventoryModel {
     public void setShoeName(String shoeName) {
         this.shoeName.set(shoeName);
     }
+
+    
 }

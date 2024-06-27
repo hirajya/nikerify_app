@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aaddmodelController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aaddmodelController">
    <children>
       <Pane prefHeight="541.0" prefWidth="208.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #181819; -fx-border-width: 0 1 0 0;">
          <children>
@@ -109,7 +109,7 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="146.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model ID">
+            <TextField fx:id="model_id_tf" layoutX="146.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -119,7 +119,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <TextField layoutX="400.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model Name">
+            <TextField fx:id="model_name_tf" layoutX="400.0" layoutY="112.0" prefHeight="21.0" prefWidth="240.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -129,7 +129,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <TextField layoutX="146.0" layoutY="160.0" prefHeight="21.0" prefWidth="494.0" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;" text="Model Color/s">
+            <TextField fx:id="color_model_tf" layoutX="146.0" layoutY="160.0" prefHeight="21.0" prefWidth="494.0" promptText="blue,white,etc" style="-fx-background-color: FFFFFFF; -fx-border-color: #181819; -fx-border-width: 0.25;">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
@@ -140,6 +140,7 @@
                </image>
             </ImageView>
             <Button layoutX="17.0" layoutY="101.0" mnemonicParsing="false" opacity="0.0" prefHeight="95.0" prefWidth="117.0" style="-fx-background-image: url(&quot;..\..\assets\dashboardpics\NIKERIFY 1.png&quot;);" text="Add Image" />
+            <Button fx:id="give_photo_btn" layoutX="49.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleUploadImage" text="Button" />
          </children>
       </Pane>
       <ImageView fitHeight="17.0" fitWidth="10.0" layoutX="736.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
