@@ -27,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.report;
 
@@ -96,6 +97,19 @@ public class adashboardscansandreportsController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        reportsTable.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getClickCount() == 2) { // Double-click to select
+                report selectedReport = reportsTable.getSelectionModel().getSelectedItem();
+                if (selectedReport != null) {
+                    try {
+                        goToReportDetail(event, selectedReport);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     public void goToInventory(ActionEvent event) throws IOException {
@@ -162,9 +176,23 @@ public class adashboardscansandreportsController {
                 NoofReports.setText(String.valueOf(data.size()));
             }
         });
+        
 
         resultSet.close();
         statement.close();
         connection.close();
+    }
+
+    private void goToReportDetail(MouseEvent event, report selectedReport) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/areportdetails.fxml"));
+        Parent root = loader.load();
+
+        areportdetailsController controller = loader.getController();
+        controller.initData(selectedReport);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
