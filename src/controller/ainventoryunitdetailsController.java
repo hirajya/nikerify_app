@@ -8,8 +8,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.InventoryUnit;
 
 public class ainventoryunitdetailsController {
 
@@ -20,8 +22,11 @@ public class ainventoryunitdetailsController {
     TextField search_tf;
 
     @FXML
+    private TableView<InventoryUnit> unitTable;
+
+    @FXML
     public void initialize() {
-        // Initialization code if needed
+
     }
 
     public void goToDashboard(ActionEvent event) throws IOException {

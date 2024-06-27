@@ -7,14 +7,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import model.InventoryModel;
 import model.InventoryUnit;
 
 import java.io.ByteArrayInputStream;
@@ -30,6 +33,9 @@ public class amodeldetailsController {
 
     @FXML
     private TableView<InventoryUnit> unitTable;
+
+    @FXML
+    private TableView<InventoryModel> inventoryTable;
 
     @FXML
     private TableColumn<InventoryUnit, String> colShoeID;
@@ -73,6 +79,41 @@ public class amodeldetailsController {
         colUnitColor.setCellValueFactory(new PropertyValueFactory<>("unitColor"));
         colManufactureYear.setCellValueFactory(new PropertyValueFactory<>("manufacturingYear"));
         colScans.setCellValueFactory(new PropertyValueFactory<>("numberOfScans"));
+
+        unitTable.setRowFactory(tv -> {
+            TableRow<InventoryUnit> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 1 && (!row.isEmpty())) {
+                    InventoryUnit rowData = row.getItem();
+                    try {
+                        goToDetails(rowData, event);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row;
+        });
+    }
+
+    @FXML
+    private void goToDetails(InventoryUnit inventoryUnit, MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ainventoryunitdetails.fxml"));
+        Parent root = loader.load();
+
+        // InventoryModel inventoryModel;
+        // detailsController = loader.getController();
+        // .initData(inventoryModel.getModelID(), inventoryUnit.getShoeID());
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+        if (event != null) {
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+        }
     }
 
     public void initData(String modelID, String shoeName) {
