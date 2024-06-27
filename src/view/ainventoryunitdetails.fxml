@@ -124,57 +124,52 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <ImageView fx:id="modelImg" fitHeight="130.0" fitWidth="130.0" layoutX="18.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/shoeimages/Pegasus.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="156.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Shoe Model" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Shoe Model" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="18.0" layoutY="209.0" prefHeight="23.0" prefWidth="117.0" text="Scan History" textFill="#181819" wrapText="true">
+            <Label layoutX="18.0" layoutY="214.0" prefHeight="23.0" prefWidth="105.0" text="Scan History" textFill="#181819" wrapText="true">
                <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
+                  <Font name="Century Gothic Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="shoeModelLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Pegasus 41" textFill="#181819" wrapText="true">
+            <Label fx:id="unitModelID" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="53.0" prefHeight="23.0" prefWidth="61.0" text="Pegasus 41" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="71.0" prefHeight="23.0" prefWidth="61.0" text="Shoe ID" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="71.0" prefHeight="23.0" prefWidth="61.0" text="Shoe ID" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="shoeIDLbl" alignment="CENTER_RIGHT" layoutX="540.0" layoutY="71.0" prefHeight="23.0" prefWidth="97.0" text="PGS-00000000001" textFill="#181819" wrapText="true">
+            <Label fx:id="unitShoeID" alignment="CENTER_RIGHT" layoutX="540.0" layoutY="71.0" prefHeight="23.0" prefWidth="97.0" text="PGS-00000000001" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="89.0" prefHeight="23.0" prefWidth="117.0" text="Verification Serial ID" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="89.0" prefHeight="23.0" prefWidth="117.0" text="Verification Serial ID" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="VerificationSerialIDLbl" alignment="CENTER_RIGHT" layoutX="415.0" layoutY="89.0" prefHeight="23.0" prefWidth="222.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819" wrapText="true">
+            <Label fx:id="unitSerialID" alignment="CENTER_RIGHT" layoutX="415.0" layoutY="89.0" prefHeight="23.0" prefWidth="222.0" text="E200 0019 5300 0703 0000 1234 5678 9ABC" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="RFID Status" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="Unit Color" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="ActiveStatusLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="Active" textFill="#181819" wrapText="true">
+            <Label fx:id="unitColor" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="107.0" prefHeight="23.0" prefWidth="61.0" text="Active" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="125.0" prefHeight="23.0" prefWidth="133.0" text="Manufacturing Location" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="125.0" prefHeight="23.0" prefWidth="133.0" text="Manufacturing Location" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
@@ -184,17 +179,17 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="143.0" prefHeight="23.0" prefWidth="105.0" text="Manufacturing Year" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="143.0" prefHeight="23.0" prefWidth="105.0" text="Manufacturing Year" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="yearLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="143.0" prefHeight="23.0" prefWidth="61.0" text="2021" textFill="#181819" wrapText="true">
+            <Label fx:id="unitManufactureYear" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="143.0" prefHeight="23.0" prefWidth="61.0" text="2021" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="161.0" prefHeight="23.0" prefWidth="87.0" text="Batch Number" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="161.0" prefHeight="23.0" prefWidth="87.0" text="Batch Number" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
@@ -204,17 +199,17 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="179.0" prefHeight="23.0" prefWidth="92.0" text="Number of Scans" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="179.0" prefHeight="23.0" prefWidth="92.0" text="Number of Scans" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="scansLbl" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="179.0" prefHeight="23.0" prefWidth="61.0" text="2" textFill="#181819" wrapText="true">
+            <Label fx:id="unitScans" alignment="CENTER_RIGHT" layoutX="576.0" layoutY="179.0" prefHeight="23.0" prefWidth="61.0" text="2" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="197.0" prefHeight="23.0" prefWidth="92.0" text="Last Scan Date" textFill="#181819" wrapText="true">
+            <Label layoutX="26.0" layoutY="197.0" prefHeight="23.0" prefWidth="92.0" text="Last Scan Date" textFill="#181819" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="10.0" />
                </font>
@@ -238,14 +233,9 @@
          </image>
       </ImageView>
       <Button fx:id="backButton" layoutX="223.0" layoutY="57.0" mnemonicParsing="false" onAction="#backToModelInformation" opacity="0.0" prefHeight="32.0" prefWidth="32.0" text="back button" />
-      <Label layoutX="265.0" layoutY="62.0" prefHeight="23.0" prefWidth="240.0" text="Inventory //  " textFill="#181819">
+      <Label layoutX="265.0" layoutY="62.0" prefHeight="23.0" prefWidth="240.0" text="Inventory Unit Details" textFill="#181819">
          <font>
             <Font name="Century Gothic" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="modelIDLbl" layoutX="373.0" layoutY="64.0" text="PGS-00000000001" textFill="#181819">
-         <font>
-            <Font name="Century Gothic Bold" size="18.0" />
          </font>
       </Label>
    </children>
