@@ -12,7 +12,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="271.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.utils_card.activityCardController">
    <children>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="271.0" />
-      <ImageView fitHeight="51.0" fitWidth="112.0" layoutX="10.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="shoe_image_pic" fitHeight="51.0" fitWidth="112.0" layoutX="10.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/activityhistory/image%206.png" />
          </image>
@@ -47,7 +47,7 @@
             <Font name="Century Gothic" size="9.0" />
          </font>
       </Text>
-      <Button fx:id="seeDetailsBnt" layoutX="-6.0" layoutY="-8.0" mnemonicParsing="false" onAction="#seeDetails" opacity="0.0" prefHeight="88.0" prefWidth="283.0" text="Button" />
+      <Button fx:id="seeDetailsBnt" layoutX="-6.0" layoutY="-8.0" mnemonicParsing="false" onAction="#seeDetails" opacity="0.0" prefHeight="94.0" prefWidth="283.0" text="Button" />
       <Label fx:id="label1" layoutX="161.0" layoutY="-4.0" opacity="0.0" text="Label" />
       <Text fx:id="scan_time_txt" layoutX="154.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5:00 pm" wrappingWidth="141.60003662109375">
          <font>

@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -15,6 +17,7 @@ import model.inventory_units;
 import model.user;
 import model.verification;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -44,6 +47,9 @@ public class rfidDetailsController {
     public static boolean forViewing = false;
 
     public static String ver_id;
+
+    @FXML
+    ImageView shoeImage;
     
     @FXML
     Text verify_id_txt, batch_number_txt, manufacturing_location_txt, scan_date_txt, manufacturing_year_txt, unit_color_txt, full_name_txt, model_shoe_txt;
@@ -54,12 +60,13 @@ public class rfidDetailsController {
         if (!forViewing) {
             saveVerification();
         }
-
+        
         // Common fetch operations
         verify_id_txt.setText(ver_id);
         fetchData();
         fetchUserName();
         fetchShoeModel();
+        fetchShoePicture();
         showValue();
 
     }
@@ -88,6 +95,7 @@ public class rfidDetailsController {
         }
 
         int verificationId = v.saveVerification();
+        ver_id = String.valueOf(verificationId);
         verify_id_txt.setText(String.valueOf(verificationId));
     }
 
@@ -161,4 +169,40 @@ public class rfidDetailsController {
         String shoe_model_value1 = inventory_models.getShoeModelByModelId(model_id1);
         model_shoe_txt.setText(shoe_model_value1);
     }
+
+    public void fetchShoePicture() throws SQLException {
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    try {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+        String sql = "SELECT shoe_img FROM inventory_model WHERE model_ID = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, model_id1);
+
+        rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            byte[] imgBytes = rs.getBytes("shoe_img");
+            if (imgBytes != null) {
+                Image shoeImage1 = new Image(new ByteArrayInputStream(imgBytes));
+                shoeImage.setImage(shoeImage1);
+            } else {
+                // Handle case where there is no image available
+                shoeImage.setImage(new Image("/resources/images/default-shoe.png")); // Default image
+            }
+        }
+    } finally {
+        if (rs != null) {
+            rs.close();
+        }
+        if (pstmt != null) {
+            pstmt.close();
+        }
+        if (conn != null) {
+            conn.close();
+        }
+    }
+}
 }

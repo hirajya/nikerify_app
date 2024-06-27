@@ -1,11 +1,5 @@
 package controller;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Blob;
-import java.sql.SQLException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +11,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
 
 public class reportDetailPhysicalController {
     @FXML
@@ -49,11 +49,9 @@ public class reportDetailPhysicalController {
     public void initialize() {
         System.out.println(status_val1);
 
-        
         status_txt.setText(status_val1);
         report_id_txt.setText(String.valueOf(report_id1));
         verification_id_txt.setText(String.valueOf(verification_id1));
-        authenticity_result_txt.setText(authenticity_result1);
         report_date_txt.setText(report_date1);
         shoe_model_txt.setText(shoe_model1);
         purchase_date_txt.setText(purchase_date1);
@@ -62,6 +60,13 @@ public class reportDetailPhysicalController {
         store_name_txt.setText(store_name1);
         initializeImages();
         comment_txt.setText(comment_val1);
+
+        // Determine authenticity result based on RFID verification
+        if ("1".equals(authenticity_result1)) {
+            authenticity_result_txt.setText("RFID Passed!");
+        } else {
+            authenticity_result_txt.setText("RFID Invalid!");
+        }
     }
 
     public void initializeImages() {
@@ -70,15 +75,10 @@ public class reportDetailPhysicalController {
         product_pht.setImage(getImageViewFromBlob(product_photo1).getImage());
     }
 
-
-    
-
-
     public void backToRepHist(ActionEvent event) throws IOException {
         System.out.println("Back to reports history clicked");
         changeScene(event, "/view/scanhistoryreports.fxml");
     }
-
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
@@ -100,7 +100,7 @@ public class reportDetailPhysicalController {
 
             // Create ImageView and set Image
             ImageView imageView = new ImageView(image);
-            
+
             // Optionally, set properties on the ImageView
             imageView.setFitWidth(300);
             imageView.setFitHeight(95);
@@ -113,5 +113,5 @@ public class reportDetailPhysicalController {
             return null; // or handle the exception as appropriate
         }
     }
-    
+
 }

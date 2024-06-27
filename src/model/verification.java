@@ -142,5 +142,37 @@ public class verification {
         return generatedId; // Return the generated verification_id
     }
 
+    public static String getAuthenticityResultByVerificationId(int verificationId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String authenticityResult = "";
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nikerify_db", "root", "");
+
+            String sql = "SELECT authenticity_result FROM verification WHERE verification_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, verificationId);
+
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                authenticityResult = rs.getString("authenticity_result");
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return authenticityResult;
+    }
+
     
 }

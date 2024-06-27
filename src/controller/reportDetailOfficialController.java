@@ -48,11 +48,9 @@ public class reportDetailOfficialController {
     public void initialize() {
         System.out.println(status_val1);
 
-        
         status_txt.setText(status_val1);
         report_id_txt.setText(String.valueOf(report_id1));
         verification_id_txt.setText(String.valueOf(verification_id1));
-        authenticity_result_txt.setText(authenticity_result1);
         report_date_txt.setText(report_date1);
         shoe_model_txt.setText(shoe_model1);
         purchase_date_txt.setText(purchase_date1);
@@ -61,8 +59,17 @@ public class reportDetailOfficialController {
         initializeImages();
         comment_txt.setText(comment_val1);
 
-
-
+        // Fetch and set the authenticity result
+        try {
+            String authenticityResult = verification.getAuthenticityResultByVerificationId(verification_id1);
+            if ("1".equals(authenticityResult)) {
+                authenticity_result_txt.setText("RFID Passed!");
+            } else {
+                authenticity_result_txt.setText("RFID Invalid!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void initializeImages() {
@@ -82,7 +89,7 @@ public class reportDetailOfficialController {
 
             // Create ImageView and set Image
             ImageView imageView = new ImageView(image);
-            
+
             // Optionally, set properties on the ImageView
             imageView.setFitWidth(300);
             imageView.setFitHeight(95);
@@ -96,15 +103,10 @@ public class reportDetailOfficialController {
         }
     }
 
-
-    
-
-
     public void backToRepHist(ActionEvent event) throws IOException {
         System.out.println("Back to reports history clicked");
         changeScene(event, "/view/scanhistoryreports.fxml");
     }
-
 
     public void changeScene(ActionEvent event, String fxml) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
@@ -114,5 +116,4 @@ public class reportDetailOfficialController {
         stage.setScene(scene);
         stage.show();
     }
-    
 }

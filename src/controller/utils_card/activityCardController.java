@@ -27,6 +27,9 @@ public class activityCardController {
     Text validity_txt, shoe_model_txt, scan_time_txt, scan_date_txt,verify_id_txt, serialNum_txt;
 
     @FXML
+    ImageView shoe_image_pic;
+
+    @FXML
     ImageView authenPic;
     
     private Image checkImage;

@@ -72,7 +72,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Text>
-            <ImageView fitHeight="146.0" fitWidth="210.0" layoutX="34.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="shoeImage" fitHeight="146.0" fitWidth="210.0" layoutX="34.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../assets/rfidAuthenticDetails/image%206.png" />
                </image>
