@@ -46,10 +46,11 @@ public class aaddmodelController {
     ImageView modelImageView; // This is the ImageView to display the image
 
     private Image selectedImage;
+    
 
     @FXML
     public void initialize() {
-        // Initialization code if needed
+        System.out.println("Add Model Controller Initialized");
     }
 
     public void captureDetailsNewModel() {
