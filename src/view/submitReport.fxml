@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.submitReportController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.submitReportController">
    <children>
       <TextField fx:id="shoe_model_tf" layoutX="27.0" layoutY="258.0" prefHeight="25.0" prefWidth="263.0" />
       <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
@@ -146,7 +146,7 @@
          </font>
       </Text>
       <Button fx:id="backToHomeButton" layoutX="26.0" layoutY="64.0" mnemonicParsing="false" onAction="#backToHome" opacity="0.0" prefHeight="47.0" prefWidth="40.0" text="Button" />
-      <Button fx:id="nextButton" layoutX="21.0" layoutY="643.0" mnemonicParsing="false" onAction="#goToNext" prefHeight="28.0" prefWidth="270.0" text="Button" />
+      <Button fx:id="nextButton" layoutX="22.0" layoutY="659.0" mnemonicParsing="false" onAction="#goToNext" opacity="0.0" prefHeight="28.0" prefWidth="270.0" text="Button" />
       <Text layoutX="28.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify ID">
          <font>
             <Font name="Century Gothic Bold" size="11.0" />

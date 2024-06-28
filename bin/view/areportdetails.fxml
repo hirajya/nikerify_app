@@ -191,7 +191,7 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Button>
-            <Label fx:id="shoemodelLabel" layoutX="307.0" layoutY="252.0" prefHeight="15.0" prefWidth="78.0" text="Nike Dunk Low Retro (Team Red)" textAlignment="RIGHT">
+            <Label fx:id="shoemodelLabel" layoutX="261.0" layoutY="252.0" prefHeight="15.0" prefWidth="124.0" text="Nike Dunk Low Retro (Team Red)" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
@@ -201,7 +201,7 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="typesellerLabel" layoutX="352.0" layoutY="312.0" prefHeight="15.0" prefWidth="32.0" text="Official Nike Store" textAlignment="RIGHT">
+            <Label fx:id="typesellerLabel" layoutX="301.0" layoutY="312.0" prefHeight="15.0" prefWidth="83.0" text="Official Nike Store" textAlignment="RIGHT">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
